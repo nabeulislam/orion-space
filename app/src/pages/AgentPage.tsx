@@ -78,7 +78,7 @@ export default function AgentPage() {
           </div>
 
           <a
-            href="/agent/index.html"
+            href={`${import.meta.env.BASE_URL}agent/index.html`}
             target="_blank"
             rel="noopener noreferrer"
             title="Open in Standalone Window"
@@ -99,7 +99,7 @@ export default function AgentPage() {
 
       {/* Embedded 3D Cesium Project */}
       <iframe
-        src="/agent/index.html"
+        src={`${import.meta.env.BASE_URL}agent/index.html`}
         title="Orion Space 3D Cesium Digital Twin"
         className="w-full h-full border-0 select-none"
         allow="geolocation; microphone; camera; fullscreen; accelerometer; gyroscope"

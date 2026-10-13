@@ -81,7 +81,7 @@ export default function Hero() {
 
       {/* Astronaut drifting across center-right with balanced breathing space */}
       <img
-        src="/astronaut.png"
+        src={`${import.meta.env.BASE_URL}astronaut.png`}
         alt="Orion Space astronaut"
         draggable={false}
         className="animate-floaty absolute left-[56%] sm:left-[58%] top-[25%] sm:top-[27%] z-[10] w-[clamp(270px,38vw,520px)] -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none transition-transform duration-300 ease-out drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)]"
@@ -98,7 +98,7 @@ export default function Hero() {
         }}
       >
         <img
-          src="/earth.png"
+          src={`${import.meta.env.BASE_URL}earth.png`}
           alt="Planet Earth observed from space"
           className="earth-glow w-full select-none"
           draggable={false}
