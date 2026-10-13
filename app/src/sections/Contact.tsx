@@ -3,7 +3,7 @@ import { Github, Globe, MapPin } from 'lucide-react'
 
 export default function Contact() {
   return (
-    <footer id="contact" className="relative border-t border-white/10 bg-[#060608]">
+    <footer id="contact" className="relative border-t border-white/10 bg-transparent">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-3">
         <div>
           <p className="font-serif-it text-2xl font-semibold text-white">orion space</p>
@@ -43,12 +43,12 @@ export default function Contact() {
             <li className="flex items-center gap-3">
               <Github size={16} className="text-[#ffa25e]" />
               <a
-                href="https://github.com/MD-Mushfiqur123/orion-space"
+                href="https://github.com/nabeulislam/orion-space"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors hover:text-white"
               >
-                github.com/MD-Mushfiqur123/orion-space
+                github.com/nabeulislam/orion-space
               </a>
             </li>
             <li className="flex items-center gap-3">

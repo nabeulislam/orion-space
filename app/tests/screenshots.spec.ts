@@ -6,10 +6,15 @@ const ARTIFACT_DIR = 'C:/Users/nabeul/.gemini/antigravity/brain/ab23099b-5fec-40
 test('Capture screenshots of all pages', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 })
 
-  // 1. Home Page
+  // 1. Home Page Hero
   await page.goto('/')
   await page.waitForTimeout(1000)
   await page.screenshot({ path: path.join(ARTIFACT_DIR, 'screenshot_home.png') })
+
+  // 1b. Home Page Scrolled (verifying globe & space background behind sections)
+  await page.evaluate(() => window.scrollTo(0, 950))
+  await page.waitForTimeout(1000)
+  await page.screenshot({ path: path.join(ARTIFACT_DIR, 'screenshot_home_scrolled.png') })
 
   // 2. Dossiers Page
   await page.goto('/dossiers')
@@ -36,3 +41,4 @@ test('Capture screenshots of all pages', async ({ page }) => {
   await page.waitForTimeout(2000)
   await page.screenshot({ path: path.join(ARTIFACT_DIR, 'screenshot_agent.png') })
 })
+

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import {
-  Orbit,
   Terminal,
   Send
 } from 'lucide-react'
@@ -109,12 +108,8 @@ export default function AgentCockpit() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-white/10 pb-8">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#f07832]/30 bg-[#f07832]/10 px-3.5 py-1 text-xs font-semibold text-[#ffa25e]">
-            <Orbit size={14} />
-            <span>Autonomous Spatial Intelligence Cockpit</span>
-          </div>
-          <h2 className="font-display mt-3 text-3xl tracking-wide text-white sm:text-5xl">
-            AGENT HARNESS & TELEMETRY
+          <h2 className="font-display text-3xl tracking-wide text-white sm:text-5xl">
+            AGENT INTELLIGENCE COCKPIT
           </h2>
           <p className="mt-2 text-sm sm:text-base text-white/60 max-w-2xl">
             Ask the Orion Space agent natural language questions about climate trends, satellite imagery, or examine the 25-year statistical proof below.
@@ -130,7 +125,7 @@ export default function AgentCockpit() {
         </div>
       </div>
 
-      {/* Main Grid: AI Harness Terminal + Live Statistical Trend Visualizer */}
+      {/* Main Grid: AI Terminal + Live Statistical Trend Visualizer */}
       <div className="mt-12 grid gap-10 lg:grid-cols-12 items-start">
         {/* Left Column: Natural Language AI Agent Terminal */}
         <div className="lg:col-span-6 space-y-6">

@@ -4,9 +4,9 @@ import Contact from '@/sections/Contact'
 
 export default function DossiersPage() {
   return (
-    <div className="min-h-screen bg-[#060608] text-white">
+    <div className="min-h-screen bg-transparent text-white">
       <Navbar />
-      <main className="pt-20">
+      <main className="pt-20 bg-transparent">
         <FolderDossiers />
       </main>
       <Contact />

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import {
-  FolderOpen,
   FileText,
   ExternalLink,
   TrendingUp,
@@ -97,20 +96,20 @@ const DOSSIERS: CaseDossier[] = [
     caseNumber: 'NASA-BD-2026-04',
     title: 'Orion Autonomous Agent Architecture',
     classification: 'AI ENGINE',
-    subtitle: 'Spatial Intelligence Reasoning & Geospatial Fly-To Harness',
+    subtitle: 'Spatial Intelligence Reasoning & Geospatial Flight Engine',
     dateRange: 'Version 2.0 Live',
     summary:
-      'Orion Space pairs a CesiumJS 3D digital twin of Earth with an autonomous query harness. Users and judges can query "Where is warming trending fastest?" or "Show active fires" to trigger automated flight cinematics, camera focus, and statistical evidence display.',
+      'Orion Space pairs a CesiumJS 3D digital twin of Earth with an autonomous query system. Users and judges can query "Where is warming trending fastest?" or "Show active fires" to trigger automated flight cinematics, camera focus, and statistical evidence display.',
     keyFindings: [
       'Built upon CesiumJS with high-fidelity 3D globe and terrain rendering.',
-      'Agent Harness translates user natural language inquiries into geospatial actions.',
+      'Autonomous query system translates natural language inquiries into geospatial actions.',
       'Fully offline-reproducible Python statistical pipeline (`trend_analysis.py`).',
       'Zero-key architecture allows full client-side exploration without barriers.'
     ],
-    satelliteSources: ['CesiumJS Engine', 'Gods Eye View Base', 'NASA Space Apps Harness'],
+    satelliteSources: ['CesiumJS Engine', 'NASA EOSDIS GIBS', 'NASA FIRMS API'],
     status: 'VERIFIED',
     folderColor: '#ffa25e',
-    tag: 'Agent Core'
+    tag: '3D Agent Core'
   }
 ]
 
@@ -147,11 +146,7 @@ export default function FolderDossiers() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-white/10 pb-8">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#f07832]/30 bg-[#f07832]/10 px-3 py-1 text-xs font-semibold text-[#ffa25e]">
-            <FolderOpen size={14} />
-            <span>Interactive Folder Style Intelligence</span>
-          </div>
-          <h2 className="font-display mt-3 text-3xl tracking-wide text-white sm:text-5xl">
+          <h2 className="font-display text-3xl tracking-wide text-white sm:text-5xl">
             INTELLIGENCE DOSSIERS
           </h2>
           <p className="mt-2 text-sm sm:text-base text-white/60 max-w-2xl">
@@ -180,13 +175,13 @@ export default function FolderDossiers() {
       <div className="mt-12 grid gap-10 lg:grid-cols-12 items-start">
         {/* Left Column: Interactive 3D Folder Component (React Bits) */}
         <div className="lg:col-span-5 flex flex-col items-center">
-          <div className="relative w-full rounded-3xl border border-white/10 border-t-white/20 bg-[#0d0d14]/80 p-8 text-center backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+          <div className="relative w-full rounded-3xl border border-white/10 border-t-white/20 bg-black/40 p-8 text-center backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
             <div className="flex items-center justify-between mb-6">
-              <span className="text-xs font-mono text-[#ffa25e] tracking-wider">
-                REACT BITS · 3D DOSSIER FLAP
+              <span className="text-xs font-mono text-white/70 tracking-wider">
+                ORBITAL INTELLIGENCE ARCHIVE
               </span>
-              <Badge variant="outline" className="border-[#f07832]/30 text-[#ffa25e] text-[10px]">
-                Interactive 3D
+              <Badge variant="outline" className="border-white/20 text-white/80 text-[10px]">
+                Interactive Dossier
               </Badge>
             </div>
 
@@ -376,7 +371,7 @@ export default function FolderDossiers() {
                 href="#cockpit"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#ffa25e] hover:text-[#ffb780] transition-colors"
               >
-                <span>Query In Agent Harness</span>
+                <span>Query In 3D Agent</span>
                 <TrendingUp size={14} />
               </a>
             </div>

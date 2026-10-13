@@ -8,17 +8,14 @@ import {
   ShieldCheck
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import SpotlightCard from '@/components/ui/SpotlightCard'
+import { Card } from '@/components/ui/card'
 
 export default function MissionControl() {
   return (
-    <footer id="mission" className="relative border-t border-sky-500/20 bg-[#020617] text-white">
-      {/* Background glow */}
-      <div className="pointer-events-none absolute bottom-0 left-1/2 h-[400px] w-[800px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_bottom,rgba(14,165,233,0.1),transparent_70%)]" />
-
+    <footer id="mission" className="relative border-t border-white/10 bg-transparent text-white">
       <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8">
         {/* Top Challenge Attribution Card */}
-        <SpotlightCard className="mb-16 p-8 sm:p-12 border-sky-500/30 bg-[#040d24]/90">
+        <Card className="mb-16 p-8 sm:p-12 border-white/10 bg-white/[0.02] backdrop-blur-2xl rounded-3xl">
           <div className="grid gap-8 lg:grid-cols-12 items-center">
             <div className="lg:col-span-8 space-y-4">
               <div className="flex flex-wrap items-center gap-2">
@@ -39,7 +36,7 @@ export default function MissionControl() {
               </p>
 
               <p className="text-sm sm:text-base text-white/70 leading-relaxed max-w-2xl">
-                Built to solve the NASA challenge by discovering that 25 years of NASA MERRA-2 yearly temperature averages hid a dramatic +0.40 °C/decade late-monsoon warming in Bangladesh, validated by two-sided Mann-Kendall and Benjamini-Hochberg False Discovery Rate corrections.
+                Built to solve the NASA challenge by discovering that 25 years of NASA MERRA-2 yearly temperature averages hid a +0.40 °C/decade late-monsoon warming in Bangladesh, validated by two-sided Mann-Kendall and Benjamini-Hochberg False Discovery Rate corrections.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2 text-xs font-mono text-white/60">
@@ -74,7 +71,7 @@ export default function MissionControl() {
               </a>
 
               <a
-                href="https://github.com/MD-Mushfiqur123/orion-space"
+                href="https://github.com/nabeulislam/orion-space"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between rounded-2xl border border-white/20 bg-white/5 p-4 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:border-white/30"
@@ -93,18 +90,18 @@ export default function MissionControl() {
               </div>
             </div>
           </div>
-        </SpotlightCard>
+        </Card>
 
-        {/* 3-Column Footer Information */}
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 text-xs">
+        {/* 4-Column Footer Information */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 text-xs">
           {/* Column 1: Science & Method */}
-          <div className="space-y-3">
-            <h4 className="font-semibold uppercase tracking-widest text-sky-400">
+          <div className="rounded-2xl border border-white/10 bg-black/60 p-5 backdrop-blur-2xl space-y-3 shadow-lg">
+            <h4 className="font-semibold uppercase tracking-widest text-[#ffa25e]">
               Statistical Methodology
             </h4>
-            <ul className="space-y-2 text-white/65">
+            <ul className="space-y-2 text-white/70">
               <li>• Two-sided Mann-Kendall Trend Test</li>
-              <li>• Theil-Sen Robust Pairwise Slope</li>
+              <li>• Theil-Sen Median Slope Analysis</li>
               <li>• Benjamini-Hochberg FDR (q = 0.05)</li>
               <li>• Trend-Free Pre-Whitening (Yue et al. 2002)</li>
               <li>• 442 Series Tested (34 Cells × 13 Months)</li>
@@ -112,11 +109,11 @@ export default function MissionControl() {
           </div>
 
           {/* Column 2: NASA Data Providers */}
-          <div className="space-y-3">
-            <h4 className="font-semibold uppercase tracking-widest text-sky-400">
+          <div className="rounded-2xl border border-white/10 bg-black/60 p-5 backdrop-blur-2xl space-y-3 shadow-lg">
+            <h4 className="font-semibold uppercase tracking-widest text-[#ffa25e]">
               NASA Data Providers
             </h4>
-            <ul className="space-y-2 text-white/65">
+            <ul className="space-y-2 text-white/70">
               <li>• NASA GSFC GMAO MERRA-2 (T2M)</li>
               <li>• NASA POWER API v2.10 (NASA LaRC)</li>
               <li>• NASA EOSDIS GIBS WMTS (MODIS / VIIRS)</li>
@@ -126,14 +123,14 @@ export default function MissionControl() {
           </div>
 
           {/* Column 3: Navigation */}
-          <div className="space-y-3">
-            <h4 className="font-semibold uppercase tracking-widest text-sky-400">
+          <div className="rounded-2xl border border-white/10 bg-black/60 p-5 backdrop-blur-2xl space-y-3 shadow-lg">
+            <h4 className="font-semibold uppercase tracking-widest text-[#ffa25e]">
               System Modules
             </h4>
-            <ul className="space-y-2 text-white/65">
+            <ul className="space-y-2 text-white/70">
               <li>
                 <a href="#home" className="hover:text-white transition-colors">
-                  Orbital Hero & Space Overview
+                  Orbital Space Overview
                 </a>
               </li>
               <li>
@@ -148,21 +145,21 @@ export default function MissionControl() {
               </li>
               <li>
                 <a href="#cockpit" className="hover:text-white transition-colors">
-                  Autonomous Agent Cockpit & Recharts
+                  Agent Telemetry Cockpit & Charts
                 </a>
               </li>
             </ul>
           </div>
 
           {/* Column 4: Challenge Ethics & Verification */}
-          <div className="space-y-3">
-            <h4 className="font-semibold uppercase tracking-widest text-sky-400">
+          <div className="rounded-2xl border border-white/10 bg-black/60 p-5 backdrop-blur-2xl space-y-3 shadow-lg">
+            <h4 className="font-semibold uppercase tracking-widest text-[#ffa25e]">
               Judges Verification
             </h4>
-            <p className="leading-relaxed text-white/65">
+            <p className="leading-relaxed text-white/70">
               Orion Space is built with scientific integrity. We report air temperature trends only and do not extrapolate unverified claims. The entire analysis is 100% open-source and reproducible.
             </p>
-            <div className="inline-flex items-center gap-1.5 text-emerald-400 font-mono text-[11px]">
+            <div className="flex items-center gap-1.5 pt-1 text-emerald-400 font-mono text-[11px]">
               <ShieldCheck size={14} />
               <span>Peer-Verifiable Codebase</span>
             </div>

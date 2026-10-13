@@ -10,36 +10,31 @@ const FEATURES = [
   },
   {
     icon: Compass,
-    title: 'NASA GIBS Live Clouds',
-    desc: 'Real-time WMTS satellite cloud reflectance streaming directly from NASA EOSDIS.',
+    title: 'NASA GIBS Cloud Reflectance',
+    desc: 'Daily WMTS satellite imagery streamed directly from NASA EOSDIS.',
   },
   {
     icon: Activity,
     title: 'NASA FIRMS Hotspots',
-    desc: 'Thermal infrared 3.75 µm anomaly detection for real-time wildfire tracking.',
+    desc: 'Thermal infrared 3.75 µm anomaly detection for real-time wildfire identification.',
   },
   {
     icon: MessageSquare,
-    title: 'Autonomous Map Agent',
-    desc: 'Conversational voice and flight telemetry harness accessible via spacebar.',
+    title: 'Voice & Keyboard Flight Control',
+    desc: 'Conversational voice commands and spacebar flight controls over coordinate points.',
   },
 ]
 
 export default function Proshow() {
   return (
-    <section id="immersive-showcase" className="relative overflow-hidden py-32 border-t border-white/10 bg-[#050508]">
-      {/* Background radial space glow matching reference image */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_50%,rgba(37,99,235,0.18),transparent_75%)] pointer-events-none" />
-
+    <section id="immersive-showcase" className="relative overflow-hidden py-32 border-t border-white/10 bg-transparent">
       <div className="relative mx-auto max-w-5xl px-6 text-center sm:px-10">
-        <p className="font-serif-it text-lg text-white/60">planetary digital twin</p>
-
-        <h2 className="font-display mt-3 text-4xl sm:text-7xl leading-tight tracking-wide text-white">
+        <h2 className="font-display text-4xl sm:text-7xl leading-tight tracking-wide text-white">
           IMMERSIVE 3D AGENT
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-white/60 font-normal">
-          Step into Project Orion Space’s CesiumJS digital twin. Experience high-resolution photorealistic 3D Earth rendering, streaming NASA GIBS satellite cloud reflectance, live FIRMS thermal infrared anomaly layers, and autonomous conversational flight cinematics.
+          CesiumJS planetary environment with high-resolution 3D Earth terrain, daily NASA GIBS cloud reflectance, live FIRMS thermal anomaly layers, and automated flight paths.
         </p>
 
         {/* Clean Shadcn Cards Grid */}
@@ -47,7 +42,7 @@ export default function Proshow() {
           {FEATURES.map((feat) => (
             <Card
               key={feat.title}
-              className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/[0.04]"
+              className="rounded-2xl border border-white/10 bg-black/40 p-5 backdrop-blur-2xl transition-all duration-300 hover:border-white/25 hover:bg-black/55 shadow-[0_16px_40px_rgba(0,0,0,0.5)]"
             >
               <CardHeader className="p-0">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/80">
@@ -56,7 +51,7 @@ export default function Proshow() {
                 <CardTitle className="mt-4 text-sm font-medium text-white tracking-wide">
                   {feat.title}
                 </CardTitle>
-                <CardDescription className="mt-1.5 text-xs leading-relaxed text-white/55 font-normal">
+                <CardDescription className="mt-1.5 text-xs leading-relaxed text-white/60 font-normal">
                   {feat.desc}
                 </CardDescription>
               </CardHeader>
@@ -64,14 +59,14 @@ export default function Proshow() {
           ))}
         </div>
 
-        {/* Clean Action Cluster matching reference styling */}
+        {/* Clean Action Cluster */}
         <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
           <Link
             to="/agent"
             className="glass-pill inline-flex min-h-[54px] items-center gap-3 rounded-full px-9 text-base font-normal text-white transition-all hover:bg-white/20 hover:scale-105 shadow-[0_8px_32px_rgba(0,0,0,0.6)] border border-white/20"
           >
             <Orbit size={18} className="text-white/80" />
-            <span>Launch Immersive Experience</span>
+            <span>Launch 3D Agent</span>
             <ArrowUpRight size={17} />
           </Link>
 

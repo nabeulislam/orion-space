@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import {
-  Gamepad2,
   Award,
   ThermometerSnowflake,
   Flame,
@@ -162,15 +161,11 @@ export default function EarthDetectiveAcademy() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-white/10 pb-8">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#f07832]/30 bg-[#f07832]/10 px-3.5 py-1 text-xs font-semibold text-[#ffa25e]">
-            <Gamepad2 size={14} />
-            <span>Interactive STEAM Learning & Game Hub</span>
-          </div>
-          <h2 className="font-display mt-3 text-3xl tracking-wide text-white sm:text-5xl">
+          <h2 className="font-display text-3xl tracking-wide text-white sm:text-5xl">
             EARTH DETECTIVE ACADEMY
           </h2>
           <p className="mt-2 text-sm sm:text-base text-white/60 max-w-2xl">
-            Designed for kids, students, and aspiring space detectives. Solve 3 interactive planetary cases based on real NASA satellite datasets and earn your NASA Space Apps Detective Certification!
+            Designed for students and aspiring space detectives. Solve 3 interactive planetary cases based on real NASA satellite datasets and earn your NASA Space Apps Detective Certification!
           </p>
         </div>
 

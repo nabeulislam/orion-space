@@ -35,10 +35,12 @@ test.describe('Orion Space — Multi-Page Architecture & 3D Cesium Project', () 
     await expect(ctaButton).toHaveAttribute('href', '/dossiers')
 
     // Check games preview section
+    await page.locator('#games-preview').scrollIntoViewIfNeeded()
     await expect(page.getByRole('heading', { name: 'EARTH DETECTIVE GAMES' })).toBeVisible()
     await expect(page.getByText('The Late-Monsoon Mystery').first()).toBeVisible()
 
     // Check 3D showcase section
+    await page.locator('#immersive-showcase').scrollIntoViewIfNeeded()
     await expect(page.getByRole('heading', { name: 'IMMERSIVE 3D AGENT' })).toBeVisible()
   })
 
@@ -80,7 +82,7 @@ test.describe('Orion Space — Multi-Page Architecture & 3D Cesium Project', () 
 
     // Verify URL and heading
     await expect(page).toHaveURL(/\/cockpit/)
-    await expect(page.getByText('ORION AGENT HARNESS TERMINAL')).toBeVisible()
+    await expect(page.getByText(/ORION AGENT.*TERMINAL/i)).toBeVisible()
 
     // Switch metric to Annual Average
     const annualBtn = page.getByRole('button', { name: /Annual Average/i })
