@@ -56,7 +56,7 @@ export default function MissionControl() {
             {/* Quick Action Links for Judges */}
             <div className="lg:col-span-4 flex flex-col gap-3">
               <a
-                href="/pitch/index.html"
+                href={`${import.meta.env.BASE_URL}pitch/index.html`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="liquid-glass-pill flex items-center justify-between rounded-2xl p-4 text-sm font-semibold text-white"

@@ -47,7 +47,7 @@ const DOSSIERS: CaseDossier[] = [
     status: 'CRITICAL',
     folderColor: '#f07832',
     tag: 'Core Discovery',
-    image: '/data/climate/bangladesh_t2m_trend_map.png'
+    image: `${import.meta.env.BASE_URL}data/climate/bangladesh_t2m_trend_map.png`
   },
   {
     id: 'case-02',
@@ -88,7 +88,7 @@ const DOSSIERS: CaseDossier[] = [
     status: 'MONITORING',
     folderColor: '#e05a2b',
     tag: 'Climate Impact',
-    image: '/data/climate/dhaka_t2m_trend_analysis.png'
+    image: `${import.meta.env.BASE_URL}data/climate/dhaka_t2m_trend_analysis.png`
   },
   {
     id: 'case-04',
