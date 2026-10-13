@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
-import { ArrowUpRight, ChevronDown } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import Starfield from './Starfield'
 import SplitText from '@/components/ui/SplitText'
-import TrueFocus from '@/components/ui/TrueFocus'
-import ShinyText from '@/components/ui/ShinyText'
 
 export default function Hero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
@@ -14,8 +12,8 @@ export default function Hero() {
     const handleMouseMove = (e: MouseEvent) => {
       const { innerWidth, innerHeight } = window
       setMousePos({
-        x: (e.clientX / innerWidth - 0.5) * 24,
-        y: (e.clientY / innerHeight - 0.5) * 24,
+        x: (e.clientX / innerWidth - 0.5) * 18,
+        y: (e.clientY / innerHeight - 0.5) * 18,
       })
     }
 
@@ -33,60 +31,50 @@ export default function Hero() {
   }, [])
 
   return (
-    <section id="home" className="relative h-[100svh] min-h-[680px] overflow-hidden select-none">
-      {/* Deep space base */}
-      <div className="absolute inset-0 bg-[#060608]" />
+    <section id="home" className="relative h-[100svh] min-h-[660px] overflow-hidden select-none bg-[#050508]">
+      {/* Deep cosmic space background */}
+      <div className="absolute inset-0 bg-[#050508]" />
 
-      {/* Atmospheric space nebula glow behind the astronaut & earth */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_38%,rgba(37,99,235,0.2),rgba(15,20,30,0.4)_60%,transparent_85%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_95%_65%_at_50%_115%,rgba(56,189,248,0.22),transparent_70%)]" />
+      {/* Atmospheric space nebula glow matching reference */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_36%,rgba(37,99,235,0.18),rgba(10,15,25,0.4)_65%,transparent_85%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_95%_65%_at_50%_115%,rgba(56,189,248,0.2),transparent_70%)]" />
 
-      <Starfield density={200} />
+      <Starfield density={220} />
 
-      {/* Concentric orbital telemetry arcs */}
+      {/* Concentric faint orbital arcs */}
       <div
         aria-hidden
-        className="absolute left-1/2 top-[58%] h-[150vw] w-[150vw] -translate-x-1/2 rounded-[100%] border border-white/[0.06] pointer-events-none transition-transform duration-700"
+        className="absolute left-1/2 top-[56%] h-[150vw] w-[150vw] -translate-x-1/2 rounded-[100%] border border-white/[0.05] pointer-events-none transition-transform duration-700"
         style={{
           transform: `translate(-50%, ${scrollY * 0.08}px) rotate(${scrollY * 0.02}deg)`,
         }}
       />
       <div
         aria-hidden
-        className="absolute left-1/2 top-[64%] h-[180vw] w-[180vw] -translate-x-1/2 rounded-[100%] border border-dashed border-white/[0.04] pointer-events-none"
-      />
-      <div
-        aria-hidden
-        className="absolute left-1/2 top-[70%] h-[210vw] w-[210vw] -translate-x-1/2 rounded-[100%] border border-white/[0.03] pointer-events-none"
+        className="absolute left-1/2 top-[62%] h-[180vw] w-[180vw] -translate-x-1/2 rounded-[100%] border border-white/[0.03] pointer-events-none"
       />
 
-      {/* Hero Title & Interactive Subtitle */}
-      <div className="absolute inset-x-0 top-[38%] sm:top-[40%] -translate-y-1/2 z-[5] flex justify-center px-4 sm:px-8">
-        <div className="inline-block text-left w-full max-w-5xl">
-          <h1 className="font-display text-[clamp(2.8rem,9.5vw,8.5rem)] font-black tracking-[0.06em] leading-none text-white select-none drop-shadow-[0_12px_40px_rgba(0,0,0,0.85)]">
-            <SplitText text="ORION SPACE" delay={0.15} stagger={0.035} />
+      {/* Hero Title & Tagline matching reference */}
+      <div className="absolute inset-x-0 top-[38%] sm:top-[40%] -translate-y-1/2 z-[5] flex justify-center px-6">
+        <div className="w-full max-w-5xl text-left">
+          <h1 className="font-display text-[clamp(2.8rem,8.2vw,7.6rem)] font-black tracking-[0.08em] leading-none text-white select-none drop-shadow-[0_12px_40px_rgba(0,0,0,0.9)]">
+            <SplitText text="ORION SPACE" delay={0.1} stagger={0.035} />
           </h1>
 
-          <div className="mt-4 sm:mt-5">
-            <p className="font-serif-it text-[clamp(1.1rem,2vw,1.75rem)] text-white/85">
-              <TrueFocus
-                sentence="Be An Earth System Trend Detective."
-                borderColor="#38bdf8"
-                glowColor="rgba(56, 189, 248, 0.45)"
-              />
-            </p>
-          </div>
+          <p className="font-serif-it mt-3 sm:mt-4 text-[clamp(1.1rem,2vw,1.75rem)] text-white/80 tracking-wide font-normal">
+            Be An Earth System Trend Detective.
+          </p>
         </div>
       </div>
 
-      {/* Astronaut drifting across center-right with balanced breathing space */}
+      {/* Astronaut drifting across center matching reference aesthetic */}
       <img
         src={`${import.meta.env.BASE_URL}astronaut.png`}
         alt="Orion Space astronaut"
         draggable={false}
-        className="animate-floaty absolute left-[56%] sm:left-[58%] top-[25%] sm:top-[27%] z-[10] w-[clamp(270px,38vw,520px)] -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none transition-transform duration-300 ease-out drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)]"
+        className="animate-floaty absolute left-[54%] sm:left-[55%] top-[24%] sm:top-[26%] z-[10] w-[clamp(250px,34vw,470px)] -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none transition-transform duration-300 ease-out drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)]"
         style={{
-          transform: `translate(calc(-50% + ${mousePos.x * 0.7}px), calc(-50% + ${mousePos.y * 0.7 - scrollY * 0.22}px)) rotate(-3.5deg)`,
+          transform: `translate(calc(-50% + ${mousePos.x * 0.6}px), calc(-50% + ${mousePos.y * 0.6 - scrollY * 0.2}px)) rotate(-3deg)`,
         }}
       />
 
@@ -94,7 +82,7 @@ export default function Hero() {
       <div
         className="absolute bottom-0 left-1/2 z-[2] w-[clamp(520px,72vw,1080px)] -translate-x-1/2 translate-y-[52%] sm:translate-y-[49%] transition-transform duration-700 ease-out pointer-events-none"
         style={{
-          transform: `translate(calc(-50% + ${mousePos.x * 0.22}px), calc(50% + ${scrollY * 0.12}px))`,
+          transform: `translate(calc(-50% + ${mousePos.x * 0.2}px), calc(50% + ${scrollY * 0.12}px))`,
         }}
       >
         <img
@@ -105,25 +93,19 @@ export default function Hero() {
         />
       </div>
 
-      {/* Single clean glass pill CTA resting on Earth */}
-      <div className="absolute bottom-[11%] sm:bottom-[13%] left-1/2 z-20 -translate-x-1/2 flex flex-col items-center gap-3">
+      {/* Single clean glass pill CTA resting on Earth (matching reference image) */}
+      <div className="absolute bottom-[11%] sm:bottom-[13%] left-1/2 z-20 -translate-x-1/2">
         <Link
           to="/dossiers"
-          className="glass-pill flex min-h-[52px] items-center gap-3 rounded-full px-8 py-3.5 text-sm sm:text-base font-medium text-white transition-all hover:bg-white/20 hover:scale-105 shadow-[0_10px_35px_rgba(0,0,0,0.6)] border border-white/20"
+          className="glass-pill inline-flex min-h-[52px] items-center gap-3 rounded-full px-9 py-3 text-sm sm:text-base font-normal text-white transition-all hover:bg-white/20 hover:scale-105 shadow-[0_8px_32px_rgba(0,0,0,0.6)] border border-white/20"
         >
-          <ShinyText text="Explore Dossiers" speed={3.5} className="text-white font-medium tracking-wide" />
+          <span>Explore Dossiers</span>
           <ArrowUpRight size={18} className="text-white/80" />
         </Link>
-
-        {/* Subtle scroll cue */}
-        <div className="hidden sm:flex items-center gap-1 text-[11px] font-mono tracking-widest uppercase text-white/40 pt-1 animate-pulse">
-          <span>Scroll to uncover evidence</span>
-          <ChevronDown size={13} />
-        </div>
       </div>
 
       {/* Soft vignette */}
-      <div className="pointer-events-none absolute inset-0 z-[15] bg-[radial-gradient(ellipse_120%_100%_at_50%_45%,transparent_65%,rgba(6,6,8,0.7))]" />
+      <div className="pointer-events-none absolute inset-0 z-[15] bg-[radial-gradient(ellipse_120%_100%_at_50%_45%,transparent_65%,rgba(5,5,8,0.7))]" />
     </section>
   )
 }
