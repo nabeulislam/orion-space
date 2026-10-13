@@ -59,7 +59,7 @@ export default function Hero() {
       <div className="absolute bottom-[11%] sm:bottom-[13%] left-1/2 z-20 -translate-x-1/2">
         <Link
           to="/dossiers"
-          className="glass-pill inline-flex min-h-[52px] items-center gap-3 rounded-full px-9 py-3 text-sm sm:text-base font-normal text-white transition-all hover:bg-white/20 hover:scale-105 shadow-[0_8px_32px_rgba(0,0,0,0.6)] border border-white/20"
+          className="liquid-glass-pill inline-flex min-h-[52px] items-center gap-3 rounded-full px-9 py-3 text-sm sm:text-base font-normal text-white transition-all hover:scale-105 shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
         >
           <span>Explore Dossiers</span>
           <ArrowUpRight size={18} className="text-white/80" />

@@ -66,7 +66,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center">
           <Link
             to="/agent"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-xs sm:text-sm font-medium text-white backdrop-blur-md transition-all hover:bg-white/15 hover:border-[#38bdf8]/50 hover:shadow-[0_0_24px_rgba(56,189,248,0.25)]"
+            className="liquid-glass-pill group inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs sm:text-sm font-medium text-white transition-all hover:scale-105 shadow-[0_0_24px_rgba(56,189,248,0.2)]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span>Launch 3D Agent</span>

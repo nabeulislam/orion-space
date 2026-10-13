@@ -13,7 +13,6 @@ import {
 import confetti from 'canvas-confetti'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
-import SpotlightCard from '@/components/ui/SpotlightCard'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 
 export default function EarthDetectiveAcademy() {
@@ -170,7 +169,7 @@ export default function EarthDetectiveAcademy() {
         </div>
 
         {/* Badges showcase */}
-        <div className="flex items-center gap-2 bg-[#0d0d14]/80 border border-white/10 border-t-white/20 rounded-2xl p-2.5 backdrop-blur-md shadow-lg">
+        <div className="liquid-glass-card rounded-2xl p-2.5 flex items-center gap-2">
           <div className="text-right px-2 hidden sm:block">
             <div className="text-xs font-semibold text-white">Detective Badges</div>
             <div className="text-[10px] text-white/50">
@@ -182,7 +181,7 @@ export default function EarthDetectiveAcademy() {
               title="Seasonal Sleuth Badge"
               className={`h-10 w-10 rounded-xl flex items-center justify-center border transition-all ${
                 badges.mystery
-                  ? 'border-[#f07832] bg-[#f07832]/20 text-[#ffa25e] shadow-[0_0_15px_rgba(240,120,50,0.3)]'
+                  ? 'border-sky-400 bg-sky-500/20 text-sky-200 shadow-[0_0_15px_rgba(56,189,248,0.3)]'
                   : 'border-white/10 bg-white/5 text-white/30'
               }`}
             >
@@ -228,11 +227,11 @@ export default function EarthDetectiveAcademy() {
           onClick={() => setActiveGame('mystery')}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border ${
             activeGame === 'mystery'
-              ? 'border-[#f07832] bg-[#f07832]/15 text-[#ffa25e] shadow-[0_0_20px_rgba(240,120,50,0.2)]'
-              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08]'
+              ? 'border-sky-400/60 bg-sky-500/15 text-sky-200 shadow-[0_0_20px_rgba(56,189,248,0.2)]'
+              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
           }`}
         >
-          <Sun size={16} className="text-[#ffa25e]" />
+          <Sun size={16} className="text-sky-300" />
           <span>Game 1: The Late-Monsoon Mystery</span>
           {badges.mystery && <Check size={14} className="text-emerald-400" />}
         </button>
@@ -241,8 +240,8 @@ export default function EarthDetectiveAcademy() {
           onClick={() => setActiveGame('satellite')}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border ${
             activeGame === 'satellite'
-              ? 'border-rose-400 bg-rose-500/15 text-rose-200 shadow-[0_0_20px_rgba(244,63,94,0.2)]'
-              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08]'
+              ? 'border-rose-400/60 bg-rose-500/15 text-rose-200 shadow-[0_0_20px_rgba(244,63,94,0.2)]'
+              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
           }`}
         >
           <Flame size={16} className="text-rose-400" />
@@ -254,8 +253,8 @@ export default function EarthDetectiveAcademy() {
           onClick={() => setActiveGame('albedo')}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border ${
             activeGame === 'albedo'
-              ? 'border-sky-400 bg-sky-500/15 text-sky-200 shadow-[0_0_20px_rgba(56,189,248,0.2)]'
-              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08]'
+              ? 'border-sky-400/60 bg-sky-500/15 text-sky-200 shadow-[0_0_20px_rgba(56,189,248,0.2)]'
+              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
           }`}
         >
           <ThermometerSnowflake size={16} className="text-sky-400" />
@@ -267,8 +266,8 @@ export default function EarthDetectiveAcademy() {
           onClick={() => setActiveGame('quiz')}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border ${
             activeGame === 'quiz'
-              ? 'border-emerald-400 bg-emerald-500/15 text-emerald-200 shadow-[0_0_20px_rgba(52,211,153,0.2)]'
-              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08]'
+              ? 'border-emerald-400/60 bg-emerald-500/15 text-emerald-200 shadow-[0_0_20px_rgba(52,211,153,0.2)]'
+              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
           }`}
         >
           <Award size={16} className="text-emerald-400" />
@@ -279,17 +278,17 @@ export default function EarthDetectiveAcademy() {
 
       {/* GAME 1: THE LATE-MONSOON MYSTERY */}
       {activeGame === 'mystery' && (
-        <SpotlightCard className="mt-8 p-6 sm:p-10 border-white/10 border-t-white/20">
+        <div className="liquid-glass-card mt-8 rounded-3xl p-6 sm:p-10">
           <div className="grid gap-8 lg:grid-cols-12 items-center">
             <div className="lg:col-span-6 space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-lg bg-[#f07832]/10 px-3 py-1 text-xs font-mono text-[#ffa25e]">
+              <div className="inline-flex items-center gap-2 rounded-lg bg-sky-500/10 px-3 py-1 text-xs font-mono text-sky-300 border border-sky-400/20">
                 CASE FILE 01 · BARISAL COAST INVESTIGATION
               </div>
               <h3 className="font-display text-2xl sm:text-3xl text-white">
                 The Mystery of the Hidden Heat
               </h3>
               <p className="text-sm sm:text-base text-white/75 leading-relaxed">
-                <strong className="text-white">The Clue:</strong> Farmers in Barisal complained that their late-summer crops were suffering from unusual heat, but national climate reports looking at the <span className="text-[#ffa25e] font-semibold">Annual Average</span> showed <span className="text-[#ffa25e] font-semibold">0.00 °C warming trend!</span>
+                <strong className="text-white">The Clue:</strong> Farmers in Barisal complained that their late-summer crops were suffering from unusual heat, but national climate reports looking at the <span className="text-sky-300 font-semibold">Annual Average</span> showed <span className="text-sky-300 font-semibold">0.00 °C warming trend!</span>
               </p>
               <p className="text-sm sm:text-base text-white/75 leading-relaxed">
                 As a NASA Trend Detective, test each month below to uncover which month was hiding the secret warming!
@@ -311,7 +310,7 @@ export default function EarthDetectiveAcademy() {
                         className={`rounded-xl px-3.5 py-2 text-xs font-semibold transition-all border ${
                           isSelected
                             ? isSep
-                              ? 'border-[#f07832] bg-[#f07832]/25 text-[#ffa25e] scale-105 shadow-[0_0_15px_rgba(240,120,50,0.4)]'
+                              ? 'border-sky-400 bg-sky-500/25 text-sky-200 scale-105 shadow-[0_0_15px_rgba(56,189,248,0.4)]'
                               : 'border-white/20 bg-white/10 text-white'
                             : 'border-white/10 bg-white/5 text-white/60 hover:text-white'
                         }`}
@@ -331,21 +330,21 @@ export default function EarthDetectiveAcademy() {
                     <span>MYSTERY SOLVED! DETECTIVE REPORT:</span>
                   </div>
                   <p className="text-xs sm:text-sm text-white/80">
-                    You found it! In <strong className="text-[#ffa25e]">September</strong>, temperature is skyrocketing by <strong className="text-[#ffa25e]">+0.40 °C per decade</strong> with a Mann-Kendall p-value of 0.00007! The yearly average hid it because spring months cooled slightly.
+                    You found it! In <strong className="text-sky-300">September</strong>, temperature is skyrocketing by <strong className="text-sky-300">+0.40 °C per decade</strong> with a Mann-Kendall p-value of 0.00007! The yearly average hid it because spring months cooled slightly.
                   </p>
                   <p className="text-xs font-mono text-emerald-300">
                     🎖️ Seasonal Sleuth Badge Awarded to your profile!
                   </p>
                 </div>
               ) : (
-                <div className="rounded-2xl border border-[#f07832]/20 bg-[#f07832]/5 p-4 text-xs text-[#ffa25e]/80 font-mono">
+                <div className="rounded-2xl border border-sky-400/20 bg-sky-500/5 p-4 text-xs text-sky-300/80 font-mono">
                   💡 <em>Hint: Look toward the end of the monsoon season right before autumn...</em>
                 </div>
               )}
             </div>
 
             {/* Right Side: Interactive Sensor Readout Display */}
-            <div className="lg:col-span-6 rounded-3xl border border-white/10 bg-[#07070b] p-6 text-center space-y-5 shadow-2xl">
+            <div className="lg:col-span-6 rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-6 text-center space-y-5 shadow-inner">
               <div className="flex justify-between items-center text-xs font-mono text-white/50 border-b border-white/10 pb-3">
                 <span>STATION: BARISAL (22.5°N, 90.0°E)</span>
                 <span>STATUS: {selectedMonth.toUpperCase()} SENSOR</span>
@@ -358,7 +357,7 @@ export default function EarthDetectiveAcademy() {
                 </div>
                 <div className={`mt-2 font-display text-5xl sm:text-6xl ${
                   selectedMonth === 'September'
-                    ? 'text-[#f07832] animate-pulse'
+                    ? 'text-sky-400 animate-pulse'
                     : selectedMonth === 'May'
                     ? 'text-sky-400'
                     : 'text-white'
@@ -389,29 +388,29 @@ export default function EarthDetectiveAcademy() {
                 <div className="h-3 w-full rounded-full bg-white/10 overflow-hidden">
                   <div
                     className={`h-full transition-all duration-700 ${
-                      selectedMonth === 'September' ? 'w-full bg-[#f07832]' : 'w-1/12 bg-white/30'
+                      selectedMonth === 'September' ? 'w-full bg-[#38bdf8]' : 'w-1/12 bg-white/30'
                     }`}
                   />
                 </div>
               </div>
             </div>
           </div>
-        </SpotlightCard>
+        </div>
       )}
 
       {/* GAME 2: THERMAL HOTSPOT HUNT (FIRMS vs GIBS) */}
       {activeGame === 'satellite' && (
-        <SpotlightCard className="mt-8 p-6 sm:p-10 border-white/10 border-t-white/20">
+        <div className="liquid-glass-card mt-8 rounded-3xl p-6 sm:p-10">
           <div className="grid gap-8 lg:grid-cols-12 items-center">
             <div className="lg:col-span-5 space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-lg bg-[#f07832]/10 px-3 py-1 text-xs font-mono text-[#ffa25e]">
+              <div className="inline-flex items-center gap-2 rounded-lg bg-rose-500/10 px-3 py-1 text-xs font-mono text-rose-300 border border-rose-400/20">
                 CASE FILE 02 · ORBITAL SENSOR INVESTIGATION
               </div>
               <h3 className="font-display text-2xl sm:text-3xl text-white">
                 Thermal Satellite Hotspot Hunt
               </h3>
               <p className="text-sm sm:text-base text-white/75 leading-relaxed">
-                Thick smoke is blanketing the river delta and mangrove forests! Visible light cameras cannot see through the haze. Switch your satellite sensor to <strong className="text-[#ffa25e]">NASA FIRMS Thermal Infrared</strong> to detect the 3 hidden fire cores!
+                Thick smoke is blanketing the river delta and mangrove forests! Visible light cameras cannot see through the haze. Switch your satellite sensor to <strong className="text-rose-300">NASA FIRMS Thermal Infrared</strong> to detect the 3 hidden fire cores!
               </p>
 
               {/* Sensor Switch */}
@@ -421,7 +420,7 @@ export default function EarthDetectiveAcademy() {
                   className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-semibold border transition-all ${
                     sensorMode === 'visible'
                       ? 'border-white/30 bg-white/15 text-white'
-                      : 'border-white/10 bg-white/5 text-white/60'
+                      : 'border-white/10 bg-white/5 text-white/60 hover:text-white'
                   }`}
                 >
                   <Eye size={16} />
@@ -431,8 +430,8 @@ export default function EarthDetectiveAcademy() {
                   onClick={() => setSensorMode('thermal')}
                   className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-semibold border transition-all ${
                     sensorMode === 'thermal'
-                      ? 'border-[#f07832] bg-[#f07832]/25 text-[#ffa25e] shadow-[0_0_15px_rgba(240,120,50,0.3)]'
-                      : 'border-white/10 bg-white/5 text-white/60'
+                      ? 'border-rose-400 bg-rose-500/25 text-rose-200 shadow-[0_0_15px_rgba(244,63,94,0.3)]'
+                      : 'border-white/10 bg-white/5 text-white/60 hover:text-white'
                   }`}
                 >
                   <Flame size={16} />
@@ -441,7 +440,7 @@ export default function EarthDetectiveAcademy() {
               </div>
 
               {/* Progress counter */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4 space-y-2">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-4 space-y-2">
                 <div className="flex justify-between text-xs font-mono">
                   <span className="text-white/60">Hotspots Identified:</span>
                   <span className="text-rose-400 font-bold">{foundFires.length} of 3 Found</span>
@@ -457,7 +456,7 @@ export default function EarthDetectiveAcademy() {
 
             {/* Simulated Satellite Screen */}
             <div className="lg:col-span-7">
-              <div className="relative aspect-[4/3] rounded-3xl border border-white/15 overflow-hidden bg-slate-950 shadow-2xl">
+              <div className="relative aspect-[4/3] rounded-3xl border border-white/15 overflow-hidden bg-slate-950/80 backdrop-blur-md shadow-2xl">
                 {/* Simulated landscape image */}
                 <div
                   className={`absolute inset-0 transition-all duration-700 ${
@@ -528,29 +527,29 @@ export default function EarthDetectiveAcademy() {
               </div>
             </div>
           </div>
-        </SpotlightCard>
+        </div>
       )}
 
       {/* GAME 3: ALBEDO ICE SHIELD SIMULATION */}
       {activeGame === 'albedo' && (
-        <SpotlightCard className="mt-8 p-6 sm:p-10 border-white/10 border-t-white/20">
+        <div className="liquid-glass-card mt-8 rounded-3xl p-6 sm:p-10">
           <div className="grid gap-8 lg:grid-cols-12 items-center">
             <div className="lg:col-span-6 space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-lg bg-[#f07832]/10 px-3 py-1 text-xs font-mono text-[#ffa25e]">
+              <div className="inline-flex items-center gap-2 rounded-lg bg-sky-500/10 px-3 py-1 text-xs font-mono text-sky-300 border border-sky-400/20">
                 CASE FILE 03 · CRYOSPHERE FEEDBACK EXPERIMENT
               </div>
               <h3 className="font-display text-2xl sm:text-3xl text-white">
                 The Polar Ice Mirror (Albedo Effect)
               </h3>
               <p className="text-sm sm:text-base text-white/75 leading-relaxed">
-                Earth has a natural sun shield: bright polar sea ice! White ice reflects up to <strong className="text-white">85% of solar radiation</strong> right back out to space. But when ice melts into dark open water, the ocean absorbs <strong className="text-[#ffa25e]">90% of heat</strong>.
+                Earth has a natural sun shield: bright polar sea ice! White ice reflects up to <strong className="text-white">85% of solar radiation</strong> right back out to space. But when ice melts into dark open water, the ocean absorbs <strong className="text-sky-300">90% of heat</strong>.
               </p>
 
               {/* Interactive Slider */}
               <div className="pt-4 space-y-3">
                 <div className="flex justify-between text-xs font-mono">
                   <span className="text-white/60">Polar Ice Cover Percentage:</span>
-                  <span className="font-bold text-[#ffa25e] text-sm">{icePercent}% Ice Cover</span>
+                  <span className="font-bold text-sky-300 text-sm">{icePercent}% Ice Cover</span>
                 </div>
                 <input
                   type="range"
@@ -565,7 +564,7 @@ export default function EarthDetectiveAcademy() {
                       triggerConfetti()
                     }
                   }}
-                  className="w-full h-3 bg-white/20 rounded-lg appearance-none cursor-pointer accent-[#f07832]"
+                  className="w-full h-3 bg-white/20 rounded-lg appearance-none cursor-pointer accent-[#38bdf8]"
                 />
                 <div className="flex justify-between text-[11px] font-mono text-white/40">
                   <span>Melting Crisis (5%)</span>
@@ -574,10 +573,10 @@ export default function EarthDetectiveAcademy() {
               </div>
 
               {/* Feedback Summary */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-xs space-y-2">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-4 text-xs space-y-2">
                 <div className="flex justify-between">
                   <span className="text-white/60">Solar Energy Reflected to Space:</span>
-                  <span className="font-mono text-[#ffa25e] font-bold">{Math.round(icePercent * 0.85)}%</span>
+                  <span className="font-mono text-sky-300 font-bold">{Math.round(icePercent * 0.85)}%</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-white/60">Solar Heat Absorbed by Water:</span>
@@ -589,7 +588,7 @@ export default function EarthDetectiveAcademy() {
                       ⚠️ Low Albedo Alert: Earth is absorbing massive solar heat, accelerating sea level rise in coastal deltas like Barisal!
                     </span>
                   ) : (
-                    <span>
+                    <span className="text-emerald-300">
                       ✓ High Albedo Mirror active: White ice cools the planet by bouncing sunlight away.
                     </span>
                   )}
@@ -598,13 +597,13 @@ export default function EarthDetectiveAcademy() {
             </div>
 
             {/* Interactive Visual Gauge */}
-            <div className="lg:col-span-6 rounded-3xl border border-white/10 bg-[#07070b] p-8 text-center space-y-6 shadow-2xl">
-              <div className="text-xs uppercase font-mono tracking-widest text-[#ffa25e]/80">
+            <div className="lg:col-span-6 rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-8 text-center space-y-6 shadow-inner">
+              <div className="text-xs uppercase font-mono tracking-widest text-sky-300/80">
                 Earth Surface Temperature Simulation
               </div>
 
               {/* Sunbeam Reflection Graphic */}
-              <div className="relative mx-auto h-44 w-44 rounded-full border-4 border-[#f07832]/30 flex items-center justify-center overflow-hidden"
+              <div className="relative mx-auto h-44 w-44 rounded-full border-4 border-sky-400/30 flex items-center justify-center overflow-hidden"
                 style={{
                   backgroundColor: `rgb(${Math.round(20 + (100 - icePercent) * 1.5)}, ${Math.round(40 + icePercent * 0.5)}, ${Math.round(60 + icePercent)})`,
                 }}
@@ -622,16 +621,16 @@ export default function EarthDetectiveAcademy() {
               </div>
             </div>
           </div>
-        </SpotlightCard>
+        </div>
       )}
 
       {/* GAME 4: FINAL CERTIFICATION QUIZ */}
       {activeGame === 'quiz' && (
-        <SpotlightCard className="mt-8 p-6 sm:p-10 border-white/10 border-t-white/20">
+        <div className="liquid-glass-card mt-8 rounded-3xl p-6 sm:p-10">
           {!quizFinished ? (
             <div className="max-w-2xl mx-auto space-y-6">
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <span className="text-xs font-mono text-[#ffa25e]">
+                <span className="text-xs font-mono text-emerald-300">
                   QUESTION {quizStep + 1} OF {QUIZ_QUESTIONS.length}
                 </span>
                 <span className="text-xs font-mono text-white/60">
@@ -673,7 +672,7 @@ export default function EarthDetectiveAcademy() {
               </div>
 
               {selectedAnswer !== null && (
-                <div className="rounded-xl border border-white/15 bg-black/40 p-4 text-xs text-white/80 font-mono animate-fadeIn">
+                <div className="rounded-xl border border-white/15 bg-white/[0.03] backdrop-blur-md p-4 text-xs text-white/80 font-mono animate-fadeIn">
                   💡 <strong>Analysis:</strong> {QUIZ_QUESTIONS[quizStep].explanation}
                 </div>
               )}
@@ -681,7 +680,7 @@ export default function EarthDetectiveAcademy() {
           ) : (
             /* Quiz Completed View */
             <div className="text-center max-w-xl mx-auto py-8 space-y-5">
-              <div className="inline-flex h-20 w-20 items-center justify-center rounded-3xl border border-[#f07832] bg-[#f07832]/20 text-[#ffa25e] shadow-[0_0_30px_rgba(240,120,50,0.3)]">
+              <div className="inline-flex h-20 w-20 items-center justify-center rounded-3xl border border-emerald-400 bg-emerald-500/20 text-emerald-300 shadow-[0_0_30px_rgba(52,211,153,0.3)]">
                 <Trophy size={40} />
               </div>
               <h3 className="font-display text-3xl text-white">
@@ -694,13 +693,13 @@ export default function EarthDetectiveAcademy() {
               <div className="flex flex-wrap justify-center gap-3 pt-4">
                 <button
                   onClick={() => setLicenseOpen(true)}
-                  className="rounded-full bg-[#f07832] px-6 py-3 text-xs sm:text-sm font-semibold text-black transition-all hover:bg-[#ff8c42] shadow-[0_0_20px_rgba(240,120,50,0.3)]"
+                  className="liquid-glass-pill rounded-full px-7 py-3 text-xs sm:text-sm font-semibold text-white transition-all shadow-[0_0_20px_rgba(56,189,248,0.25)]"
                 >
                   View Official Detective License
                 </button>
                 <button
                   onClick={restartQuiz}
-                  className="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-xs sm:text-sm font-medium text-white hover:bg-white/10"
+                  className="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-xs sm:text-sm font-medium text-white hover:bg-white/10 transition-colors"
                 >
                   <RotateCcw size={15} />
                   <span>Retake Quiz</span>
@@ -708,7 +707,7 @@ export default function EarthDetectiveAcademy() {
               </div>
             </div>
           )}
-        </SpotlightCard>
+        </div>
       )}
 
       {/* Official Junior Detective License Dialog */}

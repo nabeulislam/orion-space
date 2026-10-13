@@ -14,7 +14,6 @@ import {
   Legend
 } from 'recharts'
 import { Badge } from '@/components/ui/badge'
-import SpotlightCard from '@/components/ui/SpotlightCard'
 
 // Actual MERRA-2 2001-2025 September vs Annual T2M Data Points for Barisal Coast Cell (22.5°N, 90.0°E)
 const CLIMATE_SERIES_DATA = [
@@ -129,15 +128,15 @@ export default function AgentCockpit() {
       <div className="mt-12 grid gap-10 lg:grid-cols-12 items-start">
         {/* Left Column: Natural Language AI Agent Terminal */}
         <div className="lg:col-span-6 space-y-6">
-          <SpotlightCard className="p-6 sm:p-8 border-white/10 border-t-white/20">
+          <div className="liquid-glass-card rounded-3xl p-6 sm:p-8">
             <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
               <div className="flex items-center gap-2.5">
-                <Terminal size={18} className="text-[#ffa25e]" />
+                <Terminal size={18} className="text-[#38bdf8]" />
                 <span className="font-mono text-xs font-semibold tracking-wider text-white">
                   ORION AGENT HARNESS TERMINAL
                 </span>
               </div>
-              <Badge variant="outline" className="border-[#f07832]/30 text-[#ffa25e] text-[10px]">
+              <Badge variant="outline" className="border-sky-400/30 text-sky-300 text-[10px]">
                 Autonomous Query
               </Badge>
             </div>
@@ -154,11 +153,11 @@ export default function AgentCockpit() {
                     onClick={() => setActiveQuery(q)}
                     className={`w-full text-left rounded-xl p-3 text-xs transition-all border ${
                       activeQuery.question === q.question
-                        ? 'border-[#f07832] bg-[#f07832]/10 text-[#ffa25e] font-semibold shadow-[0_0_20px_rgba(240,120,50,0.15)]'
-                        : 'border-white/10 bg-white/[0.02] text-white/70 hover:bg-white/[0.06] hover:text-white'
+                        ? 'border-[#38bdf8]/50 bg-sky-500/10 text-sky-200 font-semibold shadow-[0_0_20px_rgba(56,189,248,0.15)]'
+                        : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.07] hover:text-white'
                     }`}
                   >
-                    <span className="font-mono text-[#ffa25e] mr-1.5">&gt;</span>
+                    <span className="font-mono text-sky-400 mr-1.5">&gt;</span>
                     {q.question}
                   </button>
                 ))}
@@ -166,9 +165,9 @@ export default function AgentCockpit() {
             </div>
 
             {/* Agent Live Response Box */}
-            <div className="rounded-2xl border border-white/10 bg-[#07070b] p-5 space-y-3 font-mono text-xs shadow-inner">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-5 space-y-3 font-mono text-xs shadow-inner">
               <div className="flex items-center justify-between text-[11px] text-white/40 border-b border-white/10 pb-2">
-                <span className="text-[#ffa25e] font-bold">ORION AGENT OUTPUT:</span>
+                <span className="text-[#38bdf8] font-bold">ORION AGENT OUTPUT:</span>
                 <span>{activeQuery.confidence}</span>
               </div>
 
@@ -177,9 +176,9 @@ export default function AgentCockpit() {
               </p>
 
               {activeQuery.coordinates && (
-                <div className="flex items-center gap-2 pt-2 text-[11px] text-[#ffa25e] font-mono">
+                <div className="flex items-center gap-2 pt-2 text-[11px] text-[#38bdf8] font-mono">
                   <span className="text-white/40">FOCUSED COORD:</span>
-                  <span className="bg-[#f07832]/10 px-2 py-0.5 rounded border border-[#f07832]/30">
+                  <span className="bg-sky-500/10 px-2 py-0.5 rounded border border-sky-400/30">
                     {activeQuery.coordinates}
                   </span>
                 </div>
@@ -197,25 +196,25 @@ export default function AgentCockpit() {
                 value={customInput}
                 onChange={(e) => setCustomInput(e.target.value)}
                 placeholder="Ask Orion Space Agent about climate data..."
-                className="flex-1 rounded-xl border border-white/20 bg-white/5 px-4 py-2.5 text-xs text-white placeholder:text-white/40 focus:border-[#f07832] focus:outline-none"
+                className="flex-1 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-2.5 text-xs text-white placeholder:text-white/40 focus:border-[#38bdf8] focus:outline-none transition-colors"
               />
               <button
                 type="submit"
-                className="rounded-xl bg-[#f07832] px-4 py-2.5 text-xs font-semibold text-black hover:bg-[#ff8c42] transition-colors flex items-center gap-1.5 shadow-[0_0_15px_rgba(240,120,50,0.25)]"
+                className="liquid-glass-pill rounded-xl px-5 py-2.5 text-xs font-medium text-white flex items-center gap-1.5 shadow-[0_0_15px_rgba(56,189,248,0.2)]"
               >
                 <span>Query</span>
                 <Send size={13} />
               </button>
             </form>
-          </SpotlightCard>
+          </div>
         </div>
 
         {/* Right Column: Recharts 25-Year Scientific Temperature Trend Chart */}
         <div className="lg:col-span-6 space-y-6">
-          <SpotlightCard className="p-6 sm:p-8 border-white/10 border-t-white/20">
+          <div className="liquid-glass-card rounded-3xl p-6 sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-5">
               <div>
-                <span className="font-mono text-xs font-semibold tracking-wider text-[#ffa25e]">
+                <span className="font-mono text-xs font-semibold tracking-wider text-sky-400">
                   NASA MERRA-2 25-YEAR TEMPERATURE MATRIX
                 </span>
                 <h3 className="text-lg font-display text-white mt-0.5">
@@ -229,7 +228,7 @@ export default function AgentCockpit() {
                   onClick={() => setActiveMetric('september')}
                   className={`rounded-lg px-3 py-1 text-xs font-semibold transition-all ${
                     activeMetric === 'september'
-                      ? 'bg-[#f07832] text-black shadow-[0_0_15px_rgba(240,120,50,0.3)]'
+                      ? 'bg-sky-500/25 text-sky-200 border border-sky-400/40 shadow-[0_0_15px_rgba(56,189,248,0.25)]'
                       : 'text-white/60 hover:text-white'
                   }`}
                 >
@@ -239,7 +238,7 @@ export default function AgentCockpit() {
                   onClick={() => setActiveMetric('annual')}
                   className={`rounded-lg px-3 py-1 text-xs font-semibold transition-all ${
                     activeMetric === 'annual'
-                      ? 'bg-white/20 text-white shadow'
+                      ? 'bg-white/15 text-white border border-white/20 shadow'
                       : 'text-white/60 hover:text-white'
                   }`}
                 >
@@ -267,8 +266,9 @@ export default function AgentCockpit() {
                   />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#0c0c12',
-                      borderColor: 'rgba(240,120,50,0.3)',
+                      backgroundColor: 'rgba(8, 12, 20, 0.92)',
+                      backdropFilter: 'blur(16px)',
+                      borderColor: 'rgba(56, 189, 248, 0.3)',
                       borderRadius: '12px',
                       fontSize: '12px',
                       color: '#ffffff',
@@ -283,16 +283,16 @@ export default function AgentCockpit() {
                         type="monotone"
                         dataKey="september"
                         name="Observed September T2M (°C)"
-                        stroke="#f07832"
+                        stroke="#38bdf8"
                         strokeWidth={2.5}
-                        dot={{ fill: '#f07832', r: 4 }}
+                        dot={{ fill: '#38bdf8', r: 4 }}
                         activeDot={{ r: 6 }}
                       />
                       <Line
                         type="linear"
                         dataKey="trendLine"
                         name="Theil-Sen Trend Line (+0.40 °C/dec)"
-                        stroke="#ffa25e"
+                        stroke="#7dd3fc"
                         strokeWidth={2}
                         strokeDasharray="5 5"
                         dot={false}
@@ -313,7 +313,7 @@ export default function AgentCockpit() {
             </div>
 
             {/* Statistical Explanatory Notes */}
-            <div className="mt-4 rounded-xl border border-white/10 bg-white/[0.02] p-4 text-xs space-y-1.5 font-mono text-white/70">
+            <div className="mt-4 rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-4 text-xs space-y-1.5 font-mono text-white/70">
               <div className="flex justify-between">
                 <span>Theil-Sen Pairwise Slope:</span>
                 <span className="font-bold text-white">
@@ -333,7 +333,7 @@ export default function AgentCockpit() {
                 </span>
               </div>
             </div>
-          </SpotlightCard>
+          </div>
         </div>
       </div>
     </section>

@@ -9,7 +9,6 @@ import {
 import Folder, { type FolderEntry } from '@/components/ui/Folder'
 import { Badge } from '@/components/ui/badge'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-import SpotlightCard from '@/components/ui/SpotlightCard'
 
 interface CaseDossier {
   id: string
@@ -156,17 +155,17 @@ export default function FolderDossiers() {
 
         {/* Quick dossier stats */}
         <div className="flex items-center gap-3">
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-center">
-            <div className="text-xl font-bold font-mono text-[#ffa25e]">34</div>
-            <div className="text-[10px] text-white/50 tracking-wider uppercase">Grid Cells</div>
+          <div className="liquid-glass-card rounded-2xl px-5 py-3 text-center">
+            <div className="text-xl font-bold font-mono text-white">34</div>
+            <div className="text-[10px] text-white/50 tracking-wider uppercase font-mono">Grid Cells</div>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-center">
-            <div className="text-xl font-bold font-mono text-rose-400">+0.40°</div>
-            <div className="text-[10px] text-white/50 tracking-wider uppercase">Barisal Rate</div>
+          <div className="liquid-glass-card rounded-2xl px-5 py-3 text-center">
+            <div className="text-xl font-bold font-mono text-[#38bdf8]">+0.40°</div>
+            <div className="text-[10px] text-white/50 tracking-wider uppercase font-mono">Barisal Rate</div>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-center">
-            <div className="text-xl font-bold font-mono text-emerald-400">99.9%</div>
-            <div className="text-[10px] text-white/50 tracking-wider uppercase">FDR Conf.</div>
+          <div className="liquid-glass-card rounded-2xl px-5 py-3 text-center">
+            <div className="text-xl font-bold font-mono text-white">99.9%</div>
+            <div className="text-[10px] text-white/50 tracking-wider uppercase font-mono">FDR Conf.</div>
           </div>
         </div>
       </div>
@@ -175,14 +174,14 @@ export default function FolderDossiers() {
       <div className="mt-12 grid gap-10 lg:grid-cols-12 items-start">
         {/* Left Column: Interactive 3D Folder Component (React Bits) */}
         <div className="lg:col-span-5 flex flex-col items-center">
-          <div className="relative w-full rounded-3xl border border-white/10 border-t-white/20 bg-black/40 p-8 text-center backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+          <div className="liquid-glass-card relative w-full rounded-3xl p-8 text-center">
             <div className="flex items-center justify-between mb-6">
               <span className="text-xs font-mono text-white/70 tracking-wider">
                 ORBITAL INTELLIGENCE ARCHIVE
               </span>
-              <Badge variant="outline" className="border-white/20 text-white/80 text-[10px]">
+              <span className="rounded-full border border-white/12 bg-white/5 px-2.5 py-0.5 text-white/80 font-mono text-[10px]">
                 Interactive Dossier
-              </Badge>
+              </span>
             </div>
 
             {/* Folder Component Rendering */}
@@ -221,10 +220,10 @@ export default function FolderDossiers() {
                 <button
                   key={dossier.id}
                   onClick={() => setSelectedCase(dossier)}
-                  className={`w-full text-left rounded-2xl p-4 transition-all flex items-center justify-between border ${
+                  className={`liquid-glass-card w-full text-left rounded-2xl p-4 transition-all flex items-center justify-between ${
                     isSelected
-                      ? 'border-[#f07832] bg-[#f07832]/10 shadow-[0_0_24px_rgba(240,120,50,0.2)]'
-                      : 'border-white/10 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20'
+                      ? 'border-[#38bdf8]/60 bg-sky-500/10 shadow-[0_0_24px_rgba(56,189,248,0.2)]'
+                      : 'hover:border-white/25'
                   }`}
                 >
                   <div className="flex items-center gap-3.5">
@@ -237,25 +236,24 @@ export default function FolderDossiers() {
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="font-mono text-xs text-white/50">{dossier.caseNumber}</span>
-                        <span className="text-[10px] rounded-full px-2 py-0.5 border border-white/10 bg-white/5 text-white/70">
+                        <span className="text-[10px] rounded-full px-2 py-0.5 border border-white/10 bg-white/5 text-white/70 font-mono">
                           {dossier.tag}
                         </span>
                       </div>
                       <h4 className="text-sm font-semibold text-white mt-0.5">{dossier.title}</h4>
                     </div>
                   </div>
-                  <Badge
-                    variant="outline"
-                    className={`text-[10px] ${
+                  <span
+                    className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${
                       dossier.status === 'CRITICAL'
-                        ? 'border-rose-500/40 text-rose-300'
+                        ? 'border-rose-500/40 text-rose-300 bg-rose-500/10'
                         : dossier.status === 'VERIFIED'
-                        ? 'border-emerald-500/40 text-emerald-300'
-                        : 'border-amber-500/40 text-amber-300'
+                        ? 'border-emerald-500/40 text-emerald-300 bg-emerald-500/10'
+                        : 'border-amber-500/40 text-amber-300 bg-amber-500/10'
                     }`}
                   >
                     {dossier.status}
-                  </Badge>
+                  </span>
                 </button>
               )
             })}
@@ -264,7 +262,7 @@ export default function FolderDossiers() {
 
         {/* Right Column: Active Dossier Deep-Dive Evidence Card */}
         <div className="lg:col-span-7">
-          <SpotlightCard className="p-8 sm:p-10 border-white/10 border-t-white/20">
+          <div className="liquid-glass-card rounded-3xl p-8 sm:p-10">
             {/* Header info */}
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-6">
               <div>
@@ -375,7 +373,7 @@ export default function FolderDossiers() {
                 <TrendingUp size={14} />
               </a>
             </div>
-          </SpotlightCard>
+          </div>
         </div>
       </div>
 
