@@ -2,7 +2,8 @@
 
 > **Challenge:** *Be An Earth System Trend Detective!*  
 > **Team:** Orion Space (Barisal, Bangladesh)  
-> **Repository:** [github.com/nabeulislam/orion-space](https://github.com/nabeulislam/orion-space)
+> **Live Portal:** [nabeulislam.github.io/orion-space](https://nabeulislam.github.io/orion-space/)  
+> **Repository:** [github.com/nabeulislam/orion-space](https://github.com/nabeulislam/orion-space)  
 
 ---
 
@@ -11,19 +12,20 @@
 **Orion Space** is an autonomous Earth intelligence platform developed for the NASA Space Apps Challenge 2026. It investigates 25 years of NASA MERRA-2 and satellite observations to solve planetary climate mysteries, featuring:
 
 1. **Modern Web Portal (`app/`)**:
-   - Celestial reference UI matching NASA mission standards.
+   - Celestial reference UI with persistent living space & Earth globe background.
    - **React Bits** text and motion system (`SplitText`, `TrueFocus`, `DecryptedText`, `ShinyText`, `SpotlightCard`).
    - **Lenis** momentum smooth scrolling.
    - **Earth Detective Academy**: STEAM learning mini-games for kids and students (Late-Monsoon Paradox, FIRMS Infrared Hotspot Hunt, Polar Albedo Sim).
    - **Intelligence Dossiers**: Interactive 3D classified case files with statistical proof (Mann-Kendall p=0.00007, Benjamini-Hochberg FDR correction).
    - **Autonomous Telemetry Cockpit**: Natural language query terminal + 25-year climate matrix.
+   - **No-AI-Slop Compliant**: Clean human prose, authentic typography, and zero artificial filler.
 
 2. **3D Cesium Digital Twin Engine (`orion-space/`)**:
    - Photorealistic 3D Earth globe powered by CesiumJS.
    - Live streaming NASA GIBS cloud reflectance (MODIS / VIIRS).
    - Live NASA FIRMS active wildfire thermal anomaly detection layers.
    - Five sensor presets: Normal, FLIR Thermal, Noir, Night Vision (NVG), Tactical CRT.
-   - Voice and conversational autonomous AI Map Agent harness (`Spacebar` toggle).
+   - Voice and conversational autonomous AI Map Agent (`Spacebar` toggle).
 
 ---
 
