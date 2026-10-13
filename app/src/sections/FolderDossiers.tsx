@@ -45,7 +45,7 @@ const DOSSIERS: CaseDossier[] = [
     ],
     satelliteSources: ['NASA GSFC GMAO MERRA-2', 'NASA POWER API v2.10', 'NASA EOSDIS'],
     status: 'CRITICAL',
-    folderColor: '#f07832',
+    folderColor: '#38bdf8',
     tag: 'Core Discovery',
     image: `${import.meta.env.BASE_URL}data/climate/bangladesh_t2m_trend_map.png`
   },
@@ -66,7 +66,7 @@ const DOSSIERS: CaseDossier[] = [
     ],
     satelliteSources: ['MODIS Terra/Aqua', 'VIIRS Suomi-NPP', 'NASA FIRMS', 'EOSDIS Worldview'],
     status: 'VERIFIED',
-    folderColor: '#ff8c42',
+    folderColor: '#34d399',
     tag: 'Earth Observation'
   },
   {
@@ -86,7 +86,7 @@ const DOSSIERS: CaseDossier[] = [
     ],
     satelliteSources: ['Sentinel-3 Altimetry', 'NOAA Coral Reef Watch SST', 'Natural Earth'],
     status: 'MONITORING',
-    folderColor: '#e05a2b',
+    folderColor: '#818cf8',
     tag: 'Climate Impact',
     image: `${import.meta.env.BASE_URL}data/climate/dhaka_t2m_trend_analysis.png`
   },
@@ -107,7 +107,7 @@ const DOSSIERS: CaseDossier[] = [
     ],
     satelliteSources: ['CesiumJS Engine', 'NASA EOSDIS GIBS', 'NASA FIRMS API'],
     status: 'VERIFIED',
-    folderColor: '#ffa25e',
+    folderColor: '#22d3ee',
     tag: '3D Agent Core'
   }
 ]
@@ -140,7 +140,7 @@ export default function FolderDossiers() {
   return (
     <section id="dossiers" className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
       {/* Background radial accent */}
-      <div className="pointer-events-none absolute left-1/2 top-1/4 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(240,120,50,0.08),transparent_70%)]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/4 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.06),transparent_70%)]" />
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-white/10 pb-8">
@@ -206,7 +206,7 @@ export default function FolderDossiers() {
 
             <div className="mt-4 pt-4 border-t border-white/10 text-xs text-white/60">
               <p className="flex items-center justify-center gap-2">
-                <Info size={14} className="text-[#ffa25e]" />
+                <Info size={14} className="text-sky-400" />
                 <span>Click folder to open · Drag sheets out · Click any sheet to zoom</span>
               </p>
             </div>
@@ -249,7 +249,7 @@ export default function FolderDossiers() {
                         ? 'border-rose-500/40 text-rose-300 bg-rose-500/10'
                         : dossier.status === 'VERIFIED'
                         ? 'border-emerald-500/40 text-emerald-300 bg-emerald-500/10'
-                        : 'border-amber-500/40 text-amber-300 bg-amber-500/10'
+                        : 'border-indigo-500/40 text-indigo-300 bg-indigo-500/10'
                     }`}
                   >
                     {dossier.status}
@@ -266,7 +266,7 @@ export default function FolderDossiers() {
             {/* Header info */}
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-6">
               <div>
-                <span className="font-mono text-xs tracking-wider text-[#ffa25e]">
+                <span className="font-mono text-xs tracking-wider text-sky-400">
                   {selectedCase.caseNumber} · {selectedCase.classification}
                 </span>
                 <h3 className="font-display text-2xl sm:text-3xl text-white mt-1">
@@ -287,7 +287,7 @@ export default function FolderDossiers() {
 
             {/* Scientific Summary */}
             <div className="mt-6">
-              <h4 className="text-xs font-mono uppercase tracking-widest text-[#ffa25e]/80 mb-2">
+              <h4 className="text-xs font-mono uppercase tracking-widest text-sky-300 mb-2">
                 Executive Investigation Summary
               </h4>
               <p className="text-sm sm:text-base leading-relaxed text-white/80 font-normal">
@@ -296,15 +296,15 @@ export default function FolderDossiers() {
             </div>
 
             {/* Key Findings List */}
-            <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-              <h4 className="text-xs font-mono uppercase tracking-widest text-[#ffa25e]/80 mb-3 flex items-center gap-2">
+            <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-5">
+              <h4 className="text-xs font-mono uppercase tracking-widest text-sky-300 mb-3 flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-emerald-400" />
                 Verified Statistical Evidence
               </h4>
               <ul className="space-y-2.5">
                 {selectedCase.keyFindings.map((finding, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-white/85">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#f07832] flex-none" />
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-400 flex-none" />
                     <span>{finding}</span>
                   </li>
                 ))}
@@ -323,7 +323,7 @@ export default function FolderDossiers() {
                       setPreviewImage(selectedCase.image!)
                       setDialogOpen(true)
                     }}
-                    className="text-xs text-[#ffa25e] hover:text-[#ffb780] flex items-center gap-1 font-medium transition-colors"
+                    className="text-xs text-sky-400 hover:text-sky-300 flex items-center gap-1 font-medium transition-colors"
                   >
                     <span>Enlarge Full Resolution</span>
                     <ExternalLink size={12} />
@@ -334,7 +334,7 @@ export default function FolderDossiers() {
                     setPreviewImage(selectedCase.image!)
                     setDialogOpen(true)
                   }}
-                  className="group relative cursor-pointer overflow-hidden rounded-2xl border border-white/15 bg-black/40 transition-all hover:border-[#f07832]"
+                  className="group relative cursor-pointer overflow-hidden rounded-2xl border border-white/15 bg-black/40 transition-all hover:border-sky-400"
                 >
                   <img
                     src={selectedCase.image}
@@ -358,7 +358,7 @@ export default function FolderDossiers() {
                   <Badge
                     key={source}
                     variant="secondary"
-                    className="bg-[#f07832]/10 text-[#ffa25e] border-[#f07832]/30 text-[11px]"
+                    className="bg-sky-500/10 text-sky-300 border-sky-400/30 text-[11px]"
                   >
                     {source}
                   </Badge>
@@ -367,7 +367,7 @@ export default function FolderDossiers() {
 
               <a
                 href="#cockpit"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#ffa25e] hover:text-[#ffb780] transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors"
               >
                 <span>Query In 3D Agent</span>
                 <TrendingUp size={14} />

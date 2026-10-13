@@ -50,7 +50,7 @@ export default function EarthDetectiveAcademy() {
       particleCount: 100,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#38bdf8', '#34d399', '#fbbf24', '#f43f5e']
+      colors: ['#38bdf8', '#34d399', '#818cf8', '#67e8f9']
     })
   }
 
@@ -155,7 +155,7 @@ export default function EarthDetectiveAcademy() {
   return (
     <section id="academy" className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
       {/* Background glow */}
-      <div className="pointer-events-none absolute right-1/4 top-1/3 h-[500px] w-[500px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(240,120,50,0.08),transparent_70%)] blur-[120px]" />
+      <div className="pointer-events-none absolute right-1/4 top-1/3 h-[500px] w-[500px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.06),transparent_70%)] blur-[120px]" />
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-white/10 pb-8">
@@ -469,7 +469,7 @@ export default function EarthDetectiveAcademy() {
                   {sensorMode === 'visible' && (
                     <div className="absolute inset-0 bg-slate-400/40 backdrop-blur-md flex items-center justify-center p-6 text-center">
                       <div className="rounded-2xl border border-white/20 bg-black/60 p-4 max-w-xs text-xs text-white/90">
-                        <AlertTriangle size={24} className="text-amber-400 mx-auto mb-2" />
+                        <AlertTriangle size={24} className="text-sky-400 mx-auto mb-2" />
                         <strong>DENSE SMOKE BLANKET</strong>
                         <p className="mt-1 text-white/70">
                           Optical sensors are blinded by aerosol smoke particles! Switch to Thermal Infrared to see the heat.
@@ -714,7 +714,7 @@ export default function EarthDetectiveAcademy() {
       <Dialog open={licenseOpen} onOpenChange={setLicenseOpen}>
         <DialogContent className="max-w-lg border-white/15 bg-[#0a0a10]/98 text-white backdrop-blur-2xl">
           <DialogHeader>
-            <DialogTitle className="font-display text-xl text-[#ffa25e] flex items-center gap-2">
+            <DialogTitle className="font-display text-xl text-sky-400 flex items-center gap-2">
               <Award size={22} />
               NASA SPACE APPS 2026 OFFICIAL CERTIFICATE
             </DialogTitle>
@@ -724,19 +724,19 @@ export default function EarthDetectiveAcademy() {
           </DialogHeader>
 
           {/* Printable License Card */}
-          <div className="mt-4 rounded-2xl border border-[#f07832]/40 bg-gradient-to-br from-[#160d07] to-[#08080c] p-6 text-left relative overflow-hidden shadow-2xl">
+          <div className="mt-4 rounded-2xl border border-sky-400/40 bg-gradient-to-br from-[#0c182b] to-[#080d18] p-6 text-left relative overflow-hidden shadow-2xl">
             <div className="absolute right-4 top-4 opacity-10">
               <Trophy size={120} />
             </div>
 
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#ffa25e]">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-sky-300">
                   Global Challenge Division
                 </span>
                 <h4 className="font-display text-lg text-white">ORION JUNIOR DETECTIVE</h4>
               </div>
-              <Badge className="bg-[#f07832] text-black font-mono text-[10px] font-semibold">
+              <Badge className="bg-sky-400 text-black font-mono text-[10px] font-semibold">
                 OFFICIALLY CERTIFIED
               </Badge>
             </div>
@@ -748,7 +748,7 @@ export default function EarthDetectiveAcademy() {
               </div>
               <div className="flex justify-between">
                 <span className="text-white/50">Primary Finding:</span>
-                <span className="font-mono text-[#ffa25e]">Barisal Coast (+0.40 °C/dec)</span>
+                <span className="font-mono text-sky-300">Barisal Coast (+0.40 °C/dec)</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-white/50">Statistical Test:</span>

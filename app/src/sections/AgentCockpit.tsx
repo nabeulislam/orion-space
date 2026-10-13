@@ -102,7 +102,7 @@ export default function AgentCockpit() {
   return (
     <section id="cockpit" className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
       {/* Background glow */}
-      <div className="pointer-events-none absolute left-1/3 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(240,120,50,0.08),transparent_70%)] blur-[140px]" />
+      <div className="pointer-events-none absolute left-1/3 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.06),transparent_70%)] blur-[140px]" />
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-white/10 pb-8">

@@ -37,11 +37,11 @@ export default function Contact() {
           <p className="font-semibold uppercase tracking-widest text-white/40">Project & Team</p>
           <ul className="mt-4 space-y-3 text-white/70">
             <li className="flex items-center gap-3">
-              <MapPin size={16} className="text-[#ffa25e]" />
+              <MapPin size={16} className="text-sky-400" />
               <span>Barisal, Bangladesh</span>
             </li>
             <li className="flex items-center gap-3">
-              <Github size={16} className="text-[#ffa25e]" />
+              <Github size={16} className="text-sky-400" />
               <a
                 href="https://github.com/nabeulislam/orion-space"
                 target="_blank"
@@ -52,7 +52,7 @@ export default function Contact() {
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Globe size={16} className="text-[#ffa25e]" />
+              <Globe size={16} className="text-sky-400" />
               <span>NASA Space Apps Challenge 2026</span>
             </li>
           </ul>
