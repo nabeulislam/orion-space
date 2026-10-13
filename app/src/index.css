@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#060608] text-white antialiased;
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  }
+}
+
+:root {
+  --og-accent: #f07832;
+  --og-accent-bright: #ffa25e;
+  --og-accent-soft: rgba(240, 120, 50, 0.12);
+  --og-accent-glow: rgba(240, 120, 50, 0.32);
+  --og-accent-line: rgba(240, 120, 50, 0.42);
+  --og-ink: #060608;
+  --og-smoke: linear-gradient(165deg, rgba(255, 255, 255, 0.085) 0%, rgba(255, 255, 255, 0.02) 42%, rgba(9, 11, 15, 0.65) 100%);
+  --og-line: rgba(255, 255, 255, 0.12);
+  --og-line-soft: rgba(255, 255, 255, 0.07);
+  --og-line-top: rgba(255, 255, 255, 0.22);
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-serif-it {
+  font-family: 'Space Grotesk', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ---------- starfield ---------- */
+.star {
+  position: absolute;
+  border-radius: 9999px;
+  background: #fff;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.9; }
+}
+.star-twinkle {
+  animation: twinkle 3.5s ease-in-out infinite;
+}
+@keyframes flare {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.15); }
+}
+.star-flare {
+  animation: flare 5s ease-in-out infinite;
+}
+
+/* ---------- astronaut float ---------- */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-16px) rotate(-1deg); }
+}
+.animate-floaty {
+  animation: floaty 7s ease-in-out infinite;
+}
+
+/* ---------- earth glow ---------- */
+.earth-glow {
+  filter: drop-shadow(0 -10px 50px rgba(240, 120, 50, 0.22))
+          drop-shadow(0 0 100px rgba(56, 189, 248, 0.35));
+}
+
+/* ---------- orion glass pill ---------- */
+.glass-pill {
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 50%, rgba(10, 12, 16, 0.7) 100%);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-top-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.orion-glass-card {
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.018) 42%, rgba(8, 10, 14, 0.75) 100%);
+  backdrop-filter: blur(36px) saturate(1.4);
+  -webkit-backdrop-filter: blur(36px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+.animate-shine {
+  animation: shine 4s linear infinite;
+}
+
+/* Orion unified orange-tint scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #060608;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(240, 120, 50, 0.32);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(240, 120, 50, 0.55);
+}
+
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 0 0% 98%;
+    --card: 222 40% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 222 40% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 30% 17%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 217 30% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 30% 17%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217 30% 20%;
+    --input: 217 30% 20%;
+    --ring: 217 91% 60%;
+    --radius: 0.625rem;
+    --sidebar-background: 222 40% 8%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 30% 17%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 217 30% 20%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
