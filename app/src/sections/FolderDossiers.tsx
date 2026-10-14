@@ -234,13 +234,16 @@ export default function FolderDossiers() {
                   }`}
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="apple-icon-badge h-9 w-9 flex-none text-sky-400">
-                      <FileText size={16} />
+                    <div
+                      className="h-9 w-9 rounded-xl flex items-center justify-center text-white flex-none"
+                      style={{ backgroundColor: `${dossier.folderColor}22`, borderColor: dossier.folderColor, borderWidth: 1 }}
+                    >
+                      <FileText size={18} style={{ color: dossier.folderColor }} />
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-mono text-xs text-slate-400">{dossier.caseNumber}</span>
-                        <span className="text-[10px] rounded-full px-2 py-0.5 border border-white/10 bg-white/5 text-slate-300 font-mono">
+                        <span className="font-mono text-xs text-white/50">{dossier.caseNumber}</span>
+                        <span className="text-[10px] rounded-full px-2 py-0.5 border border-white/10 bg-white/5 text-white/70 font-mono">
                           {dossier.tag}
                         </span>
                       </div>
@@ -250,10 +253,10 @@ export default function FolderDossiers() {
                   <span
                     className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${
                       dossier.status === 'CRITICAL'
-                        ? 'border-rose-500/30 text-rose-300 bg-rose-500/10'
+                        ? 'border-rose-500/40 text-rose-300 bg-rose-500/10'
                         : dossier.status === 'VERIFIED'
-                        ? 'border-emerald-500/30 text-emerald-300 bg-emerald-500/10'
-                        : 'border-sky-500/30 text-sky-300 bg-sky-500/10'
+                        ? 'border-emerald-500/40 text-emerald-300 bg-emerald-500/10'
+                        : 'border-sky-500/40 text-sky-300 bg-sky-500/10'
                     }`}
                   >
                     {dossier.status}
@@ -284,13 +287,13 @@ export default function FolderDossiers() {
                   <h3 className="font-display text-2xl sm:text-3xl text-white mt-1">
                     {selectedCase.title}
                   </h3>
-                  <p className="text-sm font-serif-it text-slate-300 mt-1">
+                  <p className="text-sm font-serif-it text-white/70 mt-1">
                     {selectedCase.subtitle}
                   </p>
                 </div>
 
                 <div className="text-right">
-                  <span className="text-xs text-slate-400 block font-mono">Time Horizon</span>
+                  <span className="text-xs text-white/50 block font-mono">Time Horizon</span>
                   <span className="font-mono text-sm font-semibold text-white">
                     {selectedCase.dateRange}
                   </span>
@@ -302,20 +305,20 @@ export default function FolderDossiers() {
                 <h4 className="text-xs font-mono uppercase tracking-widest text-sky-400 mb-2 font-semibold">
                   Executive Investigation Summary
                 </h4>
-                <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-normal">
+                <p className="text-sm sm:text-base leading-relaxed text-white/85 font-normal">
                   {selectedCase.summary}
                 </p>
               </div>
 
               {/* Key Findings List */}
-              <div className="mt-6 rounded-2xl border border-white/12 bg-white/[0.04] backdrop-blur-md p-5">
+              <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <h4 className="text-xs font-mono uppercase tracking-widest text-sky-400 mb-3 flex items-center gap-2 font-semibold">
                   <CheckCircle2 size={15} className="text-emerald-400" />
                   Verified Statistical Evidence
                 </h4>
                 <ul className="space-y-2.5">
                   {selectedCase.keyFindings.map((finding, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200">
+                    <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-white/85">
                       <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-sky-400 flex-none" />
                       <span className="leading-relaxed">{finding}</span>
                     </li>
@@ -327,7 +330,7 @@ export default function FolderDossiers() {
               {selectedCase.image && (
                 <div className="mt-6">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-mono text-slate-300">
+                    <span className="text-xs font-mono text-white/60">
                       NASA Spatial Trend Analysis Map
                     </span>
                     <button
@@ -346,15 +349,15 @@ export default function FolderDossiers() {
                       setPreviewImage(selectedCase.image!)
                       setDialogOpen(true)
                     }}
-                    className="group relative cursor-pointer overflow-hidden rounded-2xl border border-white/15 bg-black/50 transition-all hover:border-sky-400/80"
+                    className="group relative cursor-pointer overflow-hidden rounded-2xl border border-white/15 bg-black/40 transition-all hover:border-sky-400/80"
                   >
                     <img
                       src={selectedCase.image}
                       alt={selectedCase.title}
                       className="h-48 sm:h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-4">
-                      <span className="text-xs text-slate-200 font-mono">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                      <span className="text-xs text-white/90 font-mono">
                         Generated via Mann-Kendall + Theil-Sen Analysis (analysis/trend_analysis.py)
                       </span>
                     </div>

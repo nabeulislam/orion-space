@@ -36,32 +36,26 @@ export default function MissionControl() {
                 PROJECT ORION SPACE
               </h3>
 
-              <p className="font-serif-it text-lg sm:text-xl text-slate-200">
+              <p className="font-serif-it text-lg sm:text-xl text-white/80">
                 Be An Earth System Trend Detective!
               </p>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-normal">
+              <p className="text-sm sm:text-base text-white/70 leading-relaxed max-w-2xl font-normal">
                 Built to solve the NASA challenge by discovering that 25 years of NASA MERRA-2 yearly temperature averages hid a +0.40 °C/decade late-monsoon warming in Bangladesh, validated by two-sided Mann-Kendall and Benjamini-Hochberg False Discovery Rate corrections.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-2 text-xs font-mono text-slate-300">
-                <span className="flex items-center gap-2">
-                  <div className="apple-icon-badge h-7 w-7 text-sky-400">
-                    <MapPin size={13} />
-                  </div>
-                  <span>Barisal, Bangladesh</span>
+              <div className="flex flex-wrap gap-4 pt-2 text-xs font-mono text-white/60">
+                <span className="flex items-center gap-1.5 text-white/75">
+                  <MapPin size={14} className="text-[#38bdf8]" />
+                  Barisal, Bangladesh
                 </span>
-                <span className="flex items-center gap-2">
-                  <div className="apple-icon-badge h-7 w-7 text-sky-400">
-                    <Code2 size={13} />
-                  </div>
-                  <span>Lead: Md Mushfiqur Rahim</span>
+                <span className="flex items-center gap-1.5 text-white/75">
+                  <Code2 size={14} className="text-[#38bdf8]" />
+                  Lead: Md Mushfiqur Rahim
                 </span>
-                <span className="flex items-center gap-2">
-                  <div className="apple-icon-badge h-7 w-7 text-sky-400">
-                    <FileCheck2 size={13} />
-                  </div>
-                  <span>Open Source MIT License</span>
+                <span className="flex items-center gap-1.5 text-white/75">
+                  <FileCheck2 size={14} className="text-[#38bdf8]" />
+                  Open Source MIT License
                 </span>
               </div>
             </div>

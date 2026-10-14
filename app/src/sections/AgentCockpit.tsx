@@ -148,9 +148,9 @@ export default function AgentCockpit() {
               </Badge>
             </div>
 
-            {/* Quick Queries Buttons - Apple Liquid Glass Style */}
+            {/* Quick Queries Buttons */}
             <div className="space-y-2 mb-6">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-white/50 block">
                 Quick Judge Inquiries:
               </span>
               <div className="flex flex-col gap-2">
@@ -160,8 +160,8 @@ export default function AgentCockpit() {
                     onClick={() => setActiveQuery(q)}
                     className={`w-full text-left rounded-xl p-3 text-xs transition-all border cursor-pointer ${
                       activeQuery.question === q.question
-                        ? 'border-white/30 bg-white/[0.09] text-white font-medium shadow-[0_4px_16px_rgba(0,0,0,0.5)]'
-                        : 'border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.07] hover:text-white'
+                        ? 'border-[#38bdf8]/50 bg-sky-500/10 text-sky-200 font-semibold shadow-[0_0_20px_rgba(56,189,248,0.15)]'
+                        : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.07] hover:text-white'
                     }`}
                   >
                     <span className="font-mono text-sky-400 mr-1.5">&gt;</span>
@@ -179,27 +179,27 @@ export default function AgentCockpit() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.25 }}
-                className="rounded-2xl border border-white/12 bg-white/[0.04] backdrop-blur-md p-5 space-y-3 font-mono text-xs shadow-inner"
+                className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-5 space-y-3 font-mono text-xs shadow-inner"
               >
-                <div className="flex items-center justify-between text-[11px] text-slate-400 border-b border-white/10 pb-2">
+                <div className="flex items-center justify-between text-[11px] text-white/40 border-b border-white/10 pb-2">
                   <span className="text-sky-400 font-bold">ORION AGENT OUTPUT:</span>
                   <span>{activeQuery.confidence}</span>
                 </div>
 
-                <p className="text-slate-100 leading-relaxed font-sans text-xs sm:text-sm">
+                <p className="text-white/90 leading-relaxed font-sans text-xs sm:text-sm">
                   {activeQuery.response}
                 </p>
 
                 {activeQuery.coordinates && (
                   <div className="flex items-center gap-2 pt-2 text-[11px] text-sky-400 font-mono">
-                    <span className="text-slate-400">FOCUSED COORD:</span>
+                    <span className="text-white/40">FOCUSED COORD:</span>
                     <span className="bg-sky-500/10 px-2 py-0.5 rounded border border-sky-400/30">
                       {activeQuery.coordinates}
                     </span>
                   </div>
                 )}
 
-                <div className="pt-2 text-[10px] text-slate-400 border-t border-white/10">
+                <div className="pt-2 text-[10px] text-white/40 border-t border-white/10">
                   DATASET PROVENANCE: {activeQuery.source}
                 </div>
               </motion.div>

@@ -39,10 +39,10 @@ export default function Events() {
     >
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-white/10 pb-8">
         <div>
-          <h2 className="font-display text-4xl sm:text-6xl tracking-tight text-slate-100">
+          <h2 className="font-display text-4xl sm:text-6xl tracking-tight text-white">
             EARTH DETECTIVE GAMES
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-400 max-w-xl leading-relaxed">
+          <p className="mt-3 text-sm sm:text-base text-white/60 max-w-xl leading-relaxed">
             Interactive learning scenarios where students test hypotheses against 25 years of NASA MERRA-2 and VIIRS satellite observations.
           </p>
         </div>
@@ -68,12 +68,12 @@ export default function Events() {
             <Card className="liquid-glass-card group rounded-3xl p-3 flex flex-col justify-between h-full">
               <CardHeader className="p-6 pb-2">
                 <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-slate-300">
+                  <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-white/70">
                     {mission.category}
                   </span>
                 </div>
 
-                <div className="mt-5 apple-icon-badge h-11 w-11 text-sky-400">
+                <div className="mt-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/12 bg-white/5 text-white/90">
                   <mission.icon size={20} strokeWidth={1.5} />
                 </div>
 
@@ -81,13 +81,13 @@ export default function Events() {
                   {mission.title}
                 </CardTitle>
 
-                <CardDescription className="mt-2 text-sm leading-relaxed text-slate-300 font-normal">
+                <CardDescription className="mt-2 text-sm leading-relaxed text-white/65 font-normal">
                   {mission.desc}
                 </CardDescription>
               </CardHeader>
 
               <CardContent className="px-6 py-3">
-                <div className="rounded-xl border border-white/10 bg-black/50 px-3.5 py-2.5 font-mono text-xs text-sky-300">
+                <div className="rounded-xl border border-white/10 bg-black/45 px-3.5 py-2.5 font-mono text-xs text-white/80">
                   {mission.metric}
                 </div>
               </CardContent>
@@ -95,13 +95,13 @@ export default function Events() {
               <CardFooter className="p-6 pt-4 border-t border-white/[0.08] flex items-center justify-between">
                 <Link
                   to="/games"
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-200 hover:text-white transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-white/80 hover:text-white transition-colors"
                 >
                   <span>Open Scenario</span>
                   <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
 
-                <span className="text-[10px] font-mono text-slate-400 tracking-wider">SIMULATION</span>
+                <span className="text-[10px] font-mono text-white/40 tracking-wider">SIMULATION</span>
               </CardFooter>
             </Card>
           </motion.div>

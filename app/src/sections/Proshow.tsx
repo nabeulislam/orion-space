@@ -37,7 +37,7 @@ export default function Proshow() {
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       <div className="relative mx-auto max-w-5xl px-6 text-center sm:px-10">
-        <h2 className="font-display text-4xl sm:text-7xl leading-tight tracking-wide text-slate-100">
+        <h2 className="font-display text-4xl sm:text-7xl leading-tight tracking-wide text-white">
           IMMERSIVE 3D AGENT
         </h2>
 
@@ -55,13 +55,13 @@ export default function Proshow() {
             >
               <Card className="liquid-glass-card rounded-2xl p-5 group flex flex-col justify-between h-full">
                 <CardHeader className="p-0">
-                  <div className="apple-icon-badge h-10 w-10 text-sky-400">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/90">
                     <feat.icon size={18} strokeWidth={1.5} />
                   </div>
                   <CardTitle className="mt-4 text-sm font-medium text-white tracking-wide">
                     {feat.title}
                   </CardTitle>
-                  <CardDescription className="mt-1.5 text-xs leading-relaxed text-slate-300 font-normal">
+                  <CardDescription className="mt-1.5 text-xs leading-relaxed text-white/60 font-normal">
                     {feat.desc}
                   </CardDescription>
                 </CardHeader>

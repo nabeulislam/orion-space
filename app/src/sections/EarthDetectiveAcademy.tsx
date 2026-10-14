@@ -228,17 +228,17 @@ export default function EarthDetectiveAcademy() {
         </div>
       </div>
 
-      {/* Game Tabs Navigation - Apple Liquid Glass Style */}
+      {/* Game Tabs Navigation */}
       <div className="mt-10 flex flex-wrap gap-2.5 sm:gap-3">
         <button
           onClick={() => setActiveGame('mystery')}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'mystery'
-              ? 'border-white/30 bg-white/[0.09] text-white shadow-[0_4px_24px_rgba(0,0,0,0.6)]'
-              : 'border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.07] hover:text-white'
+              ? 'border-sky-400/60 bg-sky-500/15 text-sky-200 shadow-[0_0_20px_rgba(56,189,248,0.2)]'
+              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
           }`}
         >
-          <Sun size={16} className="text-sky-400" />
+          <Sun size={16} className="text-sky-300" />
           <span>Game 1: The Late-Monsoon Mystery</span>
           {badges.mystery && <Check size={14} className="text-emerald-400" />}
         </button>
@@ -247,8 +247,8 @@ export default function EarthDetectiveAcademy() {
           onClick={() => setActiveGame('satellite')}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'satellite'
-              ? 'border-white/30 bg-white/[0.09] text-white shadow-[0_4px_24px_rgba(0,0,0,0.6)]'
-              : 'border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.07] hover:text-white'
+              ? 'border-rose-400/60 bg-rose-500/15 text-rose-200 shadow-[0_0_20px_rgba(244,63,94,0.2)]'
+              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
           }`}
         >
           <Flame size={16} className="text-rose-400" />
@@ -260,8 +260,8 @@ export default function EarthDetectiveAcademy() {
           onClick={() => setActiveGame('albedo')}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'albedo'
-              ? 'border-white/30 bg-white/[0.09] text-white shadow-[0_4px_24px_rgba(0,0,0,0.6)]'
-              : 'border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.07] hover:text-white'
+              ? 'border-sky-400/60 bg-sky-500/15 text-sky-200 shadow-[0_0_20px_rgba(56,189,248,0.2)]'
+              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
           }`}
         >
           <ThermometerSnowflake size={16} className="text-sky-400" />
@@ -273,8 +273,8 @@ export default function EarthDetectiveAcademy() {
           onClick={() => setActiveGame('quiz')}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'quiz'
-              ? 'border-white/30 bg-white/[0.09] text-white shadow-[0_4px_24px_rgba(0,0,0,0.6)]'
-              : 'border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.07] hover:text-white'
+              ? 'border-emerald-400/60 bg-emerald-500/15 text-emerald-200 shadow-[0_0_20px_rgba(52,211,153,0.2)]'
+              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
           }`}
         >
           <Award size={16} className="text-emerald-400" />
