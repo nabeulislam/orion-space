@@ -20,7 +20,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import PixelTransition from '@/components/ui/PixelTransition'
 import PixelArcadeGame from '@/components/PixelArcadeGame'
 
-export default function EarthDetectiveAcademy({ onLaunch2dMode }: { onLaunch2dMode?: () => void } = {}) {
+export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMode }: { onTriggerFullRetro?: () => void; onLaunch2dMode?: () => void } = {}) {
   const [isPixelVibeMode, setIsPixelVibeMode] = useState(false)
   const [activeGame, setActiveGame] = useState<'mystery' | 'satellite' | 'albedo' | 'quiz'>('mystery')
 
@@ -288,7 +288,7 @@ export default function EarthDetectiveAcademy({ onLaunch2dMode }: { onLaunch2dMo
         </button>
 
         <button
-          onClick={() => { if (onLaunch2dMode) onLaunch2dMode(); else setIsPixelVibeMode(true); }}
+          onClick={() => { if (onTriggerFullRetro) onTriggerFullRetro(); else if (onLaunch2dMode) onLaunch2dMode(); else setIsPixelVibeMode(true); }}
           className={`flex items-center gap-2 rounded-2xl px-6 py-3 text-xs sm:text-sm font-bold transition-all border cursor-pointer ${
             isPixelVibeMode
               ? 'border-emerald-400 bg-emerald-500/25 text-emerald-200 shadow-[0_0_30px_rgba(52,211,153,0.4)] scale-105'

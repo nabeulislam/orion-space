@@ -60,8 +60,9 @@ export default function Proshow() {
         {/* Clean Liquid Glass Cards Grid */}
         <div className="mt-14 grid gap-5 sm:grid-cols-2 md:grid-cols-4 text-left">
           {FEATURES.map((feat) => (
-            <div
+            <motion.div
               key={feat.title}
+              whileHover={{ y: -4, transition: { duration: 0.25, ease: 'easeOut' } }}
               className="h-full"
             >
               <Card className="liquid-glass-card rounded-2xl p-5 group flex flex-col justify-between h-full">
@@ -77,7 +78,7 @@ export default function Proshow() {
                   </CardDescription>
                 </CardHeader>
               </Card>
-            </div>
+            </motion.div>
           ))}
         </div>
 

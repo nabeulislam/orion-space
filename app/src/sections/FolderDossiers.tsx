@@ -1,3 +1,5 @@
+import { DecryptedText } from '@/components/ui/DecryptedText'
+import { ShinyText } from '@/components/ui/ShinyText'
 import MorphSlider from '@/components/ui/MorphSlider'
 import { Sparkles } from 'lucide-react'
 import { useState } from 'react'
@@ -121,23 +123,27 @@ export default function FolderDossiers() {
   const [previewImage, setPreviewImage] = useState<string | null>(null)
   const [activeImageIdx, setActiveImageIdx] = useState<number>(0)
 
-  // React Bits Folder interactive items
+  // React Bits Folder interactive items with satellite image previews
   const folderItems: FolderEntry[] = [
     {
       title: 'Barisal Coast September Anomaly',
-      description: '+0.40 °C/dec · p=0.00007 · FDR Passed'
+      description: '+0.40 °C/dec · p=0.00007 · FDR Passed',
+      image: `${import.meta.env.BASE_URL}data/climate/bangladesh_t2m_trend_map.png`
     },
     {
       title: 'NASA MERRA-2 25-Year Matrix',
-      description: '34 Grid Cells across Bangladesh (2001-2025)'
+      description: '34 Grid Cells across Bangladesh (2001-2025)',
+      image: `${import.meta.env.BASE_URL}data/climate/dhaka_t2m_trend_analysis.png`
     },
     {
       title: 'NASA FIRMS Fire Telemetry',
-      description: 'Active thermal infrared satellite hotspot tracking'
+      description: 'Active thermal infrared satellite hotspot tracking',
+      image: 'https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=600&auto=format&fit=crop'
     },
     {
       title: 'NASA GIBS Cloud Reflectance',
-      description: 'MODIS Terra/Aqua true-color global imagery'
+      description: 'MODIS Terra/Aqua true-color global imagery',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop'
     }
   ]
 
@@ -285,10 +291,10 @@ export default function FolderDossiers() {
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-6">
                 <div>
                   <span className="font-mono text-xs tracking-wider text-sky-400">
-                    {selectedCase.caseNumber} · {selectedCase.classification}
+                    <DecryptedText text={selectedCase.caseNumber} speed={40} /> · {selectedCase.classification}
                   </span>
                   <h3 className="font-display text-2xl sm:text-3xl text-white mt-1">
-                    {selectedCase.title}
+                    <ShinyText text={selectedCase.title} speed={5} />
                   </h3>
                   <p className="text-sm font-serif-it text-white/70 mt-1">
                     {selectedCase.subtitle}

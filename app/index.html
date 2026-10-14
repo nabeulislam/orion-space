@@ -9,7 +9,9 @@
     <link rel="icon" type="image/svg+xml" href="./orion-logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Space Grotesk + JetBrains Mono ship from the CDN; Inter is self-hosted
+         in ./fonts/fonts.css (it is the fallback face, not a display voice). -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./fonts/fonts.css" />
     <link rel="preload" href="./astronaut.png" as="image" />
     <link rel="preload" href="./earth.png" as="image" />
@@ -28,7 +30,7 @@
       }(window.location))
     </script>
   </head>
-  <body class="bg-[#060608] text-white antialiased selection:bg-[#38bdf8] selection:text-white">
+  <body class="bg-ink text-white antialiased selection:bg-orion selection:text-white">
     <div id="root"></div>
     <script type="module" src="./src/main.tsx"></script>
   </body>

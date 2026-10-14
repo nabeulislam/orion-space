@@ -13,7 +13,7 @@ export default function App() {
   useLenis()
 
   return (
-    <div className="relative min-h-screen text-white selection:bg-[#38bdf8]/30 selection:text-white">
+    <div className="relative min-h-screen text-white selection:bg-orion/30 selection:text-white">
       {/* Persistent Space & Earth Globe Canvas across the entire portal */}
       <CosmicBackground />
 

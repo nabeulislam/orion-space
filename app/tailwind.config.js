@@ -4,7 +4,33 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Space Grotesk", "Inter", "system-ui", "sans-serif"],
+        display: ["Space Grotesk", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
+        tagline: ["Space Grotesk", "sans-serif"],
+      },
       colors: {
+        /* Orion token surfaces. `orion` is the accent, `signal` is status. */
+        orion: {
+          DEFAULT: "rgb(var(--og-accent-rgb) / <alpha-value>)",
+          bright: "rgb(var(--og-accent-bright-rgb) / <alpha-value>)",
+          ice: "rgb(var(--og-accent-ice-rgb) / <alpha-value>)",
+          deep: "rgb(var(--og-accent-deep-rgb) / <alpha-value>)",
+          strong: "rgb(var(--og-accent-strong-rgb) / <alpha-value>)",
+          soft: "var(--og-accent-soft)",
+          glow: "var(--og-accent-glow)",
+          line: "var(--og-accent-line)",
+        },
+        signal: {
+          DEFAULT: "rgb(var(--og-signal-rgb) / <alpha-value>)",
+          bright: "rgb(var(--og-signal-bright-rgb) / <alpha-value>)",
+          ice: "rgb(var(--og-signal-ice-rgb) / <alpha-value>)",
+          deep: "rgb(var(--og-signal-deep-rgb) / <alpha-value>)",
+          ink: "var(--og-signal-ink)",
+        },
+        ink: "var(--og-ink)",
+        chrome: "var(--og-slate)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -49,12 +75,19 @@ module.exports = {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      /* Locked radius scale — four steps (chip / card / panel / pill).
+         Call sites no longer pick their own; see --r-* in index.css. */
       borderRadius: {
-        xl: "calc(var(--radius) + 4px)",
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-        xs: "calc(var(--radius) - 6px)",
+        DEFAULT: "var(--r-chip)",
+        xs: "var(--r-chip)",
+        sm: "var(--r-chip)",
+        md: "var(--r-chip)",
+        lg: "var(--r-chip)",
+        xl: "var(--r-card)",
+        "2xl": "var(--r-card)",
+        "3xl": "var(--r-panel)",
+        "4xl": "var(--r-panel)",
+        pill: "var(--r-pill)",
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",

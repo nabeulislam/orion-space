@@ -1,7 +1,7 @@
 // @ts-nocheck
 'use client';
 
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 import './LatticeLoader.css';
 
@@ -44,6 +44,30 @@ const spoken = ds =>
     ? `${(ds / 10).toFixed(1)} seconds`
     : `${Math.floor(ds / 600)} minutes ${((ds % 600) / 10).toFixed(1)} seconds`;
 
+export interface LatticeLoaderProps {
+  label?: string;
+  doneLabel?: string;
+  errorLabel?: string;
+  status?: 'working' | 'done' | 'error';
+  pattern?: string | any;
+  grid?: 3 | 4;
+  shape?: 'square' | 'round';
+  color?: string;
+  doneColor?: string;
+  errorColor?: string;
+  cellSize?: number;
+  gap?: number;
+  fontSize?: number;
+  step?: number;
+  idleOpacity?: number;
+  glow?: boolean;
+  glowColor?: string;
+  showTimer?: boolean;
+  elapsed?: number;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
 export default function LatticeLoader({
   label = 'Thinking',
   doneLabel = 'Done in',
@@ -66,7 +90,7 @@ export default function LatticeLoader({
   elapsed,
   className = '',
   style
-}: any) {
+}: LatticeLoaderProps) {
   const n = grid === 4 ? 4 : 3;
   const pat = resolvePattern(pattern, n);
   const marks = MARKS[n];
@@ -100,7 +124,6 @@ export default function LatticeLoader({
   useEffect(() => {
     if (status === 'working') setAnnounce(`${label}, in progress`);
     else setAnnounce(`${status === 'done' ? doneLabel : errorLabel}${showTimer ? ` ${spoken(dsRef.current)}` : ''}`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 
   return (
