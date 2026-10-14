@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import {
   Github,
   ExternalLink,
@@ -10,8 +11,14 @@ import {
 
 export default function MissionControl() {
   return (
-    <footer id="mission" className="relative border-t border-white/10 bg-transparent text-white">
-      <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8">
+    <motion.section
+      id="mission"
+      className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 text-white"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <div className="relative">
         {/* Top Challenge Attribution Card */}
         <div className="liquid-glass-card mb-16 rounded-3xl p-8 sm:p-12">
           <div className="grid gap-8 lg:grid-cols-12 items-center">
@@ -29,26 +36,32 @@ export default function MissionControl() {
                 PROJECT ORION SPACE
               </h3>
 
-              <p className="font-serif-it text-lg sm:text-xl text-white/80">
+              <p className="font-serif-it text-lg sm:text-xl text-slate-200">
                 Be An Earth System Trend Detective!
               </p>
 
-              <p className="text-sm sm:text-base text-white/70 leading-relaxed max-w-2xl font-normal">
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-normal">
                 Built to solve the NASA challenge by discovering that 25 years of NASA MERRA-2 yearly temperature averages hid a +0.40 °C/decade late-monsoon warming in Bangladesh, validated by two-sided Mann-Kendall and Benjamini-Hochberg False Discovery Rate corrections.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-2 text-xs font-mono text-white/60">
-                <span className="flex items-center gap-1.5 text-white/75">
-                  <MapPin size={14} className="text-[#38bdf8]" />
-                  Barisal, Bangladesh
+              <div className="flex flex-wrap gap-4 pt-2 text-xs font-mono text-slate-300">
+                <span className="flex items-center gap-2">
+                  <div className="apple-icon-badge h-7 w-7 text-sky-400">
+                    <MapPin size={13} />
+                  </div>
+                  <span>Barisal, Bangladesh</span>
                 </span>
-                <span className="flex items-center gap-1.5 text-white/75">
-                  <Code2 size={14} className="text-[#38bdf8]" />
-                  Lead: Md Mushfiqur Rahim
+                <span className="flex items-center gap-2">
+                  <div className="apple-icon-badge h-7 w-7 text-sky-400">
+                    <Code2 size={13} />
+                  </div>
+                  <span>Lead: Md Mushfiqur Rahim</span>
                 </span>
-                <span className="flex items-center gap-1.5 text-white/75">
-                  <FileCheck2 size={14} className="text-[#38bdf8]" />
-                  Open Source MIT License
+                <span className="flex items-center gap-2">
+                  <div className="apple-icon-badge h-7 w-7 text-sky-400">
+                    <FileCheck2 size={13} />
+                  </div>
+                  <span>Open Source MIT License</span>
                 </span>
               </div>
             </div>
@@ -154,7 +167,7 @@ export default function MissionControl() {
             <h4 className="font-semibold uppercase tracking-widest text-white/90 font-mono text-[11px]">
               Judges Verification
             </h4>
-            <p className="leading-relaxed text-white/70 font-normal">
+            <p className="leading-relaxed text-slate-300 font-normal">
               Orion Space is built with scientific integrity. We report air temperature trends only and do not extrapolate unverified claims. The entire analysis is 100% open-source and reproducible.
             </p>
             <div className="flex items-center gap-1.5 pt-1 text-emerald-400 font-mono text-[11px]">
@@ -163,17 +176,7 @@ export default function MissionControl() {
             </div>
           </div>
         </div>
-
-        {/* Bottom copyright line */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/40 font-mono">
-          <div>
-            © 2026 Project Orion Space · Team Orion Space · Barisal, Bangladesh
-          </div>
-          <div>
-            NASA Space Apps Challenge 2026 · Be An Earth System Trend Detective!
-          </div>
-        </div>
       </div>
-    </footer>
+    </motion.section>
   )
 }

@@ -36,9 +36,9 @@ export default function CosmicBackground() {
 
   if (isAgentView) return null
 
-  // On Home, Earth is heroically placed at the center bottom; on content pages it sits cleanly as the horizon rim
-  const earthBaseY = isHome ? 50 : 75
-  const earthScrollMultiplier = isHome ? 0.22 : 0.08
+  // On Home, Earth is heroically placed at the center bottom fold; on content pages it sits cleanly as a subtle distant horizon rim
+  const earthBaseY = isHome ? 50 : 86
+  const earthScrollMultiplier = isHome ? 0.22 : 0.04
   const earthYOffset = earthBaseY + scrollY * earthScrollMultiplier
 
   return (
@@ -54,8 +54,8 @@ export default function CosmicBackground() {
 
       {/* Atmospheric space nebula glows - strictly Cyan, Electric Sky & Deep Indigo (Zero Orange) */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_50%_30%,rgba(37,99,235,0.18),rgba(10,15,25,0.4)_65%,transparent_85%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_95%_65%_at_50%_100%,rgba(56,189,248,0.18),transparent_70%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_35%_at_50%_96%,rgba(14,165,233,0.08),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_95%_65%_at_50%_100%,rgba(56,189,248,0.15),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_35%_at_50%_96%,rgba(14,165,233,0.06),transparent_60%)]" />
 
       {/* Fixed global Starfield across all scroll views and pages */}
       <Starfield density={230} />
@@ -76,7 +76,9 @@ export default function CosmicBackground() {
 
       {/* Living Earth Globe - dynamically tuned so cards stay 100% visible and unwashed */}
       <div
-        className="absolute bottom-0 left-1/2 w-[clamp(540px,72vw,1120px)] -translate-x-1/2 transition-transform duration-500 ease-out"
+        className={`absolute bottom-0 left-1/2 w-[clamp(540px,72vw,1120px)] -translate-x-1/2 transition-all duration-700 ease-out ${
+          isHome ? 'opacity-100' : 'opacity-70'
+        }`}
         style={{
           transform: `translate(calc(-50% + ${mousePos.x * 0.25}px), ${earthYOffset}%)`,
         }}
@@ -89,8 +91,11 @@ export default function CosmicBackground() {
         />
       </div>
 
-      {/* Soft space vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_120%_100%_at_50%_45%,transparent_60%,rgba(5,5,8,0.7))]" />
+      {/* Soft space vignette & content contrast scrim */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_120%_100%_at_50%_45%,transparent_60%,rgba(5,5,8,0.75))]" />
+      {!isHome && (
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050508]/40 via-transparent to-[#050508]/80 pointer-events-none" />
+      )}
     </div>
   )
 }

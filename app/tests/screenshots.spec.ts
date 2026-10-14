@@ -42,6 +42,11 @@ test('Capture screenshots of all pages', async ({ page }) => {
   await page.waitForTimeout(1000)
   await page.screenshot({ path: path.join(ARTIFACT_DIR, 'screenshot_about.png') })
 
+  // 5b. Footer
+  await page.locator('#contact').scrollIntoViewIfNeeded()
+  await page.waitForTimeout(600)
+  await page.screenshot({ path: path.join(ARTIFACT_DIR, 'screenshot_footer.png') })
+
   // 6. Agent Page
   await page.goto('/agent')
   await page.waitForTimeout(2500)

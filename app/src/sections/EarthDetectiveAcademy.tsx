@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import {
   Award,
   ThermometerSnowflake,
@@ -153,7 +154,13 @@ export default function EarthDetectiveAcademy() {
   }
 
   return (
-    <section id="academy" className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
+    <motion.section
+      id="academy"
+      className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    >
       {/* Background glow */}
       <div className="pointer-events-none absolute right-1/4 top-1/3 h-[500px] w-[500px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.06),transparent_70%)] blur-[120px]" />
 
@@ -163,85 +170,85 @@ export default function EarthDetectiveAcademy() {
           <h2 className="font-display text-3xl tracking-wide text-white sm:text-5xl">
             EARTH DETECTIVE ACADEMY
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-white/60 max-w-2xl">
+          <p className="mt-2 text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed">
             Designed for students and aspiring space detectives. Solve 3 interactive planetary cases based on real NASA satellite datasets and earn your NASA Space Apps Detective Certification!
           </p>
         </div>
 
-        {/* Badges showcase */}
-        <div className="liquid-glass-card rounded-2xl p-2.5 flex items-center gap-2">
+        {/* Badges showcase with Apple Squircle styling */}
+        <div className="liquid-glass-card rounded-2xl p-3 flex items-center gap-3">
           <div className="text-right px-2 hidden sm:block">
             <div className="text-xs font-semibold text-white">Detective Badges</div>
-            <div className="text-[10px] text-white/50">
+            <div className="text-[10px] text-slate-400 font-mono">
               {Object.values(badges).filter(Boolean).length} of 4 Earned
             </div>
           </div>
           <div className="flex gap-2">
             <div
               title="Seasonal Sleuth Badge"
-              className={`h-10 w-10 rounded-xl flex items-center justify-center border transition-all ${
+              className={`apple-icon-badge h-10 w-10 flex-none ${
                 badges.mystery
-                  ? 'border-sky-400 bg-sky-500/20 text-sky-200 shadow-[0_0_15px_rgba(56,189,248,0.3)]'
-                  : 'border-white/10 bg-white/5 text-white/30'
+                  ? 'border-sky-400/50 bg-sky-500/20 text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.3)]'
+                  : 'text-white/30'
               }`}
             >
-              <Sun size={20} />
+              <Sun size={18} />
             </div>
             <div
               title="Wildfire Scout Badge"
-              className={`h-10 w-10 rounded-xl flex items-center justify-center border transition-all ${
+              className={`apple-icon-badge h-10 w-10 flex-none ${
                 badges.satellite
-                  ? 'border-rose-400 bg-rose-500/20 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.3)]'
-                  : 'border-white/10 bg-white/5 text-white/30'
+                  ? 'border-rose-400/50 bg-rose-500/20 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.3)]'
+                  : 'text-white/30'
               }`}
             >
-              <Flame size={20} />
+              <Flame size={18} />
             </div>
             <div
               title="Cryosphere Guardian Badge"
-              className={`h-10 w-10 rounded-xl flex items-center justify-center border transition-all ${
+              className={`apple-icon-badge h-10 w-10 flex-none ${
                 badges.albedo
-                  ? 'border-sky-400 bg-sky-500/20 text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.3)]'
-                  : 'border-white/10 bg-white/5 text-white/30'
+                  ? 'border-sky-400/50 bg-sky-500/20 text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.3)]'
+                  : 'text-white/30'
               }`}
             >
-              <ThermometerSnowflake size={20} />
+              <ThermometerSnowflake size={18} />
             </div>
             <div
               title="NASA Space Apps Certified Detective Badge"
-              className={`h-10 w-10 rounded-xl flex items-center justify-center border transition-all ${
+              className={`apple-icon-badge h-10 w-10 flex-none ${
                 badges.certified
-                  ? 'border-emerald-400 bg-emerald-500/20 text-emerald-300 shadow-[0_0_15px_rgba(52,211,153,0.3)]'
-                  : 'border-white/10 bg-white/5 text-white/30'
+                  ? 'border-emerald-400/50 bg-emerald-500/20 text-emerald-300 shadow-[0_0_15px_rgba(52,211,153,0.3)]'
+                  : 'text-white/30'
               }`}
             >
-              <Trophy size={20} />
+              <Trophy size={18} />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Game Tabs Navigation */}
+      {/* Game Tabs Navigation - Apple Liquid Glass Style */}
       <div className="mt-10 flex flex-wrap gap-2.5 sm:gap-3">
         <button
           onClick={() => setActiveGame('mystery')}
-          className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border ${
+          className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'mystery'
-              ? 'border-sky-400/60 bg-sky-500/15 text-sky-200 shadow-[0_0_20px_rgba(56,189,248,0.2)]'
-              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
+              ? 'border-white/30 bg-white/[0.09] text-white shadow-[0_4px_24px_rgba(0,0,0,0.6)]'
+              : 'border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.07] hover:text-white'
           }`}
         >
-          <Sun size={16} className="text-sky-300" />
+          <Sun size={16} className="text-sky-400" />
           <span>Game 1: The Late-Monsoon Mystery</span>
           {badges.mystery && <Check size={14} className="text-emerald-400" />}
         </button>
 
         <button
           onClick={() => setActiveGame('satellite')}
-          className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border ${
+          className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'satellite'
-              ? 'border-rose-400/60 bg-rose-500/15 text-rose-200 shadow-[0_0_20px_rgba(244,63,94,0.2)]'
-              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
+              ? 'border-white/30 bg-white/[0.09] text-white shadow-[0_4px_24px_rgba(0,0,0,0.6)]'
+              : 'border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.07] hover:text-white'
           }`}
         >
           <Flame size={16} className="text-rose-400" />
@@ -251,10 +258,10 @@ export default function EarthDetectiveAcademy() {
 
         <button
           onClick={() => setActiveGame('albedo')}
-          className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border ${
+          className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'albedo'
-              ? 'border-sky-400/60 bg-sky-500/15 text-sky-200 shadow-[0_0_20px_rgba(56,189,248,0.2)]'
-              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
+              ? 'border-white/30 bg-white/[0.09] text-white shadow-[0_4px_24px_rgba(0,0,0,0.6)]'
+              : 'border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.07] hover:text-white'
           }`}
         >
           <ThermometerSnowflake size={16} className="text-sky-400" />
@@ -264,10 +271,10 @@ export default function EarthDetectiveAcademy() {
 
         <button
           onClick={() => setActiveGame('quiz')}
-          className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border ${
+          className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'quiz'
-              ? 'border-emerald-400/60 bg-emerald-500/15 text-emerald-200 shadow-[0_0_20px_rgba(52,211,153,0.2)]'
-              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
+              ? 'border-white/30 bg-white/[0.09] text-white shadow-[0_4px_24px_rgba(0,0,0,0.6)]'
+              : 'border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.07] hover:text-white'
           }`}
         >
           <Award size={16} className="text-emerald-400" />
@@ -767,6 +774,6 @@ export default function EarthDetectiveAcademy() {
           </div>
         </DialogContent>
       </Dialog>
-    </section>
+    </motion.section>
   )
 }

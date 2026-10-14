@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   FileText,
   ExternalLink,
@@ -45,7 +46,7 @@ const DOSSIERS: CaseDossier[] = [
     ],
     satelliteSources: ['NASA GSFC GMAO MERRA-2', 'NASA POWER API v2.10', 'NASA EOSDIS'],
     status: 'CRITICAL',
-    folderColor: '#38bdf8',
+    folderColor: '#0284c7',
     tag: 'Core Discovery',
     image: `${import.meta.env.BASE_URL}data/climate/bangladesh_t2m_trend_map.png`
   },
@@ -66,7 +67,7 @@ const DOSSIERS: CaseDossier[] = [
     ],
     satelliteSources: ['MODIS Terra/Aqua', 'VIIRS Suomi-NPP', 'NASA FIRMS', 'EOSDIS Worldview'],
     status: 'VERIFIED',
-    folderColor: '#34d399',
+    folderColor: '#0284c7',
     tag: 'Earth Observation'
   },
   {
@@ -86,7 +87,7 @@ const DOSSIERS: CaseDossier[] = [
     ],
     satelliteSources: ['Sentinel-3 Altimetry', 'NOAA Coral Reef Watch SST', 'Natural Earth'],
     status: 'MONITORING',
-    folderColor: '#818cf8',
+    folderColor: '#0284c7',
     tag: 'Climate Impact',
     image: `${import.meta.env.BASE_URL}data/climate/dhaka_t2m_trend_analysis.png`
   },
@@ -107,7 +108,7 @@ const DOSSIERS: CaseDossier[] = [
     ],
     satelliteSources: ['CesiumJS Engine', 'NASA EOSDIS GIBS', 'NASA FIRMS API'],
     status: 'VERIFIED',
-    folderColor: '#22d3ee',
+    folderColor: '#0284c7',
     tag: '3D Agent Core'
   }
 ]
@@ -138,7 +139,13 @@ export default function FolderDossiers() {
   ]
 
   return (
-    <section id="dossiers" className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
+    <motion.section
+      id="dossiers"
+      className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    >
       {/* Background radial accent */}
       <div className="pointer-events-none absolute left-1/2 top-1/4 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.06),transparent_70%)]" />
 
@@ -148,25 +155,25 @@ export default function FolderDossiers() {
           <h2 className="font-display text-3xl tracking-wide text-white sm:text-5xl">
             INTELLIGENCE DOSSIERS
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-white/60 max-w-2xl">
+          <p className="mt-2 text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed">
             Classified case files investigating planetary system anomalies. Click the interactive 3D folder below to pull out evidence sheets or select a dossier from the mission archive.
           </p>
         </div>
 
-        {/* Quick dossier stats */}
+        {/* Quick dossier stats with Apple spring physics */}
         <div className="flex items-center gap-3">
-          <div className="liquid-glass-card rounded-2xl px-5 py-3 text-center">
+          <motion.div whileHover={{ y: -3, scale: 1.02 }} className="liquid-glass-card rounded-2xl px-5 py-3 text-center">
             <div className="text-xl font-bold font-mono text-white">34</div>
-            <div className="text-[10px] text-white/50 tracking-wider uppercase font-mono">Grid Cells</div>
-          </div>
-          <div className="liquid-glass-card rounded-2xl px-5 py-3 text-center">
+            <div className="text-[10px] text-slate-400 tracking-wider uppercase font-mono">Grid Cells</div>
+          </motion.div>
+          <motion.div whileHover={{ y: -3, scale: 1.02 }} className="liquid-glass-card rounded-2xl px-5 py-3 text-center">
             <div className="text-xl font-bold font-mono text-[#38bdf8]">+0.40°</div>
-            <div className="text-[10px] text-white/50 tracking-wider uppercase font-mono">Barisal Rate</div>
-          </div>
-          <div className="liquid-glass-card rounded-2xl px-5 py-3 text-center">
+            <div className="text-[10px] text-slate-400 tracking-wider uppercase font-mono">Barisal Rate</div>
+          </motion.div>
+          <motion.div whileHover={{ y: -3, scale: 1.02 }} className="liquid-glass-card rounded-2xl px-5 py-3 text-center">
             <div className="text-xl font-bold font-mono text-white">99.9%</div>
-            <div className="text-[10px] text-white/50 tracking-wider uppercase font-mono">FDR Conf.</div>
-          </div>
+            <div className="text-[10px] text-slate-400 tracking-wider uppercase font-mono">FDR Conf.</div>
+          </motion.div>
         </div>
       </div>
 
@@ -176,10 +183,10 @@ export default function FolderDossiers() {
         <div className="lg:col-span-5 flex flex-col items-center">
           <div className="liquid-glass-card relative w-full rounded-3xl p-8 text-center">
             <div className="flex items-center justify-between mb-6">
-              <span className="text-xs font-mono text-white/70 tracking-wider">
+              <span className="text-xs font-mono text-slate-300 tracking-wider">
                 ORBITAL INTELLIGENCE ARCHIVE
               </span>
-              <span className="rounded-full border border-white/12 bg-white/5 px-2.5 py-0.5 text-white/80 font-mono text-[10px]">
+              <span className="rounded-full border border-white/15 bg-white/5 px-2.5 py-0.5 text-slate-200 font-mono text-[10px]">
                 Interactive Dossier
               </span>
             </div>
@@ -188,7 +195,7 @@ export default function FolderDossiers() {
             <div className="flex justify-center items-center py-6 min-h-[300px]">
               <Folder
                 label="NASA TREND EVIDENCE"
-                color={selectedCase.folderColor}
+                color="#0284c7"
                 mode="flap"
                 variant="glass"
                 size={1.15}
@@ -204,7 +211,7 @@ export default function FolderDossiers() {
               />
             </div>
 
-            <div className="mt-4 pt-4 border-t border-white/10 text-xs text-white/60">
+            <div className="mt-4 pt-4 border-t border-white/10 text-xs text-slate-400 font-mono">
               <p className="flex items-center justify-center gap-2">
                 <Info size={14} className="text-sky-400" />
                 <span>Click folder to open · Drag sheets out · Click any sheet to zoom</span>
@@ -212,7 +219,7 @@ export default function FolderDossiers() {
             </div>
           </div>
 
-          {/* Folder Tabs Selector */}
+          {/* Folder Tabs Selector - Unified Apple Liquid Glass Buttons (No Rainbows) */}
           <div className="w-full mt-6 space-y-2.5">
             {DOSSIERS.map((dossier) => {
               const isSelected = selectedCase.id === dossier.id
@@ -220,23 +227,20 @@ export default function FolderDossiers() {
                 <button
                   key={dossier.id}
                   onClick={() => setSelectedCase(dossier)}
-                  className={`liquid-glass-card w-full text-left rounded-2xl p-4 transition-all flex items-center justify-between ${
+                  className={`liquid-glass-card w-full text-left rounded-2xl p-4 transition-all flex items-center justify-between cursor-pointer ${
                     isSelected
-                      ? 'border-[#38bdf8]/60 bg-sky-500/10 shadow-[0_0_24px_rgba(56,189,248,0.2)]'
-                      : 'hover:border-white/25'
+                      ? 'border-white/30 bg-white/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.6)]'
+                      : 'hover:border-white/20 hover:bg-white/[0.03]'
                   }`}
                 >
                   <div className="flex items-center gap-3.5">
-                    <div
-                      className="h-9 w-9 rounded-xl flex items-center justify-center text-white"
-                      style={{ backgroundColor: `${dossier.folderColor}22`, borderColor: dossier.folderColor, borderWidth: 1 }}
-                    >
-                      <FileText size={18} style={{ color: dossier.folderColor }} />
+                    <div className="apple-icon-badge h-9 w-9 flex-none text-sky-400">
+                      <FileText size={16} />
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-mono text-xs text-white/50">{dossier.caseNumber}</span>
-                        <span className="text-[10px] rounded-full px-2 py-0.5 border border-white/10 bg-white/5 text-white/70 font-mono">
+                        <span className="font-mono text-xs text-slate-400">{dossier.caseNumber}</span>
+                        <span className="text-[10px] rounded-full px-2 py-0.5 border border-white/10 bg-white/5 text-slate-300 font-mono">
                           {dossier.tag}
                         </span>
                       </div>
@@ -246,10 +250,10 @@ export default function FolderDossiers() {
                   <span
                     className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${
                       dossier.status === 'CRITICAL'
-                        ? 'border-rose-500/40 text-rose-300 bg-rose-500/10'
+                        ? 'border-rose-500/30 text-rose-300 bg-rose-500/10'
                         : dossier.status === 'VERIFIED'
-                        ? 'border-emerald-500/40 text-emerald-300 bg-emerald-500/10'
-                        : 'border-indigo-500/40 text-indigo-300 bg-indigo-500/10'
+                        ? 'border-emerald-500/30 text-emerald-300 bg-emerald-500/10'
+                        : 'border-sky-500/30 text-sky-300 bg-sky-500/10'
                     }`}
                   >
                     {dossier.status}
@@ -262,118 +266,127 @@ export default function FolderDossiers() {
 
         {/* Right Column: Active Dossier Deep-Dive Evidence Card */}
         <div className="lg:col-span-7">
-          <div className="liquid-glass-card rounded-3xl p-8 sm:p-10">
-            {/* Header info */}
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-6">
-              <div>
-                <span className="font-mono text-xs tracking-wider text-sky-400">
-                  {selectedCase.caseNumber} · {selectedCase.classification}
-                </span>
-                <h3 className="font-display text-2xl sm:text-3xl text-white mt-1">
-                  {selectedCase.title}
-                </h3>
-                <p className="text-sm font-serif-it text-white/70 mt-1">
-                  {selectedCase.subtitle}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedCase.id}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="liquid-glass-card rounded-3xl p-8 sm:p-10"
+            >
+              {/* Header info */}
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-6">
+                <div>
+                  <span className="font-mono text-xs tracking-wider text-sky-400">
+                    {selectedCase.caseNumber} · {selectedCase.classification}
+                  </span>
+                  <h3 className="font-display text-2xl sm:text-3xl text-white mt-1">
+                    {selectedCase.title}
+                  </h3>
+                  <p className="text-sm font-serif-it text-slate-300 mt-1">
+                    {selectedCase.subtitle}
+                  </p>
+                </div>
+
+                <div className="text-right">
+                  <span className="text-xs text-slate-400 block font-mono">Time Horizon</span>
+                  <span className="font-mono text-sm font-semibold text-white">
+                    {selectedCase.dateRange}
+                  </span>
+                </div>
+              </div>
+
+              {/* Scientific Summary */}
+              <div className="mt-6">
+                <h4 className="text-xs font-mono uppercase tracking-widest text-sky-400 mb-2 font-semibold">
+                  Executive Investigation Summary
+                </h4>
+                <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-normal">
+                  {selectedCase.summary}
                 </p>
               </div>
 
-              <div className="text-right">
-                <span className="text-xs text-white/50 block">Time Horizon</span>
-                <span className="font-mono text-sm font-semibold text-white">
-                  {selectedCase.dateRange}
-                </span>
+              {/* Key Findings List */}
+              <div className="mt-6 rounded-2xl border border-white/12 bg-white/[0.04] backdrop-blur-md p-5">
+                <h4 className="text-xs font-mono uppercase tracking-widest text-sky-400 mb-3 flex items-center gap-2 font-semibold">
+                  <CheckCircle2 size={15} className="text-emerald-400" />
+                  Verified Statistical Evidence
+                </h4>
+                <ul className="space-y-2.5">
+                  {selectedCase.keyFindings.map((finding, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200">
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-sky-400 flex-none" />
+                      <span className="leading-relaxed">{finding}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
 
-            {/* Scientific Summary */}
-            <div className="mt-6">
-              <h4 className="text-xs font-mono uppercase tracking-widest text-sky-300 mb-2">
-                Executive Investigation Summary
-              </h4>
-              <p className="text-sm sm:text-base leading-relaxed text-white/80 font-normal">
-                {selectedCase.summary}
-              </p>
-            </div>
-
-            {/* Key Findings List */}
-            <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-5">
-              <h4 className="text-xs font-mono uppercase tracking-widest text-sky-300 mb-3 flex items-center gap-2">
-                <CheckCircle2 size={14} className="text-emerald-400" />
-                Verified Statistical Evidence
-              </h4>
-              <ul className="space-y-2.5">
-                {selectedCase.keyFindings.map((finding, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-white/85">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-400 flex-none" />
-                    <span>{finding}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Scientific Figures / Map Preview if available */}
-            {selectedCase.image && (
-              <div className="mt-6">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-mono text-white/60">
-                    NASA Spatial Trend Analysis Map
-                  </span>
-                  <button
+              {/* Scientific Figures / Map Preview if available */}
+              {selectedCase.image && (
+                <div className="mt-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-mono text-slate-300">
+                      NASA Spatial Trend Analysis Map
+                    </span>
+                    <button
+                      onClick={() => {
+                        setPreviewImage(selectedCase.image!)
+                        setDialogOpen(true)
+                      }}
+                      className="text-xs text-sky-400 hover:text-sky-300 flex items-center gap-1 font-medium transition-colors cursor-pointer"
+                    >
+                      <span>Enlarge Full Resolution</span>
+                      <ExternalLink size={12} />
+                    </button>
+                  </div>
+                  <div
                     onClick={() => {
                       setPreviewImage(selectedCase.image!)
                       setDialogOpen(true)
                     }}
-                    className="text-xs text-sky-400 hover:text-sky-300 flex items-center gap-1 font-medium transition-colors"
+                    className="group relative cursor-pointer overflow-hidden rounded-2xl border border-white/15 bg-black/50 transition-all hover:border-sky-400/80"
                   >
-                    <span>Enlarge Full Resolution</span>
-                    <ExternalLink size={12} />
-                  </button>
-                </div>
-                <div
-                  onClick={() => {
-                    setPreviewImage(selectedCase.image!)
-                    setDialogOpen(true)
-                  }}
-                  className="group relative cursor-pointer overflow-hidden rounded-2xl border border-white/15 bg-black/40 transition-all hover:border-sky-400"
-                >
-                  <img
-                    src={selectedCase.image}
-                    alt={selectedCase.title}
-                    className="h-48 sm:h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-                    <span className="text-xs text-white/90 font-mono">
-                      Generated via Mann-Kendall + Theil-Sen Analysis (analysis/trend_analysis.py)
-                    </span>
+                    <img
+                      src={selectedCase.image}
+                      alt={selectedCase.title}
+                      className="h-48 sm:h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-4">
+                      <span className="text-xs text-slate-200 font-mono">
+                        Generated via Mann-Kendall + Theil-Sen Analysis (analysis/trend_analysis.py)
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Satellite Providers Bar */}
-            <div className="mt-6 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs text-white/50 mr-1">NASA Providers:</span>
-                {selectedCase.satelliteSources.map((source) => (
-                  <Badge
-                    key={source}
-                    variant="secondary"
-                    className="bg-sky-500/10 text-sky-300 border-sky-400/30 text-[11px]"
-                  >
-                    {source}
-                  </Badge>
-                ))}
-              </div>
+              {/* Satellite Providers Bar */}
+              <div className="mt-6 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs text-slate-400 mr-1 font-mono">NASA Providers:</span>
+                  {selectedCase.satelliteSources.map((source) => (
+                    <Badge
+                      key={source}
+                      variant="secondary"
+                      className="bg-sky-500/10 text-sky-300 border-sky-400/30 text-[11px] font-mono"
+                    >
+                      {source}
+                    </Badge>
+                  ))}
+                </div>
 
-              <a
-                href="#cockpit"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors"
-              >
-                <span>Query In 3D Agent</span>
-                <TrendingUp size={14} />
-              </a>
-            </div>
-          </div>
+                <a
+                  href="#cockpit"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors"
+                >
+                  <span>Query In 3D Agent</span>
+                  <TrendingUp size={14} />
+                </a>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
 
@@ -399,6 +412,6 @@ export default function FolderDossiers() {
           )}
         </DialogContent>
       </Dialog>
-    </section>
+    </motion.section>
   )
 }

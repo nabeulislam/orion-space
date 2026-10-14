@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   Terminal,
   Send
@@ -100,7 +101,13 @@ export default function AgentCockpit() {
   }
 
   return (
-    <section id="cockpit" className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
+    <motion.section
+      id="cockpit"
+      className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    >
       {/* Background glow */}
       <div className="pointer-events-none absolute left-1/3 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.06),transparent_70%)] blur-[140px]" />
 
@@ -110,7 +117,7 @@ export default function AgentCockpit() {
           <h2 className="font-display text-3xl tracking-wide text-white sm:text-5xl">
             AGENT INTELLIGENCE COCKPIT
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-white/60 max-w-2xl">
+          <p className="mt-2 text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed">
             Ask the Orion Space agent natural language questions about climate trends, satellite imagery, or examine the 25-year statistical proof below.
           </p>
         </div>
@@ -136,14 +143,14 @@ export default function AgentCockpit() {
                   ORION AGENT HARNESS TERMINAL
                 </span>
               </div>
-              <Badge variant="outline" className="border-sky-400/30 text-sky-300 text-[10px]">
+              <Badge variant="outline" className="border-sky-400/30 text-sky-300 text-[10px] font-mono">
                 Autonomous Query
               </Badge>
             </div>
 
-            {/* Quick Queries Buttons */}
+            {/* Quick Queries Buttons - Apple Liquid Glass Style */}
             <div className="space-y-2 mb-6">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-white/50 block">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block">
                 Quick Judge Inquiries:
               </span>
               <div className="flex flex-col gap-2">
@@ -151,10 +158,10 @@ export default function AgentCockpit() {
                   <button
                     key={idx}
                     onClick={() => setActiveQuery(q)}
-                    className={`w-full text-left rounded-xl p-3 text-xs transition-all border ${
+                    className={`w-full text-left rounded-xl p-3 text-xs transition-all border cursor-pointer ${
                       activeQuery.question === q.question
-                        ? 'border-[#38bdf8]/50 bg-sky-500/10 text-sky-200 font-semibold shadow-[0_0_20px_rgba(56,189,248,0.15)]'
-                        : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.07] hover:text-white'
+                        ? 'border-white/30 bg-white/[0.09] text-white font-medium shadow-[0_4px_16px_rgba(0,0,0,0.5)]'
+                        : 'border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.07] hover:text-white'
                     }`}
                   >
                     <span className="font-mono text-sky-400 mr-1.5">&gt;</span>
@@ -164,30 +171,39 @@ export default function AgentCockpit() {
               </div>
             </div>
 
-            {/* Agent Live Response Box */}
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-5 space-y-3 font-mono text-xs shadow-inner">
-              <div className="flex items-center justify-between text-[11px] text-white/40 border-b border-white/10 pb-2">
-                <span className="text-[#38bdf8] font-bold">ORION AGENT OUTPUT:</span>
-                <span>{activeQuery.confidence}</span>
-              </div>
-
-              <p className="text-white/90 leading-relaxed font-sans text-xs sm:text-sm">
-                {activeQuery.response}
-              </p>
-
-              {activeQuery.coordinates && (
-                <div className="flex items-center gap-2 pt-2 text-[11px] text-[#38bdf8] font-mono">
-                  <span className="text-white/40">FOCUSED COORD:</span>
-                  <span className="bg-sky-500/10 px-2 py-0.5 rounded border border-sky-400/30">
-                    {activeQuery.coordinates}
-                  </span>
+            {/* Agent Live Response Box with AnimatePresence */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeQuery.question}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.25 }}
+                className="rounded-2xl border border-white/12 bg-white/[0.04] backdrop-blur-md p-5 space-y-3 font-mono text-xs shadow-inner"
+              >
+                <div className="flex items-center justify-between text-[11px] text-slate-400 border-b border-white/10 pb-2">
+                  <span className="text-sky-400 font-bold">ORION AGENT OUTPUT:</span>
+                  <span>{activeQuery.confidence}</span>
                 </div>
-              )}
 
-              <div className="pt-2 text-[10px] text-white/40 border-t border-white/10">
-                DATASET PROVENANCE: {activeQuery.source}
-              </div>
-            </div>
+                <p className="text-slate-100 leading-relaxed font-sans text-xs sm:text-sm">
+                  {activeQuery.response}
+                </p>
+
+                {activeQuery.coordinates && (
+                  <div className="flex items-center gap-2 pt-2 text-[11px] text-sky-400 font-mono">
+                    <span className="text-slate-400">FOCUSED COORD:</span>
+                    <span className="bg-sky-500/10 px-2 py-0.5 rounded border border-sky-400/30">
+                      {activeQuery.coordinates}
+                    </span>
+                  </div>
+                )}
+
+                <div className="pt-2 text-[10px] text-slate-400 border-t border-white/10">
+                  DATASET PROVENANCE: {activeQuery.source}
+                </div>
+              </motion.div>
+            </AnimatePresence>
 
             {/* Input Form */}
             <form onSubmit={handleCustomSubmit} className="mt-5 flex gap-2">
@@ -196,11 +212,11 @@ export default function AgentCockpit() {
                 value={customInput}
                 onChange={(e) => setCustomInput(e.target.value)}
                 placeholder="Ask Orion Space Agent about climate data..."
-                className="flex-1 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-2.5 text-xs text-white placeholder:text-white/40 focus:border-[#38bdf8] focus:outline-none transition-colors"
+                className="flex-1 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-2.5 text-xs text-white placeholder:text-slate-400 focus:border-sky-400 focus:outline-none transition-colors"
               />
               <button
                 type="submit"
-                className="liquid-glass-pill rounded-xl px-5 py-2.5 text-xs font-medium text-white flex items-center gap-1.5 shadow-[0_0_15px_rgba(56,189,248,0.2)]"
+                className="liquid-glass-pill rounded-xl px-5 py-2.5 text-xs font-medium text-white flex items-center gap-1.5 shadow-[0_0_15px_rgba(56,189,248,0.2)] cursor-pointer"
               >
                 <span>Query</span>
                 <Send size={13} />
@@ -336,6 +352,6 @@ export default function AgentCockpit() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }

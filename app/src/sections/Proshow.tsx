@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router'
 import { ArrowUpRight, Orbit, Layers, ScanLine, Radio } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
@@ -27,9 +28,16 @@ const FEATURES = [
 
 export default function Proshow() {
   return (
-    <section id="immersive-showcase" className="relative overflow-hidden py-32 border-t border-white/10 bg-transparent">
+    <motion.section
+      id="immersive-showcase"
+      className="relative overflow-hidden py-32 border-t border-white/10 bg-transparent"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
       <div className="relative mx-auto max-w-5xl px-6 text-center sm:px-10">
-        <h2 className="font-display text-4xl sm:text-7xl leading-tight tracking-wide text-white">
+        <h2 className="font-display text-4xl sm:text-7xl leading-tight tracking-wide text-slate-100">
           IMMERSIVE 3D AGENT
         </h2>
 
@@ -40,22 +48,25 @@ export default function Proshow() {
         {/* Clean Liquid Glass Cards Grid */}
         <div className="mt-14 grid gap-5 sm:grid-cols-2 md:grid-cols-4 text-left">
           {FEATURES.map((feat) => (
-            <Card
+            <motion.div
               key={feat.title}
-              className="liquid-glass-card rounded-2xl p-5 group flex flex-col justify-between"
+              whileHover={{ y: -4, transition: { duration: 0.25, ease: 'easeOut' } }}
+              className="h-full"
             >
-              <CardHeader className="p-0">
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/90">
-                  <feat.icon size={18} strokeWidth={1.5} />
-                </div>
-                <CardTitle className="mt-4 text-sm font-medium text-white tracking-wide">
-                  {feat.title}
-                </CardTitle>
-                <CardDescription className="mt-1.5 text-xs leading-relaxed text-white/60 font-normal">
-                  {feat.desc}
-                </CardDescription>
-              </CardHeader>
-            </Card>
+              <Card className="liquid-glass-card rounded-2xl p-5 group flex flex-col justify-between h-full">
+                <CardHeader className="p-0">
+                  <div className="apple-icon-badge h-10 w-10 text-sky-400">
+                    <feat.icon size={18} strokeWidth={1.5} />
+                  </div>
+                  <CardTitle className="mt-4 text-sm font-medium text-white tracking-wide">
+                    {feat.title}
+                  </CardTitle>
+                  <CardDescription className="mt-1.5 text-xs leading-relaxed text-slate-300 font-normal">
+                    {feat.desc}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
@@ -79,7 +90,7 @@ export default function Proshow() {
           </Link>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 
