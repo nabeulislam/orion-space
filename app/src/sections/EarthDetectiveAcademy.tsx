@@ -9,14 +9,19 @@ import {
   Check,
   RotateCcw,
   Trophy,
-  AlertTriangle
+  AlertTriangle,
+  Gamepad2,
+  Sparkles
 } from 'lucide-react'
 import confetti from 'canvas-confetti'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
+import PixelTransition from '@/components/ui/PixelTransition'
+import PixelArcadeGame from '@/components/PixelArcadeGame'
 
-export default function EarthDetectiveAcademy() {
+export default function EarthDetectiveAcademy({ onLaunch2dMode }: { onLaunch2dMode?: () => void } = {}) {
+  const [isPixelVibeMode, setIsPixelVibeMode] = useState(false)
   const [activeGame, setActiveGame] = useState<'mystery' | 'satellite' | 'albedo' | 'quiz'>('mystery')
 
   // Game 1: Monsoon Mystery State
@@ -231,7 +236,7 @@ export default function EarthDetectiveAcademy() {
       {/* Game Tabs Navigation */}
       <div className="mt-10 flex flex-wrap gap-2.5 sm:gap-3">
         <button
-          onClick={() => setActiveGame('mystery')}
+          onClick={() => { setActiveGame('mystery'); setIsPixelVibeMode(false); }}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'mystery'
               ? 'border-sky-400/60 bg-sky-500/15 text-sky-200 shadow-[0_0_20px_rgba(56,189,248,0.2)]'
@@ -244,7 +249,7 @@ export default function EarthDetectiveAcademy() {
         </button>
 
         <button
-          onClick={() => setActiveGame('satellite')}
+          onClick={() => { setActiveGame('satellite'); setIsPixelVibeMode(false); }}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'satellite'
               ? 'border-rose-400/60 bg-rose-500/15 text-rose-200 shadow-[0_0_20px_rgba(244,63,94,0.2)]'
@@ -257,7 +262,7 @@ export default function EarthDetectiveAcademy() {
         </button>
 
         <button
-          onClick={() => setActiveGame('albedo')}
+          onClick={() => { setActiveGame('albedo'); setIsPixelVibeMode(false); }}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'albedo'
               ? 'border-sky-400/60 bg-sky-500/15 text-sky-200 shadow-[0_0_20px_rgba(56,189,248,0.2)]'
@@ -270,7 +275,7 @@ export default function EarthDetectiveAcademy() {
         </button>
 
         <button
-          onClick={() => setActiveGame('quiz')}
+          onClick={() => { setActiveGame('quiz'); setIsPixelVibeMode(false); }}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'quiz'
               ? 'border-emerald-400/60 bg-emerald-500/15 text-emerald-200 shadow-[0_0_20px_rgba(52,211,153,0.2)]'
@@ -281,9 +286,39 @@ export default function EarthDetectiveAcademy() {
           <span>Final Exam: Detective Certification</span>
           {badges.certified && <Check size={14} className="text-emerald-400" />}
         </button>
+
+        <button
+          onClick={() => { if (onLaunch2dMode) onLaunch2dMode(); else setIsPixelVibeMode(true); }}
+          className={`flex items-center gap-2 rounded-2xl px-6 py-3 text-xs sm:text-sm font-bold transition-all border cursor-pointer ${
+            isPixelVibeMode
+              ? 'border-emerald-400 bg-emerald-500/25 text-emerald-200 shadow-[0_0_30px_rgba(52,211,153,0.4)] scale-105'
+              : 'border-sky-400/40 bg-sky-500/10 text-sky-200 hover:bg-sky-500/20 shadow-[0_0_15px_rgba(56,189,248,0.2)]'
+          }`}
+        >
+          <Gamepad2 size={16} className="text-emerald-400 animate-pulse" />
+          <span>👾 2D Retro Arcade (Vibe Shift)</span>
+          <Sparkles size={14} className="text-sky-300" />
+        </button>
       </div>
 
-      {/* GAME 1: THE LATE-MONSOON MYSTERY */}
+      
+      {/* Dynamic Pixel Transition Vibe Shift Arena */}
+      <div className="mt-8 relative w-full h-[780px] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+        <PixelTransition
+          active={isPixelVibeMode}
+          onActiveChange={setIsPixelVibeMode}
+          trigger="manual"
+          gridSize={14}
+          pixelColor="#38bdf8"
+          animationStepDuration={0.35}
+          pattern="ripple"
+          pixelAnimation="grow"
+          aspectRatio=""
+          style={{ width: '100%', height: '100%' }}
+          className="w-full h-full"
+          firstContent={
+            <div className="w-full h-full overflow-y-auto p-2 sm:p-4 custom-scrollbar">
+              {/* GAME 1: THE LATE-MONSOON MYSTERY */}
       {activeGame === 'mystery' && (
         <div className="liquid-glass-card mt-8 rounded-3xl p-6 sm:p-10">
           <div className="grid gap-8 lg:grid-cols-12 items-center">
@@ -716,6 +751,15 @@ export default function EarthDetectiveAcademy() {
           )}
         </div>
       )}
+            </div>
+          }
+          secondContent={
+            <div className="w-full h-full overflow-y-auto p-2 sm:p-4 custom-scrollbar flex items-center justify-center">
+              <PixelArcadeGame onExitToLab={() => setIsPixelVibeMode(false)} />
+            </div>
+          }
+        />
+      </div>
 
       {/* Official Junior Detective License Dialog */}
       <Dialog open={licenseOpen} onOpenChange={setLicenseOpen}>

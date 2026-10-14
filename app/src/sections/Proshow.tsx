@@ -1,3 +1,5 @@
+import LatticeLoader from '@/components/ui/LatticeLoader'
+import MaskedHeading from '@/components/ui/MaskedHeading'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router'
 import { ArrowUpRight, Orbit, Layers, ScanLine, Radio } from 'lucide-react'
@@ -37,9 +39,19 @@ export default function Proshow() {
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       <div className="relative mx-auto max-w-5xl px-6 text-center sm:px-10">
-        <h2 className="font-display text-4xl sm:text-7xl leading-tight tracking-wide text-white">
-          IMMERSIVE 3D AGENT
-        </h2>
+        <div className="w-full flex justify-center py-2">
+          <MaskedHeading
+            text="IMMERSIVE 3D AGENT"
+            tag="h2"
+            mediaType="image"
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop"
+            fillScale={1.25}
+            parallax={24}
+            drift={14}
+            weight={900}
+            className="font-display text-4xl sm:text-7xl leading-tight tracking-wide text-white"
+          />
+        </div>
 
         <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-white/65 font-normal">
           CesiumJS planetary environment with high-resolution 3D Earth terrain, daily NASA GIBS cloud reflectance, live FIRMS thermal anomaly layers, and automated flight paths.
@@ -48,9 +60,8 @@ export default function Proshow() {
         {/* Clean Liquid Glass Cards Grid */}
         <div className="mt-14 grid gap-5 sm:grid-cols-2 md:grid-cols-4 text-left">
           {FEATURES.map((feat) => (
-            <motion.div
+            <div
               key={feat.title}
-              whileHover={{ y: -4, transition: { duration: 0.25, ease: 'easeOut' } }}
               className="h-full"
             >
               <Card className="liquid-glass-card rounded-2xl p-5 group flex flex-col justify-between h-full">
@@ -66,8 +77,31 @@ export default function Proshow() {
                   </CardDescription>
                 </CardHeader>
               </Card>
-            </motion.div>
+            </div>
           ))}
+        </div>
+
+                {/* React Bits LatticeLoader 3D Agent Status */}
+        <div className="mt-10 flex justify-center">
+          <div className="inline-flex items-center gap-3 rounded-full border border-sky-400/30 bg-sky-500/10 px-5 py-2.5 backdrop-blur-xl shadow-[0_0_20px_rgba(56,189,248,0.2)]">
+            <LatticeLoader
+              status="working"
+              label="3D PLANETARY TWIN"
+              pattern="orbit"
+              grid={3}
+              shape="round"
+              color="#38bdf8"
+              cellSize={6}
+              gap={2}
+              fontSize={12}
+              glow={true}
+              glowColor="rgba(56, 189, 248, 0.4)"
+              showTimer={false}
+            />
+            <span className="text-[11px] font-mono text-emerald-300 border-l border-white/10 pl-3">
+              CESIUM ENGINE READY
+            </span>
+          </div>
         </div>
 
         {/* Clean Action Cluster */}

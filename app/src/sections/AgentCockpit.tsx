@@ -1,3 +1,4 @@
+import { DecryptedText } from '@/components/ui/DecryptedText'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -15,6 +16,7 @@ import {
   Legend
 } from 'recharts'
 import { Badge } from '@/components/ui/badge'
+import TechText from '@/components/ui/TechText'
 
 // Actual MERRA-2 2001-2025 September vs Annual T2M Data Points for Barisal Coast Cell (22.5°N, 90.0°E)
 const CLIMATE_SERIES_DATA = [
@@ -112,6 +114,25 @@ export default function AgentCockpit() {
       <div className="pointer-events-none absolute left-1/3 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.06),transparent_70%)] blur-[140px]" />
 
       {/* Header */}
+            {/* Interactive React Bits TechText Wordmark */}
+      <div className="w-full h-[85px] sm:h-[110px] relative mb-6 rounded-2xl overflow-hidden bg-white/[0.02] border border-white/10">
+        <TechText
+          text="ORION TELEMETRY"
+          fontWeight={700}
+          fontSize={70}
+          color="#ffffff"
+          accentColor="#38bdf8"
+          dashLength={4}
+          dashGap={2}
+          specks={14}
+          sweep={true}
+          speed={0.8}
+          draggable={true}
+          selection={true}
+          labels={true}
+        />
+      </div>
+
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-white/10 pb-8">
         <div>
           <h2 className="font-display text-3xl tracking-wide text-white sm:text-5xl">
@@ -135,7 +156,7 @@ export default function AgentCockpit() {
       <div className="mt-12 grid gap-10 lg:grid-cols-12 items-start">
         {/* Left Column: Natural Language AI Agent Terminal */}
         <div className="lg:col-span-6 space-y-6">
-          <div className="liquid-glass-card rounded-3xl p-6 sm:p-8">
+          <div className="liquid-glass-cockpit rounded-3xl p-6 sm:p-8">
             <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
               <div className="flex items-center gap-2.5">
                 <Terminal size={18} className="text-[#38bdf8]" />
@@ -183,7 +204,7 @@ export default function AgentCockpit() {
               >
                 <div className="flex items-center justify-between text-[11px] text-white/40 border-b border-white/10 pb-2">
                   <span className="text-sky-400 font-bold">ORION AGENT OUTPUT:</span>
-                  <span>{activeQuery.confidence}</span>
+                  <span className="text-sky-300 font-mono"><DecryptedText text={activeQuery.confidence} speed={30} maxIterations={8} /></span>
                 </div>
 
                 <p className="text-white/90 leading-relaxed font-sans text-xs sm:text-sm">
@@ -193,9 +214,7 @@ export default function AgentCockpit() {
                 {activeQuery.coordinates && (
                   <div className="flex items-center gap-2 pt-2 text-[11px] text-sky-400 font-mono">
                     <span className="text-white/40">FOCUSED COORD:</span>
-                    <span className="bg-sky-500/10 px-2 py-0.5 rounded border border-sky-400/30">
-                      {activeQuery.coordinates}
-                    </span>
+                    <span className="bg-sky-500/10 px-2.5 py-0.5 rounded border border-sky-400/30 font-mono text-sky-200"><DecryptedText text={activeQuery.coordinates} speed={30} maxIterations={8} /></span>
                   </div>
                 )}
 
@@ -227,7 +246,7 @@ export default function AgentCockpit() {
 
         {/* Right Column: Recharts 25-Year Scientific Temperature Trend Chart */}
         <div className="lg:col-span-6 space-y-6">
-          <div className="liquid-glass-card rounded-3xl p-6 sm:p-8">
+          <div className="liquid-glass-cockpit rounded-3xl p-6 sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-5">
               <div>
                 <span className="font-mono text-xs font-semibold tracking-wider text-sky-400">

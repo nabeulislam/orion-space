@@ -1,3 +1,4 @@
+import LatticeLoader from '@/components/ui/LatticeLoader'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
 import { ArrowLeft, Maximize2, Minimize2, ExternalLink, Orbit, Sparkles, MessageSquare } from 'lucide-react'
@@ -129,6 +130,26 @@ export default function AgentPage() {
             <p className="mt-3 font-mono text-xs text-white/60 min-h-[20px]">
               {steps[loadStep]}
             </p>
+
+                        {/* React Bits LatticeLoader for 3D Agent Launch */}
+            <div className="mt-5 flex justify-center">
+              <LatticeLoader
+                status={loadStep >= steps.length - 1 ? 'done' : 'working'}
+                label="CONNECTING 3D ORBIT"
+                doneLabel="ORBITAL LINK ESTABLISHED"
+                pattern="orbit"
+                grid={4}
+                shape="round"
+                color="#38bdf8"
+                doneColor="#34d399"
+                cellSize={7}
+                gap={3}
+                fontSize={13}
+                glow={true}
+                glowColor="rgba(56, 189, 248, 0.4)"
+                showTimer={true}
+              />
+            </div>
 
             {/* Glowing progress bar */}
             <div className="mt-5 h-1 w-full rounded-full bg-white/10 overflow-hidden">

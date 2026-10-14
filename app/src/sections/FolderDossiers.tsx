@@ -1,3 +1,5 @@
+import MorphSlider from '@/components/ui/MorphSlider'
+import { Sparkles } from 'lucide-react'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -117,6 +119,7 @@ export default function FolderDossiers() {
   const [selectedCase, setSelectedCase] = useState<CaseDossier>(DOSSIERS[0])
   const [dialogOpen, setDialogOpen] = useState(false)
   const [previewImage, setPreviewImage] = useState<string | null>(null)
+  const [activeImageIdx, setActiveImageIdx] = useState<number>(0)
 
   // React Bits Folder interactive items
   const folderItems: FolderEntry[] = [
@@ -326,44 +329,122 @@ export default function FolderDossiers() {
                 </ul>
               </div>
 
-              {/* Scientific Figures / Map Preview if available */}
-              {selectedCase.image && (
-                <div className="mt-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-mono text-white/60">
-                      NASA Spatial Trend Analysis Map
-                    </span>
-                    <button
-                      onClick={() => {
-                        setPreviewImage(selectedCase.image!)
-                        setDialogOpen(true)
-                      }}
-                      className="text-xs text-sky-400 hover:text-sky-300 flex items-center gap-1 font-medium transition-colors cursor-pointer"
-                    >
-                      <span>Enlarge Full Resolution</span>
-                      <ExternalLink size={12} />
-                    </button>
+              {/* React Bits Interactive Image Select & Satellite Band Inspector */}
+              <div className="mt-8 border-t border-white/10 pt-6">
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-sky-400" />
+                    <h4 className="text-xs font-mono uppercase tracking-widest text-white font-semibold">
+                      Satellite Spectral Evidence Gallery
+                    </h4>
                   </div>
-                  <div
-                    onClick={() => {
-                      setPreviewImage(selectedCase.image!)
-                      setDialogOpen(true)
-                    }}
-                    className="group relative cursor-pointer overflow-hidden rounded-2xl border border-white/15 bg-black/40 transition-all hover:border-sky-400/80"
-                  >
-                    <img
-                      src={selectedCase.image}
-                      alt={selectedCase.title}
-                      className="h-48 sm:h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-                      <span className="text-xs text-white/90 font-mono">
-                        Generated via Mann-Kendall + Theil-Sen Analysis (analysis/trend_analysis.py)
-                      </span>
-                    </div>
-                  </div>
+                  <span className="text-[11px] font-mono text-white/50">
+                    Select band or figure below to inspect
+                  </span>
                 </div>
-              )}
+
+                {/* Selectable Thumbnail Chips */}
+                {(() => {
+                  const gallery = [
+                    {
+                      id: 'trend-map',
+                      title: 'Spatial Matrix Map',
+                      desc: '34-Cell Grid Mann-Kendall Trend',
+                      url: `${import.meta.env.BASE_URL}data/climate/bangladesh_t2m_trend_map.png`,
+                      tag: 'MERRA-2 T2M'
+                    },
+                    {
+                      id: 'timeseries',
+                      title: '25-Year Time Series',
+                      desc: 'Theil-Sen Pairwise Median Slope',
+                      url: `${import.meta.env.BASE_URL}data/climate/dhaka_t2m_trend_analysis.png`,
+                      tag: '2001-2025'
+                    },
+                    {
+                      id: 'gibs-clouds',
+                      title: 'NASA EOSDIS Reflectance',
+                      desc: 'MODIS Terra/Aqua Daily Global Stream',
+                      url: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop',
+                      tag: 'GIBS WMTS'
+                    },
+                    {
+                      id: 'viirs-thermal',
+                      title: 'VIIRS 375m Thermal IR',
+                      desc: 'Active Hotspot Anomaly Radiance',
+                      url: 'https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1600&auto=format&fit=crop',
+                      tag: 'FIRMS SENSOR'
+                    }
+                  ];
+
+                  const currentImg = gallery[activeImageIdx] || gallery[0];
+
+                  return (
+                    <div className="space-y-4">
+                      {/* Image Select Buttons Row */}
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        {gallery.map((img, idx) => {
+                          const isSelected = activeImageIdx === idx;
+                          return (
+                            <button
+                              key={img.id}
+                              onClick={() => setActiveImageIdx(idx)}
+                              className={`rounded-xl p-2.5 text-left transition-all border cursor-pointer ${
+                                isSelected
+                                  ? 'border-sky-400 bg-sky-500/20 text-white shadow-[0_0_15px_rgba(56,189,248,0.25)]'
+                                  : 'border-white/10 bg-white/[0.02] text-white/60 hover:bg-white/[0.06] hover:text-white'
+                              }`}
+                            >
+                              <div className="text-[10px] font-mono text-sky-300 font-semibold mb-0.5">
+                                {img.tag}
+                              </div>
+                              <div className="text-xs font-semibold truncate text-white">
+                                {img.title}
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      {/* Active Image Viewer Card */}
+                      <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-black/50 shadow-2xl">
+                        <div className="relative h-56 sm:h-72 w-full overflow-hidden">
+                          <img
+                            src={currentImg.url}
+                            alt={currentImg.title}
+                            className="w-full h-full object-cover transition-opacity duration-300"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-5">
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <span className="inline-block rounded-full bg-sky-500/30 border border-sky-400/40 px-2.5 py-0.5 text-[10px] font-mono text-sky-200 mb-1">
+                                  {currentImg.tag}
+                                </span>
+                                <h5 className="text-sm sm:text-base font-bold text-white">
+                                  {currentImg.title}
+                                </h5>
+                                <p className="text-xs text-white/70 font-mono mt-0.5">
+                                  {currentImg.desc}
+                                </p>
+                              </div>
+
+                              <button
+                                onClick={() => {
+                                  setPreviewImage(currentImg.url);
+                                  setDialogOpen(true);
+                                }}
+                                className="liquid-glass-pill rounded-full px-4 py-2 text-xs font-semibold text-white flex items-center gap-1.5 shadow-[0_0_15px_rgba(56,189,248,0.3)] hover:scale-105 transition-all"
+                              >
+                                <span>Inspect Full Res</span>
+                                <ExternalLink size={12} />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
+              </div>
 
               {/* Satellite Providers Bar */}
               <div className="mt-6 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
@@ -390,6 +471,52 @@ export default function FolderDossiers() {
               </div>
             </motion.div>
           </AnimatePresence>
+        </div>
+      </div>
+
+            {/* React Bits WebGL MorphSlider: Multi-Spectral Satellite Spectral Laboratory */}
+      <div className="mt-16 liquid-glass-card rounded-3xl p-6 sm:p-10">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-white/10 pb-6 mb-8">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-500/10 px-3.5 py-1 text-xs font-mono text-sky-300 mb-2">
+              <Sparkles size={13} />
+              <span>REACT BITS WEBGL OGL SHADER MORPH SLIDER</span>
+            </div>
+            <h3 className="font-display text-2xl sm:text-3xl text-white">
+              Planetary Observation Sweeps
+            </h3>
+            <p className="text-xs sm:text-sm text-white/60 mt-1 max-w-xl">
+              Drag or use controls to morph between NASA true-color reflectance, VIIRS thermal infrared hotspots, and atmospheric reanalysis models using GPU displacement shaders.
+            </p>
+          </div>
+          <div className="text-xs font-mono text-white/40 flex items-center gap-2">
+            <span>OGL WebGL 2.0</span>
+            <span>·</span>
+            <span>Fluid Spring Physics</span>
+          </div>
+        </div>
+
+        <div className="w-full h-[420px] rounded-2xl overflow-hidden border border-white/10 relative shadow-2xl">
+          <MorphSlider
+            items={[
+              {
+                image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop',
+                caption: 'NASA MODIS Terra/Aqua True-Colour Satellite Reflectance'
+              },
+              {
+                image: 'https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1600&auto=format&fit=crop',
+                caption: 'NASA FIRMS VIIRS 375m Thermal Anomaly Infrared Sweeps'
+              },
+              {
+                image: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1600&auto=format&fit=crop',
+                caption: 'NASA MERRA-2 2-Metre Air Temperature Reanalysis Model'
+              },
+              {
+                image: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=1600&auto=format&fit=crop',
+                caption: 'Cryosphere Albedo & Deltaic Sea-Level Radar Altimetry'
+              }
+            ]}
+          />
         </div>
       </div>
 
