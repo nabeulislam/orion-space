@@ -12,14 +12,9 @@ test('Capture screenshots of all pages including React Bits components', async (
   await page.waitForTimeout(1000)
   await page.screenshot({ path: path.join(ARTIFACT_DIR, 'screenshot_home.png') })
 
-  // 1b. Home Page Scrolled (ScrollExpand & Glassmorphism Card Stack)
-  await page.evaluate(() => window.scrollTo({ top: 900, behavior: 'instant' }))
-  await page.waitForTimeout(600)
-  await page.screenshot({ path: path.join(ARTIFACT_DIR, 'screenshot_scroll_expand.png') })
-
-  await page.waitForSelector('h2:has-text("Earth System Trends")')
-  const trendsHeading = page.locator('h2:has-text("Earth System Trends")')
-  await trendsHeading.scrollIntoViewIfNeeded()
+  // 1b. Home Page Scrolled (FlipCards & MaskedHeading)
+  await page.locator('#games-preview').scrollIntoViewIfNeeded()
+  await page.waitForSelector('h2:has-text("EARTH DETECTIVE GAMES")')
   await page.waitForTimeout(600)
   await page.screenshot({ path: path.join(ARTIFACT_DIR, 'screenshot_home_scrolled.png') })
 

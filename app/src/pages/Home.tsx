@@ -1,14 +1,11 @@
 import Navbar from '@/sections/Navbar'
 import Hero from '@/sections/Hero'
-import GlassmorphismCardStack from '@/components/ui/GlassmorphismCardStack'
-import ScrollExpand from '@/components/ui/ScrollExpand'
+import Events from '@/sections/Events'
 import Proshow from '@/sections/Proshow'
 import Contact from '@/sections/Contact'
 import ScrollVelocity from '@/components/ui/ScrollVelocity'
 
 export default function Home() {
-  const heroImage = `${import.meta.env.BASE_URL}satellite_hero.png`
-
   return (
     <div className="min-h-screen bg-transparent text-white">
       <Navbar />
@@ -26,35 +23,7 @@ export default function Home() {
           parallaxClassName="text-2xl sm:text-4xl font-display font-light uppercase tracking-[0.22em] text-white/20"
         />
 
-        {/* React Bits ScrollExpand: Opens up as user scrolls to reveal satellite telemetry */}
-        <div className="relative my-12">
-          <ScrollExpand
-            src={heroImage}
-            alt="NASA satellite sensor fusion and telemetry sweep"
-            title="Every pixel, verified"
-            scrollHint="Scroll to expand view"
-            useWindowScroll
-            startWidth={48}
-            startHeight={56}
-            startRadius={28}
-            endRadius={0}
-            mediaZoom={1.35}
-            scrollDistance={1.4}
-            holdDistance={0.3}
-            smoothing={0.12}
-            overlayScrim={0.5}
-            enabled
-          >
-            <p className="text-sm sm:text-base text-white/75 max-w-xl text-center leading-relaxed font-normal mt-2">
-              The frame opens up smoothly as you scroll and hands the whole stage to 25 years of NASA satellite reanalysis and multispectral telemetry.
-            </p>
-          </ScrollExpand>
-        </div>
-
-        {/* Apple-grade Glassmorphism Card Stack with Stack and Carousel views */}
-        <GlassmorphismCardStack />
-
-        {/* 3D Autonomous Agent Launch with React Bits LatticeLoader */}
+        <Events />
         <Proshow />
       </main>
       <Contact />
