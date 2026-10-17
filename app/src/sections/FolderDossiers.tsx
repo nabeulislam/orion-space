@@ -13,7 +13,7 @@ import {
 } from 'lucide-react'
 import Folder, { type FolderEntry } from '@/components/ui/Folder'
 import { Badge } from '@/components/ui/badge'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
+import AppleSheet from '@/components/ui/AppleSheet'
 
 interface CaseDossier {
   id: string
@@ -526,28 +526,23 @@ export default function FolderDossiers() {
         </div>
       </div>
 
-      {/* Image Preview Modal */}
-      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="max-w-4xl border-white/15 bg-[#0a0a10]/95 text-white backdrop-blur-2xl">
-          <DialogHeader>
-            <DialogTitle className="font-display text-xl text-white">
-              {selectedCase.title} · Spatial Trend Map
-            </DialogTitle>
-            <DialogDescription className="text-white/60 text-xs">
-              NASA MERRA-2 25-Year Trend Matrix (2001–2025). 34 grid cells with Mann-Kendall & Theil-Sen slope verification.
-            </DialogDescription>
-          </DialogHeader>
-          {previewImage && (
-            <div className="mt-3 overflow-hidden rounded-xl border border-white/15 bg-black/60">
-              <img
-                src={previewImage}
-                alt="NASA Climate Analysis Figure"
-                className="w-full max-h-[70vh] object-contain"
-              />
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
+      {/* Image Preview Sheet */}
+      <AppleSheet
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        title={`${selectedCase.title} · Spatial Trend Map`}
+        description="NASA MERRA-2 25-Year Trend Matrix (2001–2025). 34 grid cells with Mann-Kendall & Theil-Sen slope verification."
+      >
+        {previewImage && (
+          <div className="mt-4 overflow-hidden rounded-2xl border border-white/15 bg-black/60 p-2 shadow-2xl">
+            <img
+              src={previewImage}
+              alt="NASA Climate Analysis Figure"
+              className="w-full max-h-[60vh] object-contain rounded-xl"
+            />
+          </div>
+        )}
+      </AppleSheet>
     </motion.section>
   )
 }

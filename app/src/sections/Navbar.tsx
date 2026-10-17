@@ -25,8 +25,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow,padding] duration-500 ${
-        scrolled ? 'frosted-nav py-3 sm:py-4' : 'py-5 sm:py-7 bg-transparent border-b border-transparent'
+      className={`fixed inset-x-0 top-0 z-50 transition-[padding,background-color,border-color,box-shadow] duration-300 frosted-nav ${
+        scrolled ? 'py-3.5 sm:py-4 bg-[#060608]/75' : 'py-4 sm:py-5 bg-[#060608]/45'
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-10">

@@ -16,7 +16,7 @@ import {
 import confetti from 'canvas-confetti'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
+import AppleSheet from '@/components/ui/AppleSheet'
 import PixelTransition from '@/components/ui/PixelTransition'
 import PixelArcadeGame from '@/components/PixelArcadeGame'
 
@@ -761,63 +761,61 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
         />
       </div>
 
-      {/* Official Junior Detective License Dialog */}
-      <Dialog open={licenseOpen} onOpenChange={setLicenseOpen}>
-        <DialogContent className="max-w-lg border-white/15 bg-[#0a0a10]/98 text-white backdrop-blur-2xl">
-          <DialogHeader>
-            <DialogTitle className="font-display text-xl text-orion flex items-center gap-2">
-              <Award size={22} />
-              NASA SPACE APPS 2026 OFFICIAL CERTIFICATE
-            </DialogTitle>
-            <DialogDescription className="text-white/60 text-xs">
-              Be An Earth System Trend Detective · Team Orion Space (Barisal, BD)
-            </DialogDescription>
-          </DialogHeader>
+      {/* Official Junior Detective License iOS Sheet */}
+      <AppleSheet
+        open={licenseOpen}
+        onOpenChange={setLicenseOpen}
+        title={
+          <span className="flex items-center gap-2 text-sky-400">
+            <Award size={22} />
+            NASA SPACE APPS 2026 OFFICIAL CERTIFICATE
+          </span>
+        }
+        description="Be An Earth System Trend Detective · Team Orion Space (Barisal, BD)"
+      >
+        {/* Printable License Card */}
+        <div className="mt-2 rounded-2xl border border-sky-400/40 bg-gradient-to-br from-[#0c182b] to-[#080d18] p-6 text-left relative overflow-hidden shadow-2xl">
+          <div className="absolute right-4 top-4 opacity-10">
+            <Trophy size={120} />
+          </div>
 
-          {/* Printable License Card */}
-          <div className="mt-4 rounded-2xl border border-orion/40 bg-gradient-to-br from-[#0c182b] to-[#080d18] p-6 text-left relative overflow-hidden shadow-2xl">
-            <div className="absolute right-4 top-4 opacity-10">
-              <Trophy size={120} />
+          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div>
+              <span className="text-[10px] font-mono uppercase tracking-widest text-sky-300">
+                Global Challenge Division
+              </span>
+              <h4 className="font-display text-lg text-white">ORION JUNIOR DETECTIVE</h4>
             </div>
+            <Badge className="bg-sky-400 text-black font-mono text-[10px] font-semibold">
+              OFFICIALLY CERTIFIED
+            </Badge>
+          </div>
 
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-orion-bright">
-                  Global Challenge Division
-                </span>
-                <h4 className="font-display text-lg text-white">ORION JUNIOR DETECTIVE</h4>
-              </div>
-              <Badge className="bg-orion text-black font-mono text-[10px] font-semibold">
-                OFFICIALLY CERTIFIED
-              </Badge>
+          <div className="mt-4 space-y-2 text-xs">
+            <div className="flex justify-between">
+              <span className="text-white/50">Investigator Rank:</span>
+              <span className="font-semibold text-white">Senior Trend Analyst · Grade 1</span>
             </div>
-
-            <div className="mt-4 space-y-2 text-xs">
-              <div className="flex justify-between">
-                <span className="text-white/50">Investigator Rank:</span>
-                <span className="font-semibold text-white">Senior Trend Analyst · Grade 1</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-white/50">Primary Finding:</span>
-                <span className="font-mono text-orion-bright">Barisal Coast (+0.40 °C/dec)</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-white/50">Statistical Test:</span>
-                <span className="font-mono text-signal">Mann-Kendall p = 0.00007</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-white/50">Authorizing Body:</span>
-                <span className="font-semibold text-white">NASA Space Apps Challenge 2026</span>
-              </div>
+            <div className="flex justify-between">
+              <span className="text-white/50">Primary Finding:</span>
+              <span className="font-mono text-sky-300">Barisal Coast (+0.40 °C/dec)</span>
             </div>
-
-            <div className="mt-6 pt-4 border-t border-white/10 flex justify-between items-center text-[10px] text-white/40 font-mono">
-              <span>DOC ID: OS-NASA-2026-CERT</span>
-              <span>BARISAL, BANGLADESH</span>
+            <div className="flex justify-between">
+              <span className="text-white/50">Statistical Test:</span>
+              <span className="font-mono text-emerald-400">Mann-Kendall p = 0.00007</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-white/50">Authorizing Body:</span>
+              <span className="font-semibold text-white">NASA Space Apps Challenge 2026</span>
             </div>
           </div>
-        </DialogContent>
-      </Dialog>
+
+          <div className="mt-6 pt-4 border-t border-white/10 flex justify-between items-center text-[10px] text-white/40 font-mono">
+            <span>DOC ID: OS-NASA-2026-CERT</span>
+            <span>BARISAL, BANGLADESH</span>
+          </div>
+        </div>
+      </AppleSheet>
     </motion.section>
   )
 }
