@@ -138,15 +138,15 @@ export default function AgentCockpit() {
           <h2 className="font-display text-3xl tracking-wide text-white sm:text-5xl">
             AGENT INTELLIGENCE COCKPIT
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed">
+          <p className="mt-2 text-sm sm:text-base text-white/70 max-w-2xl font-normal leading-relaxed">
             Ask the Orion Space agent natural language questions about climate trends, satellite imagery, or examine the 25-year statistical proof below.
           </p>
         </div>
 
         {/* Status indicator */}
         <div className="flex items-center gap-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-4 py-2 text-xs font-mono text-emerald-300">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal-deep/10 px-4 py-2 text-xs font-mono text-signal-bright">
+            <span className="h-2 w-2 rounded-full bg-signal animate-pulse" />
             <span>AGENT ONLINE · CESIUM V1.124</span>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function AgentCockpit() {
                   ORION AGENT HARNESS TERMINAL
                 </span>
               </div>
-              <Badge variant="outline" className="border-sky-400/30 text-sky-300 text-[10px] font-mono">
+              <Badge variant="outline" className="border-orion/30 text-orion-bright text-[10px] font-mono">
                 Autonomous Query
               </Badge>
             </div>
@@ -181,11 +181,11 @@ export default function AgentCockpit() {
                     onClick={() => setActiveQuery(q)}
                     className={`w-full text-left rounded-xl p-3 text-xs transition-all border cursor-pointer ${
                       activeQuery.question === q.question
-                        ? 'border-[#38bdf8]/50 bg-sky-500/10 text-sky-200 font-semibold shadow-[0_0_20px_rgba(56,189,248,0.15)]'
+                        ? 'border-[#38bdf8]/50 bg-orion-deep/10 text-orion-ice font-semibold shadow-[0_0_20px_rgba(56,189,248,0.15)]'
                         : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.07] hover:text-white'
                     }`}
                   >
-                    <span className="font-mono text-sky-400 mr-1.5">&gt;</span>
+                    <span className="font-mono text-orion mr-1.5">&gt;</span>
                     {q.question}
                   </button>
                 ))}
@@ -203,8 +203,8 @@ export default function AgentCockpit() {
                 className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-5 space-y-3 font-mono text-xs shadow-inner"
               >
                 <div className="flex items-center justify-between text-[11px] text-white/40 border-b border-white/10 pb-2">
-                  <span className="text-sky-400 font-bold">ORION AGENT OUTPUT:</span>
-                  <span className="text-sky-300 font-mono"><DecryptedText text={activeQuery.confidence} speed={30} maxIterations={8} /></span>
+                  <span className="text-orion font-bold">ORION AGENT OUTPUT:</span>
+                  <span className="text-orion-bright font-mono"><DecryptedText text={activeQuery.confidence} speed={30} maxIterations={8} /></span>
                 </div>
 
                 <p className="text-white/90 leading-relaxed font-sans text-xs sm:text-sm">
@@ -212,9 +212,9 @@ export default function AgentCockpit() {
                 </p>
 
                 {activeQuery.coordinates && (
-                  <div className="flex items-center gap-2 pt-2 text-[11px] text-sky-400 font-mono">
+                  <div className="flex items-center gap-2 pt-2 text-[11px] text-orion font-mono">
                     <span className="text-white/40">FOCUSED COORD:</span>
-                    <span className="bg-sky-500/10 px-2.5 py-0.5 rounded border border-sky-400/30 font-mono text-sky-200"><DecryptedText text={activeQuery.coordinates} speed={30} maxIterations={8} /></span>
+                    <span className="bg-orion-deep/10 px-2.5 py-0.5 rounded border border-orion/30 font-mono text-orion-ice"><DecryptedText text={activeQuery.coordinates} speed={30} maxIterations={8} /></span>
                   </div>
                 )}
 
@@ -231,7 +231,7 @@ export default function AgentCockpit() {
                 value={customInput}
                 onChange={(e) => setCustomInput(e.target.value)}
                 placeholder="Ask Orion Space Agent about climate data..."
-                className="flex-1 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-2.5 text-xs text-white placeholder:text-slate-400 focus:border-sky-400 focus:outline-none transition-colors"
+                className="flex-1 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-2.5 text-xs text-white placeholder:text-white/50 focus:border-orion focus:outline-none transition-colors"
               />
               <button
                 type="submit"
@@ -249,7 +249,7 @@ export default function AgentCockpit() {
           <div className="liquid-glass-cockpit rounded-3xl p-6 sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-5">
               <div>
-                <span className="font-mono text-xs font-semibold tracking-wider text-sky-400">
+                <span className="font-mono text-xs font-semibold tracking-wider text-orion">
                   NASA MERRA-2 25-YEAR TEMPERATURE MATRIX
                 </span>
                 <h3 className="text-lg font-display text-white mt-0.5">
@@ -263,7 +263,7 @@ export default function AgentCockpit() {
                   onClick={() => setActiveMetric('september')}
                   className={`rounded-lg px-3 py-1 text-xs font-semibold transition-all ${
                     activeMetric === 'september'
-                      ? 'bg-sky-500/25 text-sky-200 border border-sky-400/40 shadow-[0_0_15px_rgba(56,189,248,0.25)]'
+                      ? 'bg-orion-deep/25 text-orion-ice border border-orion/40 shadow-[0_0_15px_rgba(56,189,248,0.25)]'
                       : 'text-white/60 hover:text-white'
                   }`}
                 >
@@ -357,13 +357,13 @@ export default function AgentCockpit() {
               </div>
               <div className="flex justify-between">
                 <span>Mann-Kendall p-value:</span>
-                <span className={activeMetric === 'september' ? 'text-emerald-400 font-bold' : 'text-white/50'}>
+                <span className={activeMetric === 'september' ? 'text-signal font-bold' : 'text-white/50'}>
                   {activeMetric === 'september' ? '0.00007 (Significant)' : '0.8900 (Not Significant)'}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span>Benjamini-Hochberg FDR (q=0.05):</span>
-                <span className={activeMetric === 'september' ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}>
+                <span className={activeMetric === 'september' ? 'text-signal font-bold' : 'text-rose-400 font-bold'}>
                   {activeMetric === 'september' ? 'PASSED (survives 442-test correction)' : 'N/A (No slope detected)'}
                 </span>
               </div>

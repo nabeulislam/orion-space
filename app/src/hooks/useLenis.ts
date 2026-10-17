@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export function useLenis() {
   useEffect(() => {
@@ -18,6 +19,9 @@ export function useLenis() {
       wheelMultiplier: 1.05,
       touchMultiplier: 1.8,
     });
+
+    // Connect Lenis scroll with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
 
     let animationFrameId: number;
 

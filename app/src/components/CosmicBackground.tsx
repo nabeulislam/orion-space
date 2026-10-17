@@ -68,7 +68,7 @@ export default function CosmicBackground() {
         }}
       />
       <div
-        className="absolute left-1/2 top-[62%] h-[180vw] w-[180vw] -translate-x-1/2 rounded-[100%] border border-sky-400/[0.05] transition-transform duration-700 ease-out"
+        className="absolute left-1/2 top-[62%] h-[180vw] w-[180vw] -translate-x-1/2 rounded-[100%] border border-orion/[0.05] transition-transform duration-700 ease-out"
         style={{
           transform: `translate(-50%, ${scrollY * 0.03}px) rotate(${-scrollY * 0.01}deg)`,
         }}

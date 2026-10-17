@@ -65,15 +65,15 @@ export default function AgentPage() {
             ORION 3D CESIUM ENGINE
           </span>
           <span className="flex h-2 w-2 relative">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            <span className="absolute inline-flex h-full w-full rounded-full bg-signal opacity-75 animate-ping" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-signal-deep" />
           </span>
-          <span className="text-[10px] font-mono text-emerald-400">ACTIVE</span>
+          <span className="text-[10px] font-mono text-signal">ACTIVE</span>
         </div>
 
         {/* Right utility buttons */}
         <div className="flex items-center gap-2 pointer-events-auto">
-          <div className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-mono text-emerald-400 backdrop-blur-xl">
+          <div className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-signal-deep/30 bg-signal-deep/10 px-3 py-1.5 text-xs font-mono text-signal backdrop-blur-xl">
             <MessageSquare size={13} />
             <span>PRESS [SPACE] FOR AI AGENT</span>
           </div>
@@ -154,7 +154,7 @@ export default function AgentPage() {
             {/* Glowing progress bar */}
             <div className="mt-5 h-1 w-full rounded-full bg-white/10 overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-blue-500 via-sky-400 to-emerald-400 transition-all duration-700 ease-out"
+                className="h-full bg-gradient-to-r from-orion-deep via-orion to-signal transition-all duration-700 ease-out"
                 style={{ width: `${((loadStep + 1) / steps.length) * 100}%` }}
               />
             </div>

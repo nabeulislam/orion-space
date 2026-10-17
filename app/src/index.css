@@ -7,22 +7,60 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-[#060608] text-white antialiased;
+    @apply bg-ink text-white antialiased;
     font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
   }
 }
 
 :root {
   --og-accent: #38bdf8;
+  --og-accent-rgb: 56 189 248;
   --og-accent-bright: #7dd3fc;
+  --og-accent-bright-rgb: 125 211 252;
+  --og-accent-ice: #bae6fd;
+  --og-accent-ice-rgb: 186 230 253;
+  --og-accent-deep: #0ea5e9;
+  --og-accent-deep-rgb: 14 165 233;
+  --og-accent-strong: #0284c7;
+  --og-accent-strong-rgb: 2 132 199;
   --og-accent-soft: rgba(56, 189, 248, 0.12);
   --og-accent-glow: rgba(56, 189, 248, 0.32);
   --og-accent-line: rgba(56, 189, 248, 0.42);
+  --og-signal: #34d399;
+  --og-signal-rgb: 52 211 153;
+  --og-signal-bright: #6ee7b7;
+  --og-signal-bright-rgb: 110 231 183;
+  --og-signal-ice: #a7f3d0;
+  --og-signal-ice-rgb: 167 243 208;
+  --og-signal-deep: #10b981;
+  --og-signal-deep-rgb: 16 185 129;
+  --og-signal-ink: #022c22;
   --og-ink: #060608;
+  --og-slate: #090b10;
   --og-smoke: linear-gradient(165deg, rgba(255, 255, 255, 0.085) 0%, rgba(255, 255, 255, 0.02) 42%, rgba(9, 11, 15, 0.65) 100%);
   --og-line: rgba(255, 255, 255, 0.12);
   --og-line-soft: rgba(255, 255, 255, 0.07);
   --og-line-top: rgba(255, 255, 255, 0.22);
+
+  /* Frosted material recipe — every glass surface in the product reads from these. */
+  --glass-blur: 28px;
+  --glass-sat: 180%;
+  --glass-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 42%, rgba(9, 13, 22, 0.55) 100%);
+  --glass-bg-hover: linear-gradient(145deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 42%, rgba(11, 17, 28, 0.66) 100%);
+  --glass-hairline: rgba(255, 255, 255, 0.16);
+  --glass-hairline-top: rgba(255, 255, 255, 0.4);
+  --glass-rim: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  --glass-shadow: 0 16px 44px rgba(0, 0, 0, 0.5), 0 0 28px rgba(56, 189, 248, 0.07);
+  --glass-shadow-hover: 0 24px 60px rgba(0, 0, 0, 0.62), 0 0 42px rgba(56, 189, 248, 0.16);
+
+  /* Spring easings (Apple-style house curves). */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* One stroke weight for the whole product — mirrors ICON_STROKE in lib/tokens.ts. */
+svg.lucide {
+  stroke-width: 1.5;
 }
 
 .font-display {
@@ -77,43 +115,129 @@
           drop-shadow(0 0 100px rgba(56, 189, 248, 0.35));
 }
 
-/* ---------- orion liquid glass system (Apple VisionOS / React Bits Glassmorphism) ---------- */
+/* ---------- orion liquid glass system (Apple visionOS / frosted glassmorphism) ---------- */
 .liquid-glass-card {
   position: relative;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(6, 10, 18, 0.82) 100%);
-  backdrop-filter: blur(38px) saturate(2.2);
-  -webkit-backdrop-filter: blur(38px) saturate(2.2);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-top-color: rgba(255, 255, 255, 0.36);
-  border-left-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(56, 189, 248, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.24);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border: 1px solid var(--glass-hairline);
+  border-top-color: var(--glass-hairline-top);
+  box-shadow: var(--glass-shadow), var(--glass-rim);
+  transition:
+    background 350ms var(--ease-spring),
+    border-color 350ms var(--ease-spring),
+    box-shadow 350ms var(--ease-spring),
+    transform 350ms var(--ease-spring);
 }
 
-.liquid-glass-card:hover {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.04) 40%, rgba(8, 14, 24, 0.88) 100%);
-  border-color: rgba(255, 255, 255, 0.26);
-  border-top-color: rgba(255, 255, 255, 0.48);
-  box-shadow: 0 32px 75px rgba(0, 0, 0, 0.8), 0 0 50px rgba(56, 189, 248, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.36);
-  transform: translateY(-4px) scale(1.01);
+@media (hover: hover) and (pointer: fine) {
+  .liquid-glass-card:hover {
+    background: var(--glass-bg-hover);
+    border-color: rgba(255, 255, 255, 0.26);
+    border-top-color: rgba(255, 255, 255, 0.5);
+    box-shadow: var(--glass-shadow-hover), var(--glass-rim);
+    transform: translateY(-4px);
+  }
+}
+
+.liquid-glass-card:active {
+  transform: translateY(-1px) scale(0.99);
+  transition-duration: 140ms;
 }
 
 .liquid-glass-pill {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(6, 10, 18, 0.84) 100%);
-  backdrop-filter: blur(32px) saturate(2.2);
-  -webkit-backdrop-filter: blur(32px) saturate(2.2);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-top-color: rgba(255, 255, 255, 0.42);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), 0 0 25px rgba(56, 189, 248, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.28);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(9, 14, 24, 0.6) 100%);
+  backdrop-filter: blur(26px) saturate(var(--glass-sat));
+  -webkit-backdrop-filter: blur(26px) saturate(var(--glass-sat));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top-color: rgba(255, 255, 255, 0.46);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5), 0 0 24px rgba(56, 189, 248, 0.09), var(--glass-rim);
+  transition:
+    background 300ms var(--ease-spring),
+    border-color 300ms var(--ease-spring),
+    box-shadow 300ms var(--ease-spring),
+    transform 160ms var(--ease-out);
 }
 
-.liquid-glass-pill:hover {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.09) 50%, rgba(10, 16, 28, 0.92) 100%);
-  border-color: rgba(255, 255, 255, 0.38);
-  border-top-color: rgba(255, 255, 255, 0.58);
-  box-shadow: 0 20px 52px rgba(0, 0, 0, 0.75), 0 0 35px rgba(56, 189, 248, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.42);
-  transform: translateY(-2px) scale(1.03);
+@media (hover: hover) and (pointer: fine) {
+  .liquid-glass-pill:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.09) 50%, rgba(12, 19, 32, 0.72) 100%);
+    border-color: rgba(255, 255, 255, 0.36);
+    border-top-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.62), 0 0 34px rgba(56, 189, 248, 0.18), var(--glass-rim);
+    transform: translateY(-2px);
+  }
+}
+
+.liquid-glass-pill:active {
+  transform: scale(0.97);
+  transition-duration: 110ms;
+}
+
+/* Press feedback for any clickable that is not already a glass surface. */
+.pressable {
+  transition: transform 160ms var(--ease-out), opacity 160ms var(--ease-out);
+}
+
+.pressable:active {
+  transform: scale(0.97);
+}
+
+/* Frosted navigation chrome — content scrolls beneath a translucent material. */
+.frosted-nav {
+  background: rgba(6, 6, 8, 0.55);
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Showcase glass — the layered feature-card material. One recipe, two call sites
+   (stacked dossier cards + agent capability cards); the pseudo-elements carry
+   the reflection, specular shine and frost texture so the DOM stays clean. */
+.liquid-glass-showcase {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--r-panel);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04) 45%, rgba(8, 14, 26, 0.5));
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid var(--glass-hairline);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    var(--glass-rim),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Top-surface reflection */
+.liquid-glass-showcase::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 45% 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  pointer-events: none;
+}
+
+/* Specular shine line + frost speckle */
+.liquid-glass-showcase::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.55) 50%, transparent 100%) top 10px left 12px right 12px / auto 2px no-repeat,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, transparent 50%) top left / 2px 100% no-repeat,
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 1px, transparent 2px),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 1px, transparent 2px),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.06) 1px, transparent 2px);
+  background-size: auto 2px, 2px 100%, 30px 30px, 25px 25px, 35px 35px;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .apple-icon-badge {
@@ -124,13 +248,25 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: all 0.25s ease;
+  transition:
+    background 250ms var(--ease-out),
+    border-color 250ms var(--ease-out),
+    box-shadow 250ms var(--ease-out),
+    color 250ms var(--ease-out),
+    transform 160ms var(--ease-out);
 }
 
-.apple-icon-badge:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.24);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.35), 0 6px 16px rgba(0, 0, 0, 0.4);
+@media (hover: hover) and (pointer: fine) {
+  .apple-icon-badge:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.24);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.35), 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.apple-icon-badge:active {
+  transform: scale(0.94);
+  transition-duration: 110ms;
 }
 
 .glass-pill {
@@ -159,14 +295,43 @@
   height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #060608;
+  background: var(--og-ink);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(56, 189, 248, 0.35);
+  background: var(--og-accent-line);
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(56, 189, 248, 0.65);
+  background: var(--og-accent-glow);
+}
+
+/* Keyboard focus — visible ring, token-tinted. */
+:focus-visible {
+  outline: 2px solid var(--og-accent-line);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .liquid-glass-card,
+  .liquid-glass-pill,
+  .apple-icon-badge,
+  .pressable {
+    transition-duration: 1ms;
+  }
+  .liquid-glass-card:hover,
+  .liquid-glass-pill:hover {
+    transform: none;
+  }
+  .star-twinkle,
+  .star-flare,
+  .animate-floaty,
+  .animate-shine {
+    animation: none;
+  }
 }
 
 @layer base {

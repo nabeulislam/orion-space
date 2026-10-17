@@ -34,6 +34,19 @@ export const SLATE = '#090b10'
 /** Alpha helpers for the two token families. */
 export const accentAlpha = (alpha: number) => `rgba(56, 189, 248, ${alpha})`
 export const signalAlpha = (alpha: number) => `rgba(52, 211, 153, ${alpha})`
+export const ACCENT_GLOW = accentAlpha(0.45)
+
+/**
+ * Electric-border hues for stacked/showcase cards. Monochrome celestial-ice
+ * family only — every entry is the same hue at different luminance, so cards
+ * read as one system rather than a rainbow.
+ */
+export const ACCENT_BORDER_HUES = [
+  'rgba(56, 189, 248, 0.8)',   // accent
+  'rgba(125, 211, 252, 0.8)',  // bright
+  'rgba(14, 165, 233, 0.8)',   // deep
+  'rgba(186, 230, 253, 0.8)',  // ice
+] as const
 
 /**
  * Icon scale. Three steps, no more:

@@ -12,11 +12,18 @@ test('Capture screenshots of all pages including React Bits components', async (
   await page.waitForTimeout(1000)
   await page.screenshot({ path: path.join(ARTIFACT_DIR, 'screenshot_home.png') })
 
-  // 1b. Home Page Scrolled (FlipCards & MaskedHeading)
-  await page.locator('#games-preview').scrollIntoViewIfNeeded()
-  await page.waitForSelector('h2:has-text("EARTH DETECTIVE GAMES")')
-  await page.waitForTimeout(600)
+  // 1b. Home Page Scrolled (GSAP Stacking Glass Cards)
+  const glassCardsHeading = page.locator('h2:has-text("EARTH SYSTEM ANOMALIES")')
+  await glassCardsHeading.scrollIntoViewIfNeeded()
+  await page.evaluate(() => window.scrollBy({ top: 600, behavior: 'instant' }))
+  await page.waitForTimeout(800)
   await page.screenshot({ path: path.join(ARTIFACT_DIR, 'screenshot_home_scrolled.png') })
+
+  // 1c. Home Page Immersive 3D Agent section (Proshow)
+  const proshowHeading = page.locator('h2:has-text("IMMERSIVE 3D AGENT")')
+  await proshowHeading.scrollIntoViewIfNeeded()
+  await page.waitForTimeout(800)
+  await page.screenshot({ path: path.join(ARTIFACT_DIR, 'screenshot_proshow_electric_glass.png') })
 
   // 2. Dossiers Page (with MorphSlider)
   await page.goto('/dossiers')

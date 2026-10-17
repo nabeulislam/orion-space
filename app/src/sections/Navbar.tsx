@@ -25,10 +25,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#060608]/85 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.6)] py-3 sm:py-4'
-          : 'py-5 sm:py-7 bg-transparent'
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow,padding] duration-500 ${
+        scrolled ? 'frosted-nav py-3 sm:py-4' : 'py-5 sm:py-7 bg-transparent border-b border-transparent'
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-10">
@@ -54,7 +52,7 @@ export default function Navbar() {
                 >
                   {link.label}
                   {isActive && (
-                    <span className="absolute inset-x-0 -bottom-1 h-[2px] bg-gradient-to-r from-transparent via-[#38bdf8] to-transparent" />
+                    <span className="absolute inset-x-0 -bottom-1 h-[2px] bg-gradient-to-r from-transparent via-orion to-transparent" />
                   )}
                 </Link>
               </li>
@@ -66,9 +64,9 @@ export default function Navbar() {
         <div className="hidden md:flex items-center">
           <Link
             to="/agent"
-            className="liquid-glass-pill group inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs sm:text-sm font-medium text-white transition-all hover:scale-105 shadow-[0_0_24px_rgba(56,189,248,0.2)]"
+            className="liquid-glass-pill group inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs sm:text-sm font-medium text-white"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="h-1.5 w-1.5 rounded-full bg-signal animate-pulse" />
             <span>Launch 3D Agent</span>
             <ArrowUpRight
               size={14}
@@ -80,8 +78,9 @@ export default function Navbar() {
         {/* Mobile menu trigger */}
         <button
           onClick={() => setOpen(!open)}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/80 md:hidden"
+          className="apple-icon-badge h-10 w-10 text-white/80 md:hidden"
           aria-label="Toggle navigation"
+          aria-expanded={open}
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -89,7 +88,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {open && (
-        <div className="mx-5 mt-3 rounded-2xl border border-white/10 bg-[#060608]/95 p-6 backdrop-blur-2xl md:hidden shadow-2xl">
+        <div className="liquid-glass-card mx-5 mt-3 rounded-2xl p-6 md:hidden">
           <ul className="flex flex-col gap-4">
             {NAV_LINKS.map((link) => {
               const isActive = location.pathname === link.path
@@ -113,9 +112,9 @@ export default function Navbar() {
             <Link
               to="/agent"
               onClick={() => setOpen(false)}
-              className="flex w-full items-center justify-center gap-2 rounded-full border border-[#38bdf8]/30 bg-gradient-to-r from-blue-600/20 to-sky-600/20 py-2.5 text-sm font-medium text-white shadow-lg"
+              className="liquid-glass-pill flex w-full items-center justify-center gap-2 rounded-full py-2.5 text-sm font-medium text-white"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="h-1.5 w-1.5 rounded-full bg-signal animate-pulse" />
               <span>Launch 3D Agent</span>
               <ArrowUpRight size={15} />
             </Link>

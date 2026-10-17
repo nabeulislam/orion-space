@@ -175,7 +175,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
           <h2 className="font-display text-3xl tracking-wide text-white sm:text-5xl">
             EARTH DETECTIVE ACADEMY
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed">
+          <p className="mt-2 text-sm sm:text-base text-white/70 max-w-2xl font-normal leading-relaxed">
             Designed for students and aspiring space detectives. Solve 3 interactive planetary cases based on real NASA satellite datasets and earn your NASA Space Apps Detective Certification!
           </p>
         </div>
@@ -184,7 +184,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
         <div className="liquid-glass-card rounded-2xl p-3 flex items-center gap-3">
           <div className="text-right px-2 hidden sm:block">
             <div className="text-xs font-semibold text-white">Detective Badges</div>
-            <div className="text-[10px] text-slate-400 font-mono">
+            <div className="text-[10px] text-white/50 font-mono">
               {Object.values(badges).filter(Boolean).length} of 4 Earned
             </div>
           </div>
@@ -193,7 +193,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
               title="Seasonal Sleuth Badge"
               className={`apple-icon-badge h-10 w-10 flex-none ${
                 badges.mystery
-                  ? 'border-sky-400/50 bg-sky-500/20 text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.3)]'
+                  ? 'border-orion/50 bg-orion-deep/20 text-orion-bright shadow-[0_0_15px_rgba(56,189,248,0.3)]'
                   : 'text-white/30'
               }`}
             >
@@ -213,7 +213,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
               title="Cryosphere Guardian Badge"
               className={`apple-icon-badge h-10 w-10 flex-none ${
                 badges.albedo
-                  ? 'border-sky-400/50 bg-sky-500/20 text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.3)]'
+                  ? 'border-orion/50 bg-orion-deep/20 text-orion-bright shadow-[0_0_15px_rgba(56,189,248,0.3)]'
                   : 'text-white/30'
               }`}
             >
@@ -223,7 +223,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
               title="NASA Space Apps Certified Detective Badge"
               className={`apple-icon-badge h-10 w-10 flex-none ${
                 badges.certified
-                  ? 'border-emerald-400/50 bg-emerald-500/20 text-emerald-300 shadow-[0_0_15px_rgba(52,211,153,0.3)]'
+                  ? 'border-signal/50 bg-signal-deep/20 text-signal-bright shadow-[0_0_15px_rgba(52,211,153,0.3)]'
                   : 'text-white/30'
               }`}
             >
@@ -239,13 +239,13 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
           onClick={() => { setActiveGame('mystery'); setIsPixelVibeMode(false); }}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'mystery'
-              ? 'border-sky-400/60 bg-sky-500/15 text-sky-200 shadow-[0_0_20px_rgba(56,189,248,0.2)]'
+              ? 'border-orion/60 bg-orion-deep/15 text-orion-ice shadow-[0_0_20px_rgba(56,189,248,0.2)]'
               : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
           }`}
         >
-          <Sun size={16} className="text-sky-300" />
+          <Sun size={16} className="text-orion-bright" />
           <span>Game 1: The Late-Monsoon Mystery</span>
-          {badges.mystery && <Check size={14} className="text-emerald-400" />}
+          {badges.mystery && <Check size={14} className="text-signal" />}
         </button>
 
         <button
@@ -258,46 +258,46 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
         >
           <Flame size={16} className="text-rose-400" />
           <span>Game 2: Thermal Hotspot Hunt</span>
-          {badges.satellite && <Check size={14} className="text-emerald-400" />}
+          {badges.satellite && <Check size={14} className="text-signal" />}
         </button>
 
         <button
           onClick={() => { setActiveGame('albedo'); setIsPixelVibeMode(false); }}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'albedo'
-              ? 'border-sky-400/60 bg-sky-500/15 text-sky-200 shadow-[0_0_20px_rgba(56,189,248,0.2)]'
+              ? 'border-orion/60 bg-orion-deep/15 text-orion-ice shadow-[0_0_20px_rgba(56,189,248,0.2)]'
               : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
           }`}
         >
-          <ThermometerSnowflake size={16} className="text-sky-400" />
+          <ThermometerSnowflake size={16} className="text-orion" />
           <span>Game 3: Albedo Ice Shield Sim</span>
-          {badges.albedo && <Check size={14} className="text-emerald-400" />}
+          {badges.albedo && <Check size={14} className="text-signal" />}
         </button>
 
         <button
           onClick={() => { setActiveGame('quiz'); setIsPixelVibeMode(false); }}
           className={`flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all border cursor-pointer ${
             activeGame === 'quiz'
-              ? 'border-emerald-400/60 bg-emerald-500/15 text-emerald-200 shadow-[0_0_20px_rgba(52,211,153,0.2)]'
+              ? 'border-signal/60 bg-signal-deep/15 text-signal-ice shadow-[0_0_20px_rgba(52,211,153,0.2)]'
               : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08] hover:text-white'
           }`}
         >
-          <Award size={16} className="text-emerald-400" />
+          <Award size={16} className="text-signal" />
           <span>Final Exam: Detective Certification</span>
-          {badges.certified && <Check size={14} className="text-emerald-400" />}
+          {badges.certified && <Check size={14} className="text-signal" />}
         </button>
 
         <button
           onClick={() => { if (onTriggerFullRetro) onTriggerFullRetro(); else if (onLaunch2dMode) onLaunch2dMode(); else setIsPixelVibeMode(true); }}
           className={`flex items-center gap-2 rounded-2xl px-6 py-3 text-xs sm:text-sm font-bold transition-all border cursor-pointer ${
             isPixelVibeMode
-              ? 'border-emerald-400 bg-emerald-500/25 text-emerald-200 shadow-[0_0_30px_rgba(52,211,153,0.4)] scale-105'
-              : 'border-sky-400/40 bg-sky-500/10 text-sky-200 hover:bg-sky-500/20 shadow-[0_0_15px_rgba(56,189,248,0.2)]'
+              ? 'border-signal bg-signal-deep/25 text-signal-ice shadow-[0_0_30px_rgba(52,211,153,0.4)] scale-105'
+              : 'border-orion/40 bg-orion-deep/10 text-orion-ice hover:bg-orion-deep/20 shadow-[0_0_15px_rgba(56,189,248,0.2)]'
           }`}
         >
-          <Gamepad2 size={16} className="text-emerald-400 animate-pulse" />
+          <Gamepad2 size={16} className="text-signal animate-pulse" />
           <span>👾 2D Retro Arcade (Vibe Shift)</span>
-          <Sparkles size={14} className="text-sky-300" />
+          <Sparkles size={14} className="text-orion-bright" />
         </button>
       </div>
 
@@ -323,14 +323,14 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
         <div className="liquid-glass-card mt-8 rounded-3xl p-6 sm:p-10">
           <div className="grid gap-8 lg:grid-cols-12 items-center">
             <div className="lg:col-span-6 space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-lg bg-sky-500/10 px-3 py-1 text-xs font-mono text-sky-300 border border-sky-400/20">
+              <div className="inline-flex items-center gap-2 rounded-lg bg-orion-deep/10 px-3 py-1 text-xs font-mono text-orion-bright border border-orion/20">
                 CASE FILE 01 · BARISAL COAST INVESTIGATION
               </div>
               <h3 className="font-display text-2xl sm:text-3xl text-white">
                 The Mystery of the Hidden Heat
               </h3>
               <p className="text-sm sm:text-base text-white/75 leading-relaxed">
-                <strong className="text-white">The Clue:</strong> Farmers in Barisal complained that their late-summer crops were suffering from unusual heat, but national climate reports looking at the <span className="text-sky-300 font-semibold">Annual Average</span> showed <span className="text-sky-300 font-semibold">0.00 °C warming trend!</span>
+                <strong className="text-white">The Clue:</strong> Farmers in Barisal complained that their late-summer crops were suffering from unusual heat, but national climate reports looking at the <span className="text-orion-bright font-semibold">Annual Average</span> showed <span className="text-orion-bright font-semibold">0.00 °C warming trend!</span>
               </p>
               <p className="text-sm sm:text-base text-white/75 leading-relaxed">
                 As a NASA Trend Detective, test each month below to uncover which month was hiding the secret warming!
@@ -352,7 +352,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
                         className={`rounded-xl px-3.5 py-2 text-xs font-semibold transition-all border ${
                           isSelected
                             ? isSep
-                              ? 'border-sky-400 bg-sky-500/25 text-sky-200 scale-105 shadow-[0_0_15px_rgba(56,189,248,0.4)]'
+                              ? 'border-orion bg-orion-deep/25 text-orion-ice scale-105 shadow-[0_0_15px_rgba(56,189,248,0.4)]'
                               : 'border-white/20 bg-white/10 text-white'
                             : 'border-white/10 bg-white/5 text-white/60 hover:text-white'
                         }`}
@@ -366,20 +366,20 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
 
               {/* Clue Debrief */}
               {mysterySolved ? (
-                <div className="rounded-2xl border border-emerald-500/30 bg-emerald-950/30 p-4 space-y-2">
-                  <div className="flex items-center gap-2 text-emerald-400 font-semibold text-sm">
+                <div className="rounded-2xl border border-signal-deep/30 bg-signal-ink/30 p-4 space-y-2">
+                  <div className="flex items-center gap-2 text-signal font-semibold text-sm">
                     <Check size={18} />
                     <span>MYSTERY SOLVED! DETECTIVE REPORT:</span>
                   </div>
                   <p className="text-xs sm:text-sm text-white/80">
-                    You found it! In <strong className="text-sky-300">September</strong>, temperature is skyrocketing by <strong className="text-sky-300">+0.40 °C per decade</strong> with a Mann-Kendall p-value of 0.00007! The yearly average hid it because spring months cooled slightly.
+                    You found it! In <strong className="text-orion-bright">September</strong>, temperature is skyrocketing by <strong className="text-orion-bright">+0.40 °C per decade</strong> with a Mann-Kendall p-value of 0.00007! The yearly average hid it because spring months cooled slightly.
                   </p>
-                  <p className="text-xs font-mono text-emerald-300">
+                  <p className="text-xs font-mono text-signal-bright">
                     🎖️ Seasonal Sleuth Badge Awarded to your profile!
                   </p>
                 </div>
               ) : (
-                <div className="rounded-2xl border border-sky-400/20 bg-sky-500/5 p-4 text-xs text-sky-300/80 font-mono">
+                <div className="rounded-2xl border border-orion/20 bg-orion-deep/5 p-4 text-xs text-orion-bright/80 font-mono">
                   💡 <em>Hint: Look toward the end of the monsoon season right before autumn...</em>
                 </div>
               )}
@@ -399,9 +399,9 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
                 </div>
                 <div className={`mt-2 font-display text-5xl sm:text-6xl ${
                   selectedMonth === 'September'
-                    ? 'text-sky-400 animate-pulse'
+                    ? 'text-orion animate-pulse'
                     : selectedMonth === 'May'
-                    ? 'text-sky-400'
+                    ? 'text-orion'
                     : 'text-white'
                 }`}>
                   {selectedMonth === 'September' && '+0.40 °C'}
@@ -423,7 +423,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
               <div className="space-y-2 text-left">
                 <div className="flex justify-between text-xs text-white/60 font-mono">
                   <span>Statistical Significance Gauge:</span>
-                  <span className={selectedMonth === 'September' ? 'text-emerald-400 font-bold' : 'text-white/40'}>
+                  <span className={selectedMonth === 'September' ? 'text-signal font-bold' : 'text-white/40'}>
                     {selectedMonth === 'September' ? '99.993% CONFIDENCE (p < 0.0001)' : 'NOT SIGNIFICANT (p > 0.05)'}
                   </span>
                 </div>
@@ -489,7 +489,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
                 </div>
                 <Progress value={(foundFires.length / 3) * 100} className="h-2" />
                 {foundFires.length === 3 && (
-                  <p className="text-xs text-emerald-400 font-semibold pt-1">
+                  <p className="text-xs text-signal font-semibold pt-1">
                     ✓ All thermal hotspots marked! NASA FIRMS coordinates transmitted.
                   </p>
                 )}
@@ -498,7 +498,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
 
             {/* Simulated Satellite Screen */}
             <div className="lg:col-span-7">
-              <div className="relative aspect-[4/3] rounded-3xl border border-white/15 overflow-hidden bg-slate-950/80 backdrop-blur-md shadow-2xl">
+              <div className="relative aspect-[4/3] rounded-3xl border border-white/15 overflow-hidden bg-ink/80 backdrop-blur-md shadow-2xl">
                 {/* Simulated landscape image */}
                 <div
                   className={`absolute inset-0 transition-all duration-700 ${
@@ -509,9 +509,9 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
                 >
                   {/* Smoke clouds overlay in visible mode */}
                   {sensorMode === 'visible' && (
-                    <div className="absolute inset-0 bg-slate-400/40 backdrop-blur-md flex items-center justify-center p-6 text-center">
+                    <div className="absolute inset-0 bg-white/40 backdrop-blur-md flex items-center justify-center p-6 text-center">
                       <div className="rounded-2xl border border-white/20 bg-black/60 p-4 max-w-xs text-xs text-white/90">
-                        <AlertTriangle size={24} className="text-sky-400 mx-auto mb-2" />
+                        <AlertTriangle size={24} className="text-orion mx-auto mb-2" />
                         <strong>DENSE SMOKE BLANKET</strong>
                         <p className="mt-1 text-white/70">
                           Optical sensors are blinded by aerosol smoke particles! Switch to Thermal Infrared to see the heat.
@@ -533,11 +533,11 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
                         onClick={() => handleFireClick(1)}
                         className={`absolute top-[28%] left-[24%] h-14 w-14 rounded-full flex items-center justify-center transition-all ${
                           foundFires.includes(1)
-                            ? 'bg-emerald-500/40 border-2 border-emerald-400 text-white'
+                            ? 'bg-signal-deep/40 border-2 border-signal text-white'
                             : 'bg-rose-500/40 border-2 border-rose-500 animate-ping text-rose-200'
                         }`}
                       >
-                        <Flame size={20} className={foundFires.includes(1) ? 'text-emerald-300' : 'text-rose-400'} />
+                        <Flame size={20} className={foundFires.includes(1) ? 'text-signal-bright' : 'text-rose-400'} />
                       </button>
 
                       {/* Hotspot 2 */}
@@ -545,11 +545,11 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
                         onClick={() => handleFireClick(2)}
                         className={`absolute top-[62%] left-[68%] h-14 w-14 rounded-full flex items-center justify-center transition-all ${
                           foundFires.includes(2)
-                            ? 'bg-emerald-500/40 border-2 border-emerald-400 text-white'
+                            ? 'bg-signal-deep/40 border-2 border-signal text-white'
                             : 'bg-rose-500/40 border-2 border-rose-500 animate-ping text-rose-200'
                         }`}
                       >
-                        <Flame size={20} className={foundFires.includes(2) ? 'text-emerald-300' : 'text-rose-400'} />
+                        <Flame size={20} className={foundFires.includes(2) ? 'text-signal-bright' : 'text-rose-400'} />
                       </button>
 
                       {/* Hotspot 3 */}
@@ -557,11 +557,11 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
                         onClick={() => handleFireClick(3)}
                         className={`absolute top-[40%] left-[52%] h-14 w-14 rounded-full flex items-center justify-center transition-all ${
                           foundFires.includes(3)
-                            ? 'bg-emerald-500/40 border-2 border-emerald-400 text-white'
+                            ? 'bg-signal-deep/40 border-2 border-signal text-white'
                             : 'bg-rose-500/40 border-2 border-rose-500 animate-ping text-rose-200'
                         }`}
                       >
-                        <Flame size={20} className={foundFires.includes(3) ? 'text-emerald-300' : 'text-rose-400'} />
+                        <Flame size={20} className={foundFires.includes(3) ? 'text-signal-bright' : 'text-rose-400'} />
                       </button>
                     </div>
                   )}
@@ -577,21 +577,21 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
         <div className="liquid-glass-card mt-8 rounded-3xl p-6 sm:p-10">
           <div className="grid gap-8 lg:grid-cols-12 items-center">
             <div className="lg:col-span-6 space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-lg bg-sky-500/10 px-3 py-1 text-xs font-mono text-sky-300 border border-sky-400/20">
+              <div className="inline-flex items-center gap-2 rounded-lg bg-orion-deep/10 px-3 py-1 text-xs font-mono text-orion-bright border border-orion/20">
                 CASE FILE 03 · CRYOSPHERE FEEDBACK EXPERIMENT
               </div>
               <h3 className="font-display text-2xl sm:text-3xl text-white">
                 The Polar Ice Mirror (Albedo Effect)
               </h3>
               <p className="text-sm sm:text-base text-white/75 leading-relaxed">
-                Earth has a natural sun shield: bright polar sea ice! White ice reflects up to <strong className="text-white">85% of solar radiation</strong> right back out to space. But when ice melts into dark open water, the ocean absorbs <strong className="text-sky-300">90% of heat</strong>.
+                Earth has a natural sun shield: bright polar sea ice! White ice reflects up to <strong className="text-white">85% of solar radiation</strong> right back out to space. But when ice melts into dark open water, the ocean absorbs <strong className="text-orion-bright">90% of heat</strong>.
               </p>
 
               {/* Interactive Slider */}
               <div className="pt-4 space-y-3">
                 <div className="flex justify-between text-xs font-mono">
                   <span className="text-white/60">Polar Ice Cover Percentage:</span>
-                  <span className="font-bold text-sky-300 text-sm">{icePercent}% Ice Cover</span>
+                  <span className="font-bold text-orion-bright text-sm">{icePercent}% Ice Cover</span>
                 </div>
                 <input
                   type="range"
@@ -618,7 +618,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-4 text-xs space-y-2">
                 <div className="flex justify-between">
                   <span className="text-white/60">Solar Energy Reflected to Space:</span>
-                  <span className="font-mono text-sky-300 font-bold">{Math.round(icePercent * 0.85)}%</span>
+                  <span className="font-mono text-orion-bright font-bold">{Math.round(icePercent * 0.85)}%</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-white/60">Solar Heat Absorbed by Water:</span>
@@ -630,7 +630,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
                       ⚠️ Low Albedo Alert: Earth is absorbing massive solar heat, accelerating sea level rise in coastal deltas like Barisal!
                     </span>
                   ) : (
-                    <span className="text-emerald-300">
+                    <span className="text-signal-bright">
                       ✓ High Albedo Mirror active: White ice cools the planet by bouncing sunlight away.
                     </span>
                   )}
@@ -640,12 +640,12 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
 
             {/* Interactive Visual Gauge */}
             <div className="lg:col-span-6 rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-8 text-center space-y-6 shadow-inner">
-              <div className="text-xs uppercase font-mono tracking-widest text-sky-300/80">
+              <div className="text-xs uppercase font-mono tracking-widest text-orion-bright/80">
                 Earth Surface Temperature Simulation
               </div>
 
               {/* Sunbeam Reflection Graphic */}
-              <div className="relative mx-auto h-44 w-44 rounded-full border-4 border-sky-400/30 flex items-center justify-center overflow-hidden"
+              <div className="relative mx-auto h-44 w-44 rounded-full border-4 border-orion/30 flex items-center justify-center overflow-hidden"
                 style={{
                   backgroundColor: `rgb(${Math.round(20 + (100 - icePercent) * 1.5)}, ${Math.round(40 + icePercent * 0.5)}, ${Math.round(60 + icePercent)})`,
                 }}
@@ -672,7 +672,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
           {!quizFinished ? (
             <div className="max-w-2xl mx-auto space-y-6">
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <span className="text-xs font-mono text-emerald-300">
+                <span className="text-xs font-mono text-signal-bright">
                   QUESTION {quizStep + 1} OF {QUIZ_QUESTIONS.length}
                 </span>
                 <span className="text-xs font-mono text-white/60">
@@ -693,7 +693,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
                   let btnStyle = 'border-white/10 bg-white/[0.03] text-white/80 hover:bg-white/[0.08]'
                   if (selectedAnswer !== null) {
                     if (isCorrect) {
-                      btnStyle = 'border-emerald-400 bg-emerald-500/20 text-emerald-200'
+                      btnStyle = 'border-signal bg-signal-deep/20 text-signal-ice'
                     } else if (isSelected) {
                       btnStyle = 'border-rose-400 bg-rose-500/20 text-rose-200'
                     }
@@ -722,14 +722,14 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
           ) : (
             /* Quiz Completed View */
             <div className="text-center max-w-xl mx-auto py-8 space-y-5">
-              <div className="inline-flex h-20 w-20 items-center justify-center rounded-3xl border border-emerald-400 bg-emerald-500/20 text-emerald-300 shadow-[0_0_30px_rgba(52,211,153,0.3)]">
+              <div className="inline-flex h-20 w-20 items-center justify-center rounded-3xl border border-signal bg-signal-deep/20 text-signal-bright shadow-[0_0_30px_rgba(52,211,153,0.3)]">
                 <Trophy size={40} />
               </div>
               <h3 className="font-display text-3xl text-white">
                 MISSION ACCOMPLISHED!
               </h3>
               <p className="text-sm text-white/70">
-                You scored <strong className="text-emerald-400">{score} out of {QUIZ_QUESTIONS.length}</strong>! You have officially proven your trend detective skills in planetary climate data.
+                You scored <strong className="text-signal">{score} out of {QUIZ_QUESTIONS.length}</strong>! You have officially proven your trend detective skills in planetary climate data.
               </p>
 
               <div className="flex flex-wrap justify-center gap-3 pt-4">
@@ -765,7 +765,7 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
       <Dialog open={licenseOpen} onOpenChange={setLicenseOpen}>
         <DialogContent className="max-w-lg border-white/15 bg-[#0a0a10]/98 text-white backdrop-blur-2xl">
           <DialogHeader>
-            <DialogTitle className="font-display text-xl text-sky-400 flex items-center gap-2">
+            <DialogTitle className="font-display text-xl text-orion flex items-center gap-2">
               <Award size={22} />
               NASA SPACE APPS 2026 OFFICIAL CERTIFICATE
             </DialogTitle>
@@ -775,19 +775,19 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
           </DialogHeader>
 
           {/* Printable License Card */}
-          <div className="mt-4 rounded-2xl border border-sky-400/40 bg-gradient-to-br from-[#0c182b] to-[#080d18] p-6 text-left relative overflow-hidden shadow-2xl">
+          <div className="mt-4 rounded-2xl border border-orion/40 bg-gradient-to-br from-[#0c182b] to-[#080d18] p-6 text-left relative overflow-hidden shadow-2xl">
             <div className="absolute right-4 top-4 opacity-10">
               <Trophy size={120} />
             </div>
 
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-sky-300">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-orion-bright">
                   Global Challenge Division
                 </span>
                 <h4 className="font-display text-lg text-white">ORION JUNIOR DETECTIVE</h4>
               </div>
-              <Badge className="bg-sky-400 text-black font-mono text-[10px] font-semibold">
+              <Badge className="bg-orion text-black font-mono text-[10px] font-semibold">
                 OFFICIALLY CERTIFIED
               </Badge>
             </div>
@@ -799,11 +799,11 @@ export default function EarthDetectiveAcademy({ onTriggerFullRetro, onLaunch2dMo
               </div>
               <div className="flex justify-between">
                 <span className="text-white/50">Primary Finding:</span>
-                <span className="font-mono text-sky-300">Barisal Coast (+0.40 °C/dec)</span>
+                <span className="font-mono text-orion-bright">Barisal Coast (+0.40 °C/dec)</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-white/50">Statistical Test:</span>
-                <span className="font-mono text-emerald-400">Mann-Kendall p = 0.00007</span>
+                <span className="font-mono text-signal">Mann-Kendall p = 0.00007</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-white/50">Authorizing Body:</span>

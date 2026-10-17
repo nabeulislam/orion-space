@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
 import { ArrowUpRight } from 'lucide-react'
 import SplitText from '@/components/ui/SplitText'
+import { ACCENT, ACCENT_GLOW } from '@/lib/tokens'
 
 import TrueFocus from '@/components/ui/TrueFocus'
 
@@ -41,7 +42,7 @@ export default function Hero() {
           </h1>
 
           <div className="font-serif-it mt-3 sm:mt-4 text-[clamp(1.1rem,2vw,1.75rem)] text-white/90 tracking-wide font-normal">
-            <TrueFocus sentence="Be An Earth System Trend Detective." borderColor="#38bdf8" glowColor="rgba(56, 189, 248, 0.45)" />
+            <TrueFocus sentence="Be An Earth System Trend Detective." borderColor={ACCENT} glowColor={ACCENT_GLOW} />
           </div>
         </div>
       </div>
@@ -61,7 +62,7 @@ export default function Hero() {
       <div className="absolute bottom-[11%] sm:bottom-[13%] left-1/2 z-20 -translate-x-1/2">
         <Link
           to="/dossiers"
-          className="liquid-glass-pill inline-flex min-h-[52px] items-center gap-3 rounded-full px-9 py-3 text-sm sm:text-base font-normal text-white transition-all hover:scale-105 shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
+          className="liquid-glass-pill inline-flex min-h-[52px] items-center gap-3 rounded-full px-9 py-3 text-sm sm:text-base font-normal text-white"
         >
           <span>Explore Dossiers</span>
           <ArrowUpRight size={18} className="text-white/80" />

@@ -164,7 +164,7 @@ export default function FolderDossiers() {
           <h2 className="font-display text-3xl tracking-wide text-white sm:text-5xl">
             INTELLIGENCE DOSSIERS
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed">
+          <p className="mt-2 text-sm sm:text-base text-white/70 max-w-2xl font-normal leading-relaxed">
             Classified case files investigating planetary system anomalies. Click the interactive 3D folder below to pull out evidence sheets or select a dossier from the mission archive.
           </p>
         </div>
@@ -173,15 +173,15 @@ export default function FolderDossiers() {
         <div className="flex items-center gap-3">
           <motion.div whileHover={{ y: -3, scale: 1.02 }} className="liquid-glass-card rounded-2xl px-5 py-3 text-center">
             <div className="text-xl font-bold font-mono text-white">34</div>
-            <div className="text-[10px] text-slate-400 tracking-wider uppercase font-mono">Grid Cells</div>
+            <div className="text-[10px] text-white/50 tracking-wider uppercase font-mono">Grid Cells</div>
           </motion.div>
           <motion.div whileHover={{ y: -3, scale: 1.02 }} className="liquid-glass-card rounded-2xl px-5 py-3 text-center">
             <div className="text-xl font-bold font-mono text-[#38bdf8]">+0.40°</div>
-            <div className="text-[10px] text-slate-400 tracking-wider uppercase font-mono">Barisal Rate</div>
+            <div className="text-[10px] text-white/50 tracking-wider uppercase font-mono">Barisal Rate</div>
           </motion.div>
           <motion.div whileHover={{ y: -3, scale: 1.02 }} className="liquid-glass-card rounded-2xl px-5 py-3 text-center">
             <div className="text-xl font-bold font-mono text-white">99.9%</div>
-            <div className="text-[10px] text-slate-400 tracking-wider uppercase font-mono">FDR Conf.</div>
+            <div className="text-[10px] text-white/50 tracking-wider uppercase font-mono">FDR Conf.</div>
           </motion.div>
         </div>
       </div>
@@ -192,10 +192,10 @@ export default function FolderDossiers() {
         <div className="lg:col-span-5 flex flex-col items-center">
           <div className="liquid-glass-card relative w-full rounded-3xl p-8 text-center">
             <div className="flex items-center justify-between mb-6">
-              <span className="text-xs font-mono text-slate-300 tracking-wider">
+              <span className="text-xs font-mono text-white/70 tracking-wider">
                 ORBITAL INTELLIGENCE ARCHIVE
               </span>
-              <span className="rounded-full border border-white/15 bg-white/5 px-2.5 py-0.5 text-slate-200 font-mono text-[10px]">
+              <span className="rounded-full border border-white/15 bg-white/5 px-2.5 py-0.5 text-white/80 font-mono text-[10px]">
                 Interactive Dossier
               </span>
             </div>
@@ -220,9 +220,9 @@ export default function FolderDossiers() {
               />
             </div>
 
-            <div className="mt-4 pt-4 border-t border-white/10 text-xs text-slate-400 font-mono">
+            <div className="mt-4 pt-4 border-t border-white/10 text-xs text-white/50 font-mono">
               <p className="flex items-center justify-center gap-2">
-                <Info size={14} className="text-sky-400" />
+                <Info size={14} className="text-orion" />
                 <span>Click folder to open · Drag sheets out · Click any sheet to zoom</span>
               </p>
             </div>
@@ -264,8 +264,8 @@ export default function FolderDossiers() {
                       dossier.status === 'CRITICAL'
                         ? 'border-rose-500/40 text-rose-300 bg-rose-500/10'
                         : dossier.status === 'VERIFIED'
-                        ? 'border-emerald-500/40 text-emerald-300 bg-emerald-500/10'
-                        : 'border-sky-500/40 text-sky-300 bg-sky-500/10'
+                        ? 'border-signal-deep/40 text-signal-bright bg-signal-deep/10'
+                        : 'border-orion-deep/40 text-orion-bright bg-orion-deep/10'
                     }`}
                   >
                     {dossier.status}
@@ -290,7 +290,7 @@ export default function FolderDossiers() {
               {/* Header info */}
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-6">
                 <div>
-                  <span className="font-mono text-xs tracking-wider text-sky-400">
+                  <span className="font-mono text-xs tracking-wider text-orion">
                     <DecryptedText text={selectedCase.caseNumber} speed={40} /> · {selectedCase.classification}
                   </span>
                   <h3 className="font-display text-2xl sm:text-3xl text-white mt-1">
@@ -311,7 +311,7 @@ export default function FolderDossiers() {
 
               {/* Scientific Summary */}
               <div className="mt-6">
-                <h4 className="text-xs font-mono uppercase tracking-widest text-sky-400 mb-2 font-semibold">
+                <h4 className="text-xs font-mono uppercase tracking-widest text-orion mb-2 font-semibold">
                   Executive Investigation Summary
                 </h4>
                 <p className="text-sm sm:text-base leading-relaxed text-white/85 font-normal">
@@ -321,14 +321,14 @@ export default function FolderDossiers() {
 
               {/* Key Findings List */}
               <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-                <h4 className="text-xs font-mono uppercase tracking-widest text-sky-400 mb-3 flex items-center gap-2 font-semibold">
-                  <CheckCircle2 size={15} className="text-emerald-400" />
+                <h4 className="text-xs font-mono uppercase tracking-widest text-orion mb-3 flex items-center gap-2 font-semibold">
+                  <CheckCircle2 size={15} className="text-signal" />
                   Verified Statistical Evidence
                 </h4>
                 <ul className="space-y-2.5">
                   {selectedCase.keyFindings.map((finding, idx) => (
                     <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-white/85">
-                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-sky-400 flex-none" />
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-orion flex-none" />
                       <span className="leading-relaxed">{finding}</span>
                     </li>
                   ))}
@@ -339,7 +339,7 @@ export default function FolderDossiers() {
               <div className="mt-8 border-t border-white/10 pt-6">
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                   <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-sky-400" />
+                    <span className="h-2 w-2 rounded-full bg-orion" />
                     <h4 className="text-xs font-mono uppercase tracking-widest text-white font-semibold">
                       Satellite Spectral Evidence Gallery
                     </h4>
@@ -396,11 +396,11 @@ export default function FolderDossiers() {
                               onClick={() => setActiveImageIdx(idx)}
                               className={`rounded-xl p-2.5 text-left transition-all border cursor-pointer ${
                                 isSelected
-                                  ? 'border-sky-400 bg-sky-500/20 text-white shadow-[0_0_15px_rgba(56,189,248,0.25)]'
+                                  ? 'border-orion bg-orion-deep/20 text-white shadow-[0_0_15px_rgba(56,189,248,0.25)]'
                                   : 'border-white/10 bg-white/[0.02] text-white/60 hover:bg-white/[0.06] hover:text-white'
                               }`}
                             >
-                              <div className="text-[10px] font-mono text-sky-300 font-semibold mb-0.5">
+                              <div className="text-[10px] font-mono text-orion-bright font-semibold mb-0.5">
                                 {img.tag}
                               </div>
                               <div className="text-xs font-semibold truncate text-white">
@@ -422,7 +422,7 @@ export default function FolderDossiers() {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-5">
                             <div className="flex items-center justify-between">
                               <div>
-                                <span className="inline-block rounded-full bg-sky-500/30 border border-sky-400/40 px-2.5 py-0.5 text-[10px] font-mono text-sky-200 mb-1">
+                                <span className="inline-block rounded-full bg-orion-deep/30 border border-orion/40 px-2.5 py-0.5 text-[10px] font-mono text-orion-ice mb-1">
                                   {currentImg.tag}
                                 </span>
                                 <h5 className="text-sm sm:text-base font-bold text-white">
@@ -455,12 +455,12 @@ export default function FolderDossiers() {
               {/* Satellite Providers Bar */}
               <div className="mt-6 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs text-slate-400 mr-1 font-mono">NASA Providers:</span>
+                  <span className="text-xs text-white/50 mr-1 font-mono">NASA Providers:</span>
                   {selectedCase.satelliteSources.map((source) => (
                     <Badge
                       key={source}
                       variant="secondary"
-                      className="bg-sky-500/10 text-sky-300 border-sky-400/30 text-[11px] font-mono"
+                      className="bg-orion-deep/10 text-orion-bright border-orion/30 text-[11px] font-mono"
                     >
                       {source}
                     </Badge>
@@ -469,7 +469,7 @@ export default function FolderDossiers() {
 
                 <a
                   href="#cockpit"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-orion hover:text-orion-bright transition-colors"
                 >
                   <span>Query In 3D Agent</span>
                   <TrendingUp size={14} />
@@ -484,7 +484,7 @@ export default function FolderDossiers() {
       <div className="mt-16 liquid-glass-card rounded-3xl p-6 sm:p-10">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-white/10 pb-6 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-500/10 px-3.5 py-1 text-xs font-mono text-sky-300 mb-2">
+            <div className="inline-flex items-center gap-2 rounded-full border border-orion/30 bg-orion-deep/10 px-3.5 py-1 text-xs font-mono text-orion-bright mb-2">
               <Sparkles size={13} />
               <span>REACT BITS WEBGL OGL SHADER MORPH SLIDER</span>
             </div>

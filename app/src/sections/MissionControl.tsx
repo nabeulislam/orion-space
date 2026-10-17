@@ -28,7 +28,7 @@ export default function MissionControl() {
                 <span className="rounded-full bg-white/10 border border-white/15 px-3.5 py-1 font-mono text-xs text-white/90">
                   NASA Space Apps Challenge 2026
                 </span>
-                <span className="rounded-full border border-sky-400/30 bg-sky-500/10 px-3.5 py-1 font-mono text-xs text-sky-300">
+                <span className="rounded-full border border-orion/30 bg-orion-deep/10 px-3.5 py-1 font-mono text-xs text-orion-bright">
                   Local Event: Barisal, Bangladesh
                 </span>
               </div>
@@ -91,8 +91,8 @@ export default function MissionControl() {
 
               <div className="rounded-2xl border border-white/10 bg-black/45 p-4 font-mono text-[11px] text-white/60 space-y-1">
                 <div className="text-white/80 font-semibold">Reproduce Statistical Pipeline:</div>
-                <div className="text-sky-300 select-all">pip install numpy scipy</div>
-                <div className="text-sky-300 select-all">python3 analysis/trend_analysis.py</div>
+                <div className="text-orion-bright select-all">pip install numpy scipy</div>
+                <div className="text-orion-bright select-all">python3 analysis/trend_analysis.py</div>
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function MissionControl() {
               {/* React Bits ScrollStack: 4 System Verification Pillars */}
         <div className="mb-16">
           <div className="mb-6">
-            <span className="font-mono text-xs uppercase tracking-widest text-sky-400">
+            <span className="font-mono text-xs uppercase tracking-widest text-orion">
               System Architecture & Methodology
             </span>
             <h3 className="font-display text-2xl sm:text-4xl text-white mt-1">
@@ -119,7 +119,7 @@ export default function MissionControl() {
           >
             <ScrollStackItem>
               <div className="space-y-3 text-left">
-                <div className="font-mono text-xs text-sky-400 uppercase tracking-wider">PILLAR 01 · 25-YEAR REANALYSIS</div>
+                <div className="font-mono text-xs text-orion uppercase tracking-wider">PILLAR 01 · 25-YEAR REANALYSIS</div>
                 <h4 className="text-xl sm:text-2xl font-bold text-white tracking-wide">NASA MERRA-2 Atmospheric Reanalysis</h4>
                 <p className="text-sm text-white/75 leading-relaxed max-w-2xl font-normal">
                   Processed 25 years (2001–2025) of 2-metre air temperature across 34 grid cells in Bangladesh via NASA POWER API v2.10. Disaggregated by individual month to uncover hidden seasonal trends.
@@ -128,7 +128,7 @@ export default function MissionControl() {
             </ScrollStackItem>
             <ScrollStackItem>
               <div className="space-y-3 text-left">
-                <div className="font-mono text-xs text-emerald-400 uppercase tracking-wider">PILLAR 02 · STATISTICAL RIGOR</div>
+                <div className="font-mono text-xs text-signal uppercase tracking-wider">PILLAR 02 · STATISTICAL RIGOR</div>
                 <h4 className="text-xl sm:text-2xl font-bold text-white tracking-wide">Mann-Kendall & Benjamini-Hochberg FDR Protocol</h4>
                 <p className="text-sm text-white/75 leading-relaxed max-w-2xl font-normal">
                   Tested 442 separate climate series. Corrected for multiple comparisons using Benjamini-Hochberg False Discovery Rate at q = 0.05. Barisal coast September warming reaches +0.40 °C/decade with p = 0.00007.
@@ -137,7 +137,7 @@ export default function MissionControl() {
             </ScrollStackItem>
             <ScrollStackItem>
               <div className="space-y-3 text-left">
-                <div className="font-mono text-xs text-sky-400 uppercase tracking-wider">PILLAR 03 · MULTI-SENSOR STREAMS</div>
+                <div className="font-mono text-xs text-orion uppercase tracking-wider">PILLAR 03 · MULTI-SENSOR STREAMS</div>
                 <h4 className="text-xl sm:text-2xl font-bold text-white tracking-wide">NASA EOSDIS GIBS & FIRMS Active Infrared</h4>
                 <p className="text-sm text-white/75 leading-relaxed max-w-2xl font-normal">
                   Real-time orbital telemetry streaming true-color MODIS/VIIRS cloud reflectance alongside VIIRS 375m active thermal anomaly fires.
@@ -146,10 +146,10 @@ export default function MissionControl() {
             </ScrollStackItem>
             <ScrollStackItem>
               <div className="space-y-3 text-left">
-                <div className="font-mono text-xs text-cyan-400 uppercase tracking-wider">PILLAR 04 · OPEN SCIENCE</div>
+                <div className="font-mono text-xs text-orion uppercase tracking-wider">PILLAR 04 · OPEN SCIENCE</div>
                 <h4 className="text-xl sm:text-2xl font-bold text-white tracking-wide">Fully Reproducible Python Pipeline</h4>
                 <p className="text-sm text-white/75 leading-relaxed max-w-2xl font-normal">
-                  Every figure and statistic can be reproduced with a single terminal command: <code className="text-sky-300 bg-black/40 px-2 py-0.5 rounded font-mono text-xs">python3 analysis/trend_analysis.py</code>.
+                  Every figure and statistic can be reproduced with a single terminal command: <code className="text-orion-bright bg-black/40 px-2 py-0.5 rounded font-mono text-xs">python3 analysis/trend_analysis.py</code>.
                 </p>
               </div>
             </ScrollStackItem>
@@ -220,10 +220,10 @@ export default function MissionControl() {
             <h4 className="font-semibold uppercase tracking-widest text-white/90 font-mono text-[11px]">
               Judges Verification
             </h4>
-            <p className="leading-relaxed text-slate-300 font-normal">
+            <p className="leading-relaxed text-white/70 font-normal">
               Orion Space is built with scientific integrity. We report air temperature trends only and do not extrapolate unverified claims. The entire analysis is 100% open-source and reproducible.
             </p>
-            <div className="flex items-center gap-1.5 pt-1 text-emerald-400 font-mono text-[11px]">
+            <div className="flex items-center gap-1.5 pt-1 text-signal font-mono text-[11px]">
               <ShieldCheck size={14} />
               <span>Peer-Verifiable Codebase</span>
             </div>

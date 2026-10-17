@@ -466,21 +466,21 @@ export default function PixelArcadeGame({ onExitToLab }: PixelArcadeGameProps) {
   }, [playSfx])
 
   return (
-    <div className="relative w-full rounded-3xl border border-sky-400/40 bg-[#050b14] p-5 sm:p-7 shadow-[0_0_60px_rgba(56,189,248,0.2)] font-mono text-white select-none">
+    <div className="relative w-full rounded-3xl border border-orion/40 bg-[#050b14] p-5 sm:p-7 shadow-[0_0_60px_rgba(56,189,248,0.2)] font-mono text-white select-none">
       {/* Top Arcade Header Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-sky-400/20 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-orion/20 pb-4">
         <div className="flex items-center gap-3">
           <button
             onClick={onExitToLab}
-            className="flex items-center gap-2 rounded-xl border border-sky-400/40 bg-sky-500/10 px-4 py-2 text-xs font-semibold text-sky-300 hover:bg-sky-500/20 transition-colors shadow-[0_0_15px_rgba(56,189,248,0.2)]"
+            className="flex items-center gap-2 rounded-xl border border-orion/40 bg-orion-deep/10 px-4 py-2 text-xs font-semibold text-orion-bright hover:bg-orion-deep/20 transition-colors shadow-[0_0_15px_rgba(56,189,248,0.2)]"
           >
             <ArrowLeft size={14} />
             <span>EXIT TO LAB</span>
           </button>
 
           <div>
-            <div className="text-[10px] text-sky-400 uppercase tracking-widest flex items-center gap-1.5">
-              <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="text-[10px] text-orion uppercase tracking-widest flex items-center gap-1.5">
+              <span className="inline-block h-2 w-2 rounded-full bg-signal animate-pulse" />
               RETRO 2D ORBITAL SIMULATOR
             </div>
             <h3 className="text-base sm:text-lg font-bold text-white tracking-wider">
@@ -493,16 +493,16 @@ export default function PixelArcadeGame({ onExitToLab }: PixelArcadeGameProps) {
         <div className="flex items-center gap-4 text-xs">
           <div className="hidden sm:block">
             <span className="text-white/40 block text-[9px] uppercase">DETECTIVE RANK:</span>
-            <span className="text-sky-300 font-bold">{rank}</span>
+            <span className="text-orion-bright font-bold">{rank}</span>
           </div>
 
           <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-1.5">
             <span className="text-white/40 block text-[9px]">HIGH SCORE</span>
-            <span className="text-emerald-300 font-bold">{highScore.toString().padStart(6, '0')}</span>
+            <span className="text-signal-bright font-bold">{highScore.toString().padStart(6, '0')}</span>
           </div>
 
-          <div className="rounded-xl border border-sky-400/30 bg-sky-500/10 px-3.5 py-1.5 shadow-[0_0_15px_rgba(56,189,248,0.15)]">
-            <span className="text-sky-300 block text-[9px]">SCORE</span>
+          <div className="rounded-xl border border-orion/30 bg-orion-deep/10 px-3.5 py-1.5 shadow-[0_0_15px_rgba(56,189,248,0.15)]">
+            <span className="text-orion-bright block text-[9px]">SCORE</span>
             <span className="text-xl font-black text-white">{score.toString().padStart(6, '0')}</span>
           </div>
 
@@ -521,14 +521,14 @@ export default function PixelArcadeGame({ onExitToLab }: PixelArcadeGameProps) {
         <div>
           <div className="flex justify-between text-[11px] mb-1">
             <span className="text-white/50 flex items-center gap-1">
-              <Shield size={12} className="text-sky-400" />
+              <Shield size={12} className="text-orion" />
               SATELLITE SHIELD
             </span>
-            <span className="text-sky-300">{shield}%</span>
+            <span className="text-orion-bright">{shield}%</span>
           </div>
           <div className="h-2.5 rounded-full bg-white/10 overflow-hidden border border-white/10">
             <div
-              className="h-full bg-gradient-to-r from-sky-500 to-cyan-300 transition-all duration-300"
+              className="h-full bg-gradient-to-r from-orion-deep to-orion-bright transition-all duration-300"
               style={{ width: `${shield}%` }}
             />
           </div>
@@ -537,14 +537,14 @@ export default function PixelArcadeGame({ onExitToLab }: PixelArcadeGameProps) {
         <div>
           <div className="flex justify-between text-[11px] mb-1">
             <span className="text-white/50 flex items-center gap-1">
-              <Snowflake size={12} className="text-emerald-400" />
+              <Snowflake size={12} className="text-signal" />
               PLANETARY STABILITY
             </span>
-            <span className="text-emerald-300">{climateStability}%</span>
+            <span className="text-signal-bright">{climateStability}%</span>
           </div>
           <div className="h-2.5 rounded-full bg-white/10 overflow-hidden border border-white/10">
             <div
-              className="h-full bg-gradient-to-r from-emerald-500 to-teal-300 transition-all duration-300"
+              className="h-full bg-gradient-to-r from-signal-deep to-signal-bright transition-all duration-300"
               style={{ width: `${climateStability}%` }}
             />
           </div>
@@ -552,7 +552,7 @@ export default function PixelArcadeGame({ onExitToLab }: PixelArcadeGameProps) {
       </div>
 
       {/* 2D Retro Canvas Stage */}
-      <div className="relative mt-4 overflow-hidden rounded-2xl border border-sky-400/30 shadow-inner bg-black">
+      <div className="relative mt-4 overflow-hidden rounded-2xl border border-orion/30 shadow-inner bg-black">
         <canvas
           ref={canvasRef}
           width={840}
@@ -563,7 +563,7 @@ export default function PixelArcadeGame({ onExitToLab }: PixelArcadeGameProps) {
 
         {/* Combo Multiplier Pill */}
         {combo > 1 && (
-          <div className="absolute top-4 left-4 rounded-full border border-sky-400/40 bg-sky-500/20 px-3 py-1 text-xs font-bold text-sky-200 animate-bounce">
+          <div className="absolute top-4 left-4 rounded-full border border-orion/40 bg-orion-deep/20 px-3 py-1 text-xs font-bold text-orion-ice animate-bounce">
             COMBO x{combo}!
           </div>
         )}
@@ -580,7 +580,7 @@ export default function PixelArcadeGame({ onExitToLab }: PixelArcadeGameProps) {
             </p>
             <button
               onClick={restartGame}
-              className="rounded-full border border-sky-400 bg-sky-500/20 px-7 py-3 text-sm font-bold text-white hover:bg-sky-500/40 transition-all shadow-[0_0_20px_rgba(56,189,248,0.3)]"
+              className="rounded-full border border-orion bg-orion-deep/20 px-7 py-3 text-sm font-bold text-white hover:bg-orion-deep/40 transition-all shadow-[0_0_20px_rgba(56,189,248,0.3)]"
             >
               RESTART ORBIT
             </button>
@@ -588,7 +588,7 @@ export default function PixelArcadeGame({ onExitToLab }: PixelArcadeGameProps) {
         )}
 
         {gameWon && (
-          <div className="absolute top-4 right-4 rounded-xl border border-emerald-400/50 bg-emerald-500/20 p-3 text-xs text-emerald-200 flex items-center gap-2 shadow-[0_0_20px_rgba(52,211,153,0.3)] animate-pulse">
+          <div className="absolute top-4 right-4 rounded-xl border border-signal/50 bg-signal-deep/20 p-3 text-xs text-signal-ice flex items-center gap-2 shadow-[0_0_20px_rgba(52,211,153,0.3)] animate-pulse">
             <Trophy size={18} />
             <div>
               <div className="font-bold">MISSION ACCOMPLISHED</div>
@@ -618,7 +618,7 @@ export default function PixelArcadeGame({ onExitToLab }: PixelArcadeGameProps) {
           </button>
           <button
             onClick={triggerScan}
-            className="flex-1 sm:flex-initial rounded-xl border border-sky-400/50 bg-sky-500/20 px-6 py-2.5 font-bold text-sky-200 hover:bg-sky-500/30 active:scale-95 transition-transform shadow-[0_0_15px_rgba(56,189,248,0.25)]"
+            className="flex-1 sm:flex-initial rounded-xl border border-orion/50 bg-orion-deep/20 px-6 py-2.5 font-bold text-orion-ice hover:bg-orion-deep/30 active:scale-95 transition-transform shadow-[0_0_15px_rgba(56,189,248,0.25)]"
           >
             ⚡ SCAN WAVE
           </button>

@@ -19,7 +19,7 @@ export default function Contact() {
               <span className="font-serif-it text-2xl sm:text-3xl font-semibold tracking-wide text-white">
                 orion space
               </span>
-              <span className="rounded-full border border-sky-400/30 bg-sky-500/10 px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-wider text-sky-300">
+              <span className="rounded-full border border-orion/30 bg-orion-deep/10 px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-wider text-orion-bright">
                 2026 Edition
               </span>
             </div>
@@ -29,8 +29,8 @@ export default function Contact() {
             </p>
 
             <div className="pt-2">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-3.5 py-1 text-xs font-mono text-emerald-300">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-signal/25 bg-signal-deep/10 px-3.5 py-1 text-xs font-mono text-signal-bright">
+                <span className="h-1.5 w-1.5 rounded-full bg-signal animate-pulse" />
                 <span>NASA POWER & MERRA-2 TELEMETRY ONLINE</span>
               </div>
             </div>
@@ -73,9 +73,9 @@ export default function Contact() {
                 </Link>
               </li>
               <li>
-                <Link to="/agent" className="text-sky-300 hover:text-sky-200 transition-colors flex items-center justify-between group font-medium">
+                <Link to="/agent" className="text-orion-bright hover:text-orion-ice transition-colors flex items-center justify-between group font-medium">
                   <span>Launch 3D Digital Twin</span>
-                  <Compass size={14} className="text-sky-400" />
+                  <Compass size={14} className="text-orion" />
                 </Link>
               </li>
             </ul>
@@ -88,7 +88,7 @@ export default function Contact() {
             </p>
             <ul className="space-y-3.5">
               <li className="flex items-center gap-3.5 text-white/80">
-                <div className="apple-icon-badge h-9 w-9 flex-none text-sky-400">
+                <div className="apple-icon-badge h-9 w-9 flex-none text-orion">
                   <MapPin size={16} />
                 </div>
                 <div>
@@ -104,7 +104,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3.5 text-white/80 hover:text-white group transition-colors"
                 >
-                  <div className="apple-icon-badge h-9 w-9 flex-none text-sky-400 group-hover:text-white">
+                  <div className="apple-icon-badge h-9 w-9 flex-none text-orion group-hover:text-white">
                     <Github size={16} />
                   </div>
                   <div>
@@ -118,7 +118,7 @@ export default function Contact() {
               </li>
 
               <li className="flex items-center gap-3.5 text-white/80">
-                <div className="apple-icon-badge h-9 w-9 flex-none text-sky-400">
+                <div className="apple-icon-badge h-9 w-9 flex-none text-orion">
                   <Globe size={16} />
                 </div>
                 <div>
@@ -128,7 +128,7 @@ export default function Contact() {
               </li>
 
               <li className="flex items-center gap-3.5 text-white/80">
-                <div className="apple-icon-badge h-9 w-9 flex-none text-sky-400">
+                <div className="apple-icon-badge h-9 w-9 flex-none text-orion">
                   <ShieldCheck size={16} />
                 </div>
                 <div>
